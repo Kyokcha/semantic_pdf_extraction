@@ -3,7 +3,7 @@ name = "semantic-pdf-extraction"
 version = "0.1.0"
 description = "ML project focused on semantic similarity of extracted text to PDF original"
 authors = [
-    {name = "David Evans",email = "david.evans@communities.gov.uk"}
+    {name = "David Evans",email = "kqq507@york.ac.uk"}
 ]
 readme = "README.md"
 requires-python = ">=3.12"

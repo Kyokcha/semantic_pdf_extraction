@@ -1,0 +1,26 @@
+# configs/config.yaml
+
+data_paths:
+  raw: "data/raw"
+  processed: "data/processed"
+  extracted: "data/extracted"
+  embeddings: "data/embeddings"
+  pdfs: "data/pdfs"
+
+# pdf_render:
+#   styles: ["prose", "multi-column", "hybrid"]
+#   include_page_numbers: true
+
+# embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+
+# extractors:
+#   - grobid
+#   - pdfminer
+#   - pdftotext
+#   - scienceparse
+#   - unstructured
+
+# ml:
+#   similarity_metric: "cosine"
+#   model_type: "random_forest"
+#   cross_validation_folds: 5
