@@ -1,0 +1,17 @@
+[project]
+name = "semantic-pdf-extraction"
+version = "0.1.0"
+description = "ML project focused on semantic similarity of extracted text to PDF original"
+authors = [
+    {name = "David Evans",email = "david.evans@communities.gov.uk"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets (>=3.5.0,<4.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
