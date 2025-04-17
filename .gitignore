@@ -14,11 +14,7 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Ignore data
-data/raw/
-data/processed/
-data/embeddings/
-data/extracted/
-data/pdfs/
+data/
 
 # Editor/IDE config
 .vscode/
