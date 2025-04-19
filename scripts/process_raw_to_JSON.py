@@ -7,10 +7,10 @@ def main():
 # ==== CONFIGURATION ====
     config = load_config()
     raw_dir = Path(config["data_paths"]["raw"])
-    ground_truth_dir = Path(config["data_paths"]["ground_truth"])
+    json_dir = Path(config["data_paths"]["jsons"])
 
     # Make output directory for files
-    ground_truth_dir.mkdir(parents=True, exist_ok=True)
+    json_dir.mkdir(parents=True, exist_ok=True)
 
     # ==== SECTION HEADER HEURISTICS ====
     def is_likely_section_header(line):
@@ -54,12 +54,12 @@ def main():
         parsed = parse_article(file_path)
 
         out_filename = file_path.stem + ".json"
-        out_path = ground_truth_dir / out_filename
+        out_path = json_dir / out_filename
 
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(parsed, f, indent=2)
 
-    print(f" Finished. JSON ground truth saved to: {ground_truth_dir}")
+    print(f" Finished. JSON ground truth saved to: {json_dir}")
 
 
 if __name__ == "__main__":

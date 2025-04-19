@@ -4,6 +4,7 @@ data_paths:
   dump: "data/dump"
   raw: "data/raw"
   ground_truth: "data/ground_truth"
+  jsons: "data/jsons"
   extracted: "data/extracted"
   embeddings_PDF: "data/embeddings_PDF"
   embeddings_GT: "data/embeddings_GT"
