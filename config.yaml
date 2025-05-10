@@ -21,15 +21,13 @@ pdf_generation:
     two_column: false
     header_footer: true
 
+extraction:
+  extractors:
+    pypdf2: true
+    pdfminer: false
+    ocr: false
 
 # embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
-
-# extractors:
-#   - grobid
-#   - pdfminer
-#   - pdftotext
-#   - scienceparse
-#   - unstructured
 
 # ml:
 #   similarity_metric: "cosine"
