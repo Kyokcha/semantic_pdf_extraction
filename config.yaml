@@ -11,8 +11,9 @@ data_paths:
   pdfs: "data/pdfs"
 
 wikipedia:
-  num_articles: 10
+  num_articles: 50
   snapshot: "20220301.en"
+  seed: 42
 
 # pdf_render:
 #   styles: ["prose", "multi-column", "hybrid"]
