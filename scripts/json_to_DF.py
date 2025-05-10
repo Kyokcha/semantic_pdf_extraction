@@ -47,7 +47,7 @@ def process_json(json_path_output_tuple):
 def main():
     config = load_config()
     input_dir = Path(config["data_paths"]["jsons"])
-    output_dir = Path("data/ground_truth")
+    output_dir = Path(config["data_paths"]["ground_truth"])
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Clear the directory before writing new files

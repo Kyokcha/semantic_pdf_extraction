@@ -3,17 +3,20 @@
 import logging
 from pathlib import Path
 from multiprocessing import Pool, cpu_count
-from extractors import extract_pypdf2, extract_pdfminer, extract_ocr
+from extractors import extract_pypdf2, extract_pdfminer, extract_ocr, extract_pdfplumber
 from utils.config import load_config
 from utils.file_operations import clear_directory
+from tqdm import tqdm
 
 # Define all available extractors (mapping name to function)
 ALL_EXTRACTORS = {
     "pypdf2": extract_pypdf2.extract_text,
     "pdfminer": extract_pdfminer.extract_text,
     "ocr": extract_ocr.extract_text,
+    "plumber": extract_pdfplumber.extract_text
     # Add more as needed
 }
+
 
 def get_enabled_extractors(config):
     flags = config.get("extraction", {}).get("extractors", {})
@@ -64,7 +67,7 @@ def main():
     logger.info(f"Using {usable_cores} CPU cores.")
 
     with Pool(processes=usable_cores) as pool:
-        pool.map(process_pdf, args)
+        list(tqdm(pool.imap_unordered(process_pdf, args), total=len(args), desc="Extracting PDFs"))
 
 
 if __name__ == "__main__":

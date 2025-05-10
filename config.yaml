@@ -6,6 +6,7 @@ data_paths:
   ground_truth: "data/ground_truth"
   jsons: "data/jsons"
   extracted: "data/extracted"
+  extracted_sentence: "data/extracted_sentence"
   embeddings_PDF: "data/embeddings_PDF"
   embeddings_GT: "data/embeddings_GT"
   pdfs: "data/pdfs"
@@ -24,8 +25,9 @@ pdf_generation:
 extraction:
   extractors:
     pypdf2: true
-    pdfminer: false
-    ocr: false
+    ocr: true
+    plumber: true
+
 
 # embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
 
