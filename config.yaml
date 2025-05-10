@@ -15,9 +15,12 @@ wikipedia:
   snapshot: "20220301.en"
   seed: 42
 
-# pdf_render:
-#   styles: ["prose", "multi-column", "hybrid"]
-#   include_page_numbers: true
+pdf_generation:
+  layouts:  # Enable/disable layouts here
+    one_column: false
+    two_column: false
+    header_footer: true
+
 
 # embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
 
