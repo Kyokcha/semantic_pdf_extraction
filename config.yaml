@@ -11,6 +11,7 @@ data_paths:
   embeddings_GT: "data/embeddings_GT"
   pdfs: "data/pdfs"
   training_data: "data/training_data"
+  extractor_summary: "data/extractor_summary"
 
 wikipedia:
   num_articles: 50
@@ -19,8 +20,8 @@ wikipedia:
 
 pdf_generation:
   layouts:  # Enable/disable layouts here
-    one_column: false
-    two_column: false
+    one_column: true
+    two_column: true
     header_footer: true
 
 extraction:
@@ -36,7 +37,7 @@ pipeline:
   run_extractors: false
   generate_gt_sentences: false
   generate_extracted_sentences: false
-  embed_gt: true
+  embed_gt: false
   embed_extracted: false
   generate_training: true
 

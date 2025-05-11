@@ -26,7 +26,7 @@ def embed_csv_file(args):
 def main():
     config = load_config()
 
-    input_dir = Path("data/extracted_sentences")
+    input_dir = Path(config["data_paths"]["extracted_sentence"])
     output_dir = Path(config["data_paths"]["embeddings_PDF"])
     output_dir.mkdir(parents=True, exist_ok=True)
     clear_directory(output_dir)
