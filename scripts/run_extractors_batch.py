@@ -3,7 +3,7 @@
 import logging
 from pathlib import Path
 from multiprocessing import Pool, cpu_count
-from extractors import extract_pypdf2, extract_pdfminer, extract_ocr, extract_pdfplumber
+from extractors import extract_pypdf2, extract_ocr, extract_pdfplumber
 from utils.config import load_config
 from utils.file_operations import clear_directory
 from tqdm import tqdm
@@ -11,7 +11,6 @@ from tqdm import tqdm
 # Define all available extractors (mapping name to function)
 ALL_EXTRACTORS = {
     "pypdf2": extract_pypdf2.extract_text,
-    "pdfminer": extract_pdfminer.extract_text,
     "ocr": extract_ocr.extract_text,
     "plumber": extract_pdfplumber.extract_text
     # Add more as needed

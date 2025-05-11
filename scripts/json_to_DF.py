@@ -23,6 +23,17 @@ def process_json(json_path_output_tuple):
     for section in data.get("sections", []):
         section_title = section.get("heading", "Unknown")
         local_counter = 0
+        
+        rows.append({
+            "article_id": article_id,
+            "title": article_title,
+            "section": section_title,
+            "sentence_id": local_counter,
+            "global_sentence_id": global_counter,
+            "sentence": section_title.strip()
+        })
+        local_counter += 1
+        global_counter += 1
 
         for para in section.get("paragraphs", []):
             sentences = sent_tokenize(para)
@@ -49,8 +60,6 @@ def main():
     input_dir = Path(config["data_paths"]["jsons"])
     output_dir = Path(config["data_paths"]["ground_truth"])
     output_dir.mkdir(parents=True, exist_ok=True)
-
-    # Clear the directory before writing new files
     clear_directory(output_dir)
 
     json_paths = list(input_dir.glob("*.json"))

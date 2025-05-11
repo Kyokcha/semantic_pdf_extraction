@@ -10,6 +10,7 @@ data_paths:
   embeddings_PDF: "data/embeddings_PDF"
   embeddings_GT: "data/embeddings_GT"
   pdfs: "data/pdfs"
+  training_data: "data/training_data"
 
 wikipedia:
   num_articles: 50
@@ -28,6 +29,16 @@ extraction:
     ocr: true
     plumber: true
 
+pipeline:
+  extract_raw: false
+  convert_json: false
+  render_pdfs: false
+  run_extractors: false
+  generate_gt_sentences: false
+  generate_extracted_sentences: false
+  embed_gt: true
+  embed_extracted: false
+  generate_training: true
 
 # embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
 
