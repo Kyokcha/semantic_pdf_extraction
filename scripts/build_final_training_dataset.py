@@ -57,7 +57,7 @@ def main():
     # Save
     final_file = output_dir / "training_data.csv"
     final_df.to_csv(final_file, index=False)
-    logger.info(f"✅ Saved flattened training dataset to {final_file}")
+    logger.info(f"Saved flattened training dataset to {final_file}")
 
 
 if __name__ == "__main__":

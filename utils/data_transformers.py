@@ -1,8 +1,9 @@
-# utils/data_transformers.py
+# utils/ddata_tranformers.py
 
 import pandas as pd
 import numpy as np
 from typing import List, Dict, Optional
+
 
 def flatten_extractor_outputs(
     df: pd.DataFrame,
@@ -26,7 +27,8 @@ def flatten_extractor_outputs(
 
     Returns:
     - Flattened dataframe with one row per ground truth sentence,
-      a 'best_extractor' label, and a 'is_tie' flag for score ties
+      a 'best_extractor' label, a 'is_tie' flag for score ties,
+      and one column per extractor's output sentence.
     """
     rng = np.random.default_rng(random_state)
 
@@ -40,14 +42,20 @@ def flatten_extractor_outputs(
     if 'layout' in df.columns:
         df[group_col] = df[group_col].astype(str) + '__' + df['layout'].astype(str)
 
-    # Pivot the table to have extractor-specific columns
+    # Pivot the feature columns
     pivoted = df.pivot(index=group_col, columns='extractor_id', values=feature_cols)
-
-    # Flatten column multi-index and rename using real extractor names
     pivoted.columns = [f"{feat}_{id_to_name[ext_id]}" for feat, ext_id in pivoted.columns]
     pivoted.reset_index(inplace=True)
 
-    # Identify ties: if more than one extractor has the same max similarity score
+    # Also pivot the extracted sentence column (text)
+    sentence_pivot = df.pivot(index=group_col, columns='extractor_id', values='sentence')
+    sentence_pivot.columns = [f"sentence_{id_to_name[ext_id]}" for ext_id in sentence_pivot.columns]
+    sentence_pivot.reset_index(inplace=True)
+
+    # Merge sentence text into pivoted dataset
+    pivoted = pivoted.merge(sentence_pivot, on=group_col)
+
+    # Identify ties
     def is_tie_fn(group):
         return group['similarity_score'].duplicated(keep=False).any()
 
@@ -71,7 +79,7 @@ def flatten_extractor_outputs(
         .reset_index(name='best_extractor')
     )
 
-    # Merge labels and tie flags into pivoted dataset
+    # Final merge
     final_df = pivoted.merge(best_by_score, on=group_col)
     final_df = final_df.merge(tie_flags, on=group_col)
 

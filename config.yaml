@@ -15,6 +15,9 @@ data_paths:
   matched_sentences: "data/matched_sentences"
   merged_data: "data/merged_data"
   final_training_data: "data/final_training_data"
+  model_outputs: "data/model_outputs"
+  rebuilt_documents: "data/rebuilt_documents"
+  evaluation_outputs: "data/evaluation_outputs"
 
 wikipedia:
   num_articles: 50
@@ -46,6 +49,9 @@ pipeline:
   match_sentences: false
   merged_data: false
   final_training_dataset: false
+  run_model: false
+  rebuild_documents: false
+  evaluate: false
 
 features_to_use:
   - similarity_score
@@ -69,7 +75,18 @@ training_config:
   resolve_ties_randomly: true
   seed: 42
 
-# ml:
-#   similarity_metric: "cosine"
-#   model_type: "random_forest"
-#   cross_validation_folds: 5
+model_config:
+  model_selection:
+    random_forest: true
+    logistic_regression: false
+    xgboost: false
+    lightgbm: false
+  data_selection:
+    default: true
+  data_paths:
+    default: data/final_training_data/training_data.csv
+
+evaluation_paths:
+  predictions_path: outputs/model_predictions.csv
+  ground_truth_path: data/ground_truth.csv
+  output_dir: outputs/evaluation

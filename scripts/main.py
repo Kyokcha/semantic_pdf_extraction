@@ -8,6 +8,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 SCRIPT_SEQUENCE = [
+    ("download_wiki", "scripts/download_wiki.py"),
     ("extract_raw", "scripts/select_sample_txt.py"),
     ("convert_json", "scripts/process_raw_to_JSON.py"),
     ("render_pdfs", "scripts/generate_pdfs.py"),
@@ -19,7 +20,10 @@ SCRIPT_SEQUENCE = [
     ("embed_extracted", "scripts/embed_extracted_sentences.py"),
     ("match_sentences", "scripts/match_sentences_by_similarity.py"),
     ("merged_data", "scripts/merge_matches_with_features.py"),
-    ("final_training_dataset", "scripts/build_final_training_dataset.py")
+    ("final_training_dataset", "scripts/build_final_training_dataset.py"),
+    ("run_model", "scripts/run_model.py"),
+    ("rebuild_documents", "scripts/rebuild_documents.py"),
+    ("evaluate", "scripts/evaluate_doc_semantic_similarity")
 ]
 
 
