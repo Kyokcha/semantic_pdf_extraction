@@ -1,4 +1,4 @@
-# scripts/json_to_DF.py
+# scripts/generate_gt_sentences.py
 
 import json
 import pandas as pd
@@ -16,34 +16,31 @@ def process_json(json_path_output_tuple):
         data = json.load(f)
 
     article_id = json_path.stem
-    article_title = data.get("title", "")
     rows = []
     global_counter = 0
 
     for section in data.get("sections", []):
-        section_title = section.get("heading", "Unknown")
-        local_counter = 0
+        section_title = section.get("heading", "Unknown").strip()
         
+        # Add the section heading as a sentence (optional, depending on use case)
         rows.append({
+            "gt_sentence_id": f"{article_id}_{global_counter}",
             "article_id": article_id,
-            "title": article_title,
             "section": section_title,
-            "sentence_id": local_counter,
-            "global_sentence_id": global_counter,
-            "sentence": section_title.strip()
+            "sentence_id": 0,
+            "sentence": section_title
         })
-        local_counter += 1
         global_counter += 1
+        local_counter = 1
 
         for para in section.get("paragraphs", []):
             sentences = sent_tokenize(para)
             for sentence in sentences:
                 rows.append({
+                    "gt_sentence_id": f"{article_id}_{global_counter}",
                     "article_id": article_id,
-                    "title": article_title,
                     "section": section_title,
                     "sentence_id": local_counter,
-                    "global_sentence_id": global_counter,
                     "sentence": sentence.strip()
                 })
                 local_counter += 1
@@ -52,7 +49,7 @@ def process_json(json_path_output_tuple):
     df = pd.DataFrame(rows)
     out_file = output_dir / f"{article_id}.csv"
     df.to_csv(out_file, index=False)
-    print(f"✓ Saved: {out_file.name}")
+    print(f"✓ Saved GT: {out_file.name}")
 
 
 def main():
@@ -71,7 +68,6 @@ def main():
 
     with Pool(processes=cores) as pool:
         pool.map(process_json, args)
-
 
 if __name__ == "__main__":
     main()

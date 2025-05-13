@@ -5,24 +5,26 @@ import spacy
 import torch
 from transformers import GPT2LMHeadModel, GPT2TokenizerFast
 
-# Load NLP models once globally
+# Load spaCy model for POS tagging and tokenization
 nlp = spacy.load("en_core_web_sm")
 
+# Load lightweight GPT-2 model and tokenizer for perplexity scoring
 gpt2_model = GPT2LMHeadModel.from_pretrained("distilgpt2")
 gpt2_tokenizer = GPT2TokenizerFast.from_pretrained("distilgpt2")
-gpt2_model.eval()
+gpt2_model.eval()  # Set to evaluation mode (no gradient tracking)
 
 
 def sentence_features(sentence: str, extractor_name: str) -> dict:
     """
-    Extract features from a sentence that can be used to assess quality or train a model.
-    
+    Extract various linguistic and semantic features from a sentence.
+    These can be used to assess sentence quality or train a model.
+
     Args:
-        sentence (str): The sentence text.
-        extractor_name (str): Name of the extractor that produced the sentence.
-    
+        sentence (str): Sentence to extract features from.
+        extractor_name (str): Which extractor produced this sentence.
+
     Returns:
-        dict: Feature dictionary.
+        dict: Dictionary of extracted features.
     """
     doc = nlp(sentence)
     tokens = [token.text for token in doc]
@@ -33,7 +35,7 @@ def sentence_features(sentence: str, extractor_name: str) -> dict:
     avg_word_len = sum(len(w) for w in tokens) / max(len(tokens), 1)
     num_punct = sum(1 for c in sentence if c in string.punctuation)
 
-    # POS tag counts
+    # Part-of-speech (POS) feature counts
     pos_counts = {pos: 0 for pos in ['VERB', 'NOUN', 'ADJ', 'ADV']}
     for token in doc:
         if token.pos_ in pos_counts:
@@ -41,7 +43,7 @@ def sentence_features(sentence: str, extractor_name: str) -> dict:
 
     has_verb = pos_counts["VERB"] > 0
 
-    # Language model perplexity (semantic plausibility)
+    # GPT-2 perplexity: lower = more semantically plausible sentence
     try:
         encoded = gpt2_tokenizer.encode(sentence, return_tensors='pt')
         with torch.no_grad():
@@ -49,7 +51,8 @@ def sentence_features(sentence: str, extractor_name: str) -> dict:
             loss = output.loss
             perplexity = torch.exp(loss).item()
     except Exception:
-        perplexity = None  # fallback in case of empty or broken input
+        # If model fails (e.g., empty sentence), return high perplexity
+        perplexity = 1000
 
     return {
         "sentence": sentence,

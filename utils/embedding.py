@@ -16,20 +16,36 @@ def get_model():
 
 def embed_sentences_from_csv(csv_path, output_path):
     """
-    Loads a CSV with a 'sentence' column, computes sentence embeddings,
-    and saves them as a .pt file using PyTorch.
+    Loads a CSV with a sentence and sentence ID column, computes sentence embeddings,
+    and saves them along with IDs as a .pt file using PyTorch.
 
     Args:
         csv_path (Path or str): Path to the input CSV.
-        output_path (Path or str): Path to save the embeddings as a .pt file.
+        output_path (Path or str): Path to save the embeddings dictionary as a .pt file.
     """
     df = pd.read_csv(csv_path)
 
-    if "sentence" not in df.columns:
-        raise ValueError(f"'sentence' column not found in {csv_path}")
+    # Auto-detect sentence column
+    for col in ["sentence", "extracted_sentence", "gt_sentence"]:
+        if col in df.columns:
+            sentence_col = col
+            break
+    else:
+        raise ValueError(f"No valid sentence column found in {csv_path}")
 
-    sentences = df["sentence"].fillna("").tolist()
+    # Auto-detect ID column
+    for id_col in ["gt_sentence_id", "extracted_sentence_id"]:
+        if id_col in df.columns:
+            break
+    else:
+        raise ValueError(f"No valid sentence ID column found in {csv_path}")
+
+    sentences = df[sentence_col].fillna("").tolist()
+    ids = df[id_col].tolist()
+
     model = get_model()
     embeddings = model.encode(sentences, convert_to_tensor=True)
-    torch.save(embeddings, output_path)
+
+    torch.save({"ids": ids, "embeddings": embeddings}, output_path)
+
 

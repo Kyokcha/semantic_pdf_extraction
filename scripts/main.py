@@ -12,11 +12,14 @@ SCRIPT_SEQUENCE = [
     ("convert_json", "scripts/process_raw_to_JSON.py"),
     ("render_pdfs", "scripts/generate_pdfs.py"),
     ("run_extractors", "scripts/run_extractors_batch.py"),
-    ("generate_gt_sentences", "scripts/json_to_DF.py"),
-    ("generate_extracted_sentences", "scripts/generate_extracted_sentence_dfs.py"),
+    ("generate_gt_sentences", "scripts/generate_gt_sentences.py"),
+    ("generate_extracted_sentences", "scripts/generate_extracted_sentences.py"),
+    ("extract_features", "scripts/extract_features.py"),
     ("embed_gt", "scripts/embed_groundtruth_sentences.py"),
     ("embed_extracted", "scripts/embed_extracted_sentences.py"),
-    ("generate_training", "scripts/generate_ranking_training_data.py")
+    ("match_sentences", "scripts/match_sentences_by_similarity.py"),
+    ("merged_data", "scripts/merge_matches_with_features.py"),
+    ("final_training_dataset", "scripts/build_final_training_dataset.py")
 ]
 
 

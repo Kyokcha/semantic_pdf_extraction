@@ -6,12 +6,15 @@ data_paths:
   ground_truth: "data/ground_truth"
   jsons: "data/jsons"
   extracted: "data/extracted"
-  extracted_sentence: "data/extracted_sentence"
+  extracted_sentences: "data/extracted_sentences"
   embeddings_PDF: "data/embeddings_PDF"
   embeddings_GT: "data/embeddings_GT"
   pdfs: "data/pdfs"
-  training_data: "data/training_data"
   extractor_summary: "data/extractor_summary"
+  features: "data/features"
+  matched_sentences: "data/matched_sentences"
+  merged_data: "data/merged_data"
+  final_training_data: "data/final_training_data"
 
 wikipedia:
   num_articles: 50
@@ -39,7 +42,12 @@ pipeline:
   generate_extracted_sentences: false
   embed_gt: false
   embed_extracted: false
-  generate_training: true
+  extract_features: false
+  match_sentences: false
+  merged_data: false
+  final_training_dataset: false
+
+
 
 # embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
 

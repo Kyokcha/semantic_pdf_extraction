@@ -1,4 +1,4 @@
-# scripts/generate_extracted_sentence_dfs.py
+# scripts/generate_extracted_sentences.py
 
 import logging
 import pandas as pd
@@ -22,7 +22,7 @@ def process_text_file(args):
         logger.warning(f"Skipping file with unexpected name format: {txt_path.name}")
         return
 
-    article_layout, extractor = base_name.rsplit("-", 1)
+    article_id, extractor = base_name.rsplit("-", 1)
 
     try:
         text = txt_path.read_text(encoding="utf-8")
@@ -37,14 +37,13 @@ def process_text_file(args):
 
     data = []
     for i, sentence in enumerate(sentences):
+        extracted_sentence_id = f"{article_id}_{extractor}_{i}"
         data.append({
-            "article_id": article_layout,
-            "title": "placeholder",  # Extractors don’t preserve title
-            "section": "Unknown",
+            "extracted_sentence_id": extracted_sentence_id,
+            "article_id": article_id,
+            "extractor": extractor,
             "sentence_id": i,
-            "global_id": i,
-            "sentence": sentence,
-            "extractor": extractor
+            "extracted_sentence": sentence.strip()
         })
 
     df = pd.DataFrame(data)
