@@ -47,9 +47,27 @@ pipeline:
   merged_data: false
   final_training_dataset: false
 
+features_to_use:
+  - similarity_score
+  - num_chars
+  - num_words
+  - avg_word_len
+  - num_punct
+  - has_verb
+  - num_verbs
+  - num_nouns
+  - num_adjs
+  - num_advs
+  - gpt2_perplexity
 
+extractor_name_map:
+  pypdf2: extractor_1
+  ocr: extractor_2
+  plumber: extractor_3
 
-# embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+training_config:
+  resolve_ties_randomly: true
+  seed: 42
 
 # ml:
 #   similarity_metric: "cosine"
