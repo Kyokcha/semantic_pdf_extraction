@@ -54,7 +54,7 @@ def main():
     """
     config = load_config()
 
-    extracted_dir = Path(config["data_paths"]["extracted_sentence"])
+    extracted_dir = Path(config["data_paths"]["extracted_sentences"])
     feature_dir = Path(config["data_paths"]["features"])
     feature_dir.mkdir(parents=True, exist_ok=True)
 

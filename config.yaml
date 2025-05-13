@@ -46,7 +46,7 @@ pipeline:
   convert_json: false
   render_pdfs: false
   run_extractors: false
-  generate_gt_sentences: true
+  generate_gt_sentences: false
   generate_extracted_sentences: true
   embed_gt: true
   embed_extracted: true
