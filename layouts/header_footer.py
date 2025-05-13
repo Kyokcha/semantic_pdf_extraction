@@ -1,8 +1,11 @@
-from reportlab.platypus import BaseDocTemplate, Frame, PageTemplate, Paragraph, Spacer
+# layouts/header_footer.py
+
+from reportlab.platypus import BaseDocTemplate, Frame, PageTemplate
 from reportlab.lib.pagesizes import A4
-from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
+from utils.flowables import build_flowables
+
 
 def add_header_footer(canvas_obj, doc):
     """
@@ -22,7 +25,6 @@ def add_header_footer(canvas_obj, doc):
     canvas_obj.restoreState()
 
 def render(json_data, output_path):
-    styles = getSampleStyleSheet()
     doc = BaseDocTemplate(
         str(output_path),
         pagesize=A4,
@@ -32,31 +34,20 @@ def render(json_data, output_path):
         bottomMargin=1.0 * inch  # Extra space for footer
     )
 
-    frame = Frame(doc.leftMargin, doc.bottomMargin,
-                  doc.width, doc.height, id='normal')
+    # Single full-page frame
+    frame = Frame(
+        doc.leftMargin, doc.bottomMargin,
+        doc.width, doc.height,
+        id='normal'
+    )
 
+    # Page template with header/footer
     template = PageTemplate(id='HeaderFooter', frames=frame, onPage=add_header_footer)
     doc.addPageTemplates([template])
 
-    flowables = []
-
-    # Title
-    flowables.append(Paragraph(json_data["title"], styles["Title"]))
-    flowables.append(Spacer(1, 0.2 * inch))
-
-    # Sections
-    for section in json_data.get("sections", []):
-        heading = section.get("heading", "")
-        paragraphs = section.get("paragraphs", [])
-
-        if heading:
-            flowables.append(Paragraph(heading, styles["Heading2"]))
-            flowables.append(Spacer(1, 0.1 * inch))
-
-        for para in paragraphs:
-            flowables.append(Paragraph(para, styles["BodyText"]))
-            flowables.append(Spacer(1, 0.1 * inch))
-
-        flowables.append(Spacer(1, 0.3 * inch))  # Space between sections
+    # Flowable content with title + sections
+    flowables = build_flowables(json_data)
+    if not flowables:
+        flowables = build_flowables({"title": "No content", "sections": []})
 
     doc.build(flowables)

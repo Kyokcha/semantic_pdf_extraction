@@ -8,7 +8,7 @@ from utils.config import load_config
 from utils.file_operations import clear_directory
 
 # Layout render functions
-from layouts import layout_one_column, layout_two_column, layout_header_footer
+from layouts import header_footer, one_column, two_column, two_col_min, three_col, side_bar, mixed_format
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -16,9 +16,13 @@ logger = logging.getLogger(__name__)
 
 # Map layout names to their corresponding render functions
 LAYOUTS = {
-    "one_column": layout_one_column.render,
-    "two_column": layout_two_column.render,
-    "header_footer": layout_header_footer.render
+    "one_column": one_column.render,
+    "two_column": two_column.render,
+    "header_footer": header_footer.render,
+    "mixed_format": mixed_format.render,
+    "side_bar": side_bar.render,
+    "three_col": three_col.render,
+    "two_col_min": two_col_min.render
 }
 
 

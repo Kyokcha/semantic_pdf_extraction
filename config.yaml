@@ -20,7 +20,8 @@ data_paths:
   evaluation_outputs: "data/evaluation_outputs"
 
 wikipedia:
-  num_articles: 50
+  num_articles: 250
+  min_words: 200
   snapshot: "20220301.en"
   seed: 42
 
@@ -29,6 +30,10 @@ pdf_generation:
     one_column: true
     two_column: true
     header_footer: true
+    mixed_format: true
+    side_bar: true
+    three_col: true
+    two_col_min: true
 
 extraction:
   extractors:
@@ -37,9 +42,9 @@ extraction:
     plumber: true
 
 pipeline:
-  extract_raw: false
-  convert_json: false
-  render_pdfs: false
+  extract_raw: true
+  convert_json: true
+  render_pdfs: true
   run_extractors: false
   generate_gt_sentences: false
   generate_extracted_sentences: false
