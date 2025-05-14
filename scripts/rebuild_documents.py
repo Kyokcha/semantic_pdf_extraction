@@ -22,7 +22,7 @@ clear_directory(output_dir)
 
 for (article_id, layout), group in df.groupby(['article_id', 'layout']):
     group_sorted = group.sort_values('sentence_number')
-    sentences = group_sorted['selected_sentence'].tolist()
+    sentences = group_sorted['selected_sentence'].dropna().tolist()
 
     full_text = "\n".join(sentences).strip()
 
