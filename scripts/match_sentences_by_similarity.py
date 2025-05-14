@@ -1,8 +1,10 @@
+# scripts/match_sentences_by_similarity.py
+
 import torch
 import pandas as pd
-import numpy as np
 from pathlib import Path
 from sklearn.metrics.pairwise import cosine_similarity
+from scipy.optimize import linear_sum_assignment
 from utils.config import load_config
 from utils.file_operations import clear_directory
 import logging
@@ -19,17 +21,14 @@ def load_embeddings(path):
 
 
 def extract_layout_and_extractor(stem):
-    # article_001-two_column-pypdf2 → layout = two_column, extractor = pypdf2
     parts = stem.split("-")
     return parts[1], parts[2]
 
 
 def process_article(args):
-    """
-    args is a tuple:
-    (article_id, gt_csv_dir, gt_emb_dir, extracted_csv_dir, extracted_emb_dir, output_dir)
-    """
     article_id, gt_csv_dir, gt_emb_dir, extracted_csv_dir, extracted_emb_dir, output_dir = args
+
+    threshold = 0.85  # Similarity threshold for valid matches
 
     gt_csv = gt_csv_dir / f"{article_id}.csv"
     gt_emb = gt_emb_dir / f"{article_id}.pt"
@@ -64,24 +63,41 @@ def process_article(args):
         layout, extractor = extract_layout_and_extractor(base_name)
 
         sim_matrix = cosine_similarity(gt_vectors, ext_vectors)
-        best_indices = np.argmax(sim_matrix, axis=1)
-        best_scores = np.max(sim_matrix, axis=1)
+
+        # Hungarian algorithm for optimal matching (minimizing cost = 1 - similarity)
+        cost_matrix = 1.0 - sim_matrix
+        gt_idx, ext_idx = linear_sum_assignment(cost_matrix)
 
         matched_rows = []
-        for i, gt_row in gt_df.iterrows():
-            best_idx = best_indices[i]
-            best_score = best_scores[i]
-            matched_row = extracted_df.iloc[best_idx]
+        used_ext_idx = set()
 
-            matched_rows.append({
-                "gt_sentence_id": gt_row["gt_sentence_id"],
-                "gt_sentence": gt_row["sentence"],
-                "extracted_sentence_id": matched_row["extracted_sentence_id"],
-                "extracted_sentence": matched_row["extracted_sentence"],
-                "extractor": extractor,
-                "layout": layout,
-                "similarity_score": best_score
-            })
+        for g, e in zip(gt_idx, ext_idx):
+            score = sim_matrix[g, e]
+            gt_row = gt_df.iloc[g]
+
+            if score >= threshold:
+                matched_row = extracted_df.iloc[e]
+                used_ext_idx.add(e)
+
+                matched_rows.append({
+                    "gt_sentence_id": gt_row["gt_sentence_id"],
+                    "gt_sentence": gt_row["sentence"],
+                    "extracted_sentence_id": matched_row["extracted_sentence_id"],
+                    "extracted_sentence": matched_row["extracted_sentence"],
+                    "extractor": extractor,
+                    "layout": layout,
+                    "similarity_score": score
+                })
+            else:
+                matched_rows.append({
+                    "gt_sentence_id": gt_row["gt_sentence_id"],
+                    "gt_sentence": gt_row["sentence"],
+                    "extracted_sentence_id": None,
+                    "extracted_sentence": None,
+                    "extractor": extractor,
+                    "layout": layout,
+                    "similarity_score": 0.0
+                })
 
         out_df = pd.DataFrame(matched_rows)
         output_path = output_dir / f"{base_name}_matched.csv"

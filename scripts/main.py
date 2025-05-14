@@ -41,5 +41,6 @@ def run_pipeline():
         else:
             logger.info(f"⏭️ Skipping step: {step_key}")
 
+
 if __name__ == "__main__":
     run_pipeline()
