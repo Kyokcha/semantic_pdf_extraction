@@ -47,16 +47,16 @@ pipeline:
   render_pdfs: false
   run_extractors: false
   generate_gt_sentences: false
-  generate_extracted_sentences: true
-  embed_gt: true
-  embed_extracted: true
-  extract_features: true
-  match_sentences: true
-  merged_data: true
-  final_training_dataset: true
-  run_model: true
-  rebuild_documents: false
-  evaluate: false
+  generate_extracted_sentences: false
+  extract_features: false
+  embed_gt: false
+  embed_extracted: false
+  match_sentences: false
+  merged_data: false
+  final_training_dataset: false
+  run_model: false
+  rebuild_documents: true
+  evaluate: true
 
 features_to_use:
   - similarity_score

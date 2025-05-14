@@ -41,7 +41,7 @@ def train_model(data_path: str, target_col: str = 'best_extractor', test_size: f
     df["article_id"] = df["gt_sentence_id"].str.extract(r"^(article_\d{3})")[0]
 
     # Optionally filter out ties
-    # df = df[df['is_tie'] == False]
+    df = df[df['is_tie'] == False]
 
     # Document-level split
     unique_articles = df["article_id"].unique()
