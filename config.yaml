@@ -8,6 +8,7 @@ data_paths:
   DB_raw_manual: "data/DB_manual_raw"
   DB_extracted: "data/DB_extracted"
   DB_ground_truth: "data/DB_ground_truth"
+  DB_extracted_sentences: "data/DB_extracted_sentences"
   # jsons: "data/jsons"
   # extracted: "data/extracted"
   # extracted_sentences: "data/extracted_sentences"
@@ -46,7 +47,7 @@ pipeline:
   parse_to_json: false
   run_extractors: false
   generate_gt_sentences: false
-  # generate_extracted_sentences: false
+  generate_extracted_sentences: false
   # extract_features: false
   # embed_gt: false
   # embed_extracted: false

@@ -9,11 +9,10 @@ logger = logging.getLogger(__name__)
 
 SCRIPT_SEQUENCE = [
     ("setup_docbank", "scripts/rename_and_organise_docbank.py"),
-    ("parse_to_json", "scripts/DB_parse_txt_to_json.py")
-
-    # ("run_extractors", "scripts/run_extractors_batch.py"),
-    # ("generate_gt_sentences", "scripts/generate_gt_sentences.py"),
-    # ("generate_extracted_sentences", "scripts/generate_extracted_sentences.py"),
+    ("parse_to_json", "scripts/DB_parse_txt_to_json.py"),
+    ("run_extractors", "scripts/run_extractors_batch.py"),
+    ("generate_gt_sentences", "scripts/generate_gt_sentences.py"),
+    ("generate_extracted_sentences", "scripts/generate_extracted_sentences.py")
     # ("extract_features", "scripts/extract_features.py"),
     # ("embed_gt", "scripts/embed_groundtruth_sentences.py"),
     # ("embed_extracted", "scripts/embed_extracted_sentences.py"),
