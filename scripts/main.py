@@ -22,7 +22,6 @@ SCRIPT_SEQUENCE = [
     ("merged_data", "scripts/merge_matches_with_features.py"),
     ("final_training_dataset", "scripts/build_final_training_dataset.py"),
     ("run_model", "scripts/run_model.py"),
-    ("rebuild_documents", "scripts/rebuild_documents.py"),
     ("evaluate", "scripts/evaluate_doc_semantic_similarity")
 ]
 
