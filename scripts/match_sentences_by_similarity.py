@@ -22,16 +22,20 @@ def load_embeddings(path):
 
 def extract_layout_and_extractor(stem):
     parts = stem.split("-")
-    return parts[1], parts[2]
+    if len(parts) == 2:
+        return "na", parts[1]
+    else:
+        logger.warning(f"Unexpected filename format: {stem}")
+        return "unknown", "unknown"
 
 
 def process_article(args):
     article_id, gt_csv_dir, gt_emb_dir, extracted_csv_dir, extracted_emb_dir, output_dir = args
 
-    threshold = 0.85  # Similarity threshold for valid matches
+    threshold = 0.75
 
-    gt_csv = gt_csv_dir / f"{article_id}.csv"
-    gt_emb = gt_emb_dir / f"{article_id}.pt"
+    gt_csv = gt_csv_dir / f"{article_id}_manual.csv"
+    gt_emb = gt_emb_dir / f"{article_id}_manual.pt"
 
     if not gt_csv.exists() or not gt_emb.exists():
         logger.warning(f"Missing GT data for {article_id}")
@@ -63,21 +67,16 @@ def process_article(args):
         layout, extractor = extract_layout_and_extractor(base_name)
 
         sim_matrix = cosine_similarity(gt_vectors, ext_vectors)
-
-        # Hungarian algorithm for optimal matching (minimizing cost = 1 - similarity)
         cost_matrix = 1.0 - sim_matrix
         gt_idx, ext_idx = linear_sum_assignment(cost_matrix)
 
         matched_rows = []
-        used_ext_idx = set()
 
         for g, e in zip(gt_idx, ext_idx):
             score = sim_matrix[g, e]
-            gt_row = gt_df.iloc[g]
-
             if score >= threshold:
+                gt_row = gt_df.iloc[g]
                 matched_row = extracted_df.iloc[e]
-                used_ext_idx.add(e)
 
                 matched_rows.append({
                     "gt_sentence_id": gt_row["gt_sentence_id"],
@@ -88,31 +87,20 @@ def process_article(args):
                     "layout": layout,
                     "similarity_score": score
                 })
-            else:
-                matched_rows.append({
-                    "gt_sentence_id": gt_row["gt_sentence_id"],
-                    "gt_sentence": gt_row["sentence"],
-                    "extracted_sentence_id": None,
-                    "extracted_sentence": None,
-                    "extractor": extractor,
-                    "layout": layout,
-                    "similarity_score": 0.0
-                })
 
         out_df = pd.DataFrame(matched_rows)
         output_path = output_dir / f"{base_name}_matched.csv"
         out_df.to_csv(output_path, index=False)
-        logger.info(f"✓ Saved: {output_path.name}")
-
+        logger.info(f"✓ Saved: {output_path.name} ({len(out_df)} matches)")
 
 def main():
     config = load_config()
 
-    gt_csv_dir = Path(config["data_paths"]["ground_truth"])
-    gt_emb_dir = Path(config["data_paths"]["embeddings_GT"])
-    extracted_csv_dir = Path(config["data_paths"]["extracted_sentences"])
-    extracted_emb_dir = Path(config["data_paths"]["embeddings_PDF"])
-    output_dir = Path(config["data_paths"]["matched_sentences"])
+    gt_csv_dir = Path(config["data_paths"]["DB_ground_truth"])
+    gt_emb_dir = Path(config["data_paths"]["DB_embeddings_GT"])
+    extracted_csv_dir = Path(config["data_paths"]["DB_extracted_sentences"])
+    extracted_emb_dir = Path(config["data_paths"]["DB_embeddings_PDF"])
+    output_dir = Path(config["data_paths"]["DB_matched_sentences"])
     output_dir.mkdir(parents=True, exist_ok=True)
     clear_directory(output_dir)
 

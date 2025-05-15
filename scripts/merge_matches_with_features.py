@@ -25,20 +25,35 @@ def merge_matched_with_features(args):
         matched_df = pd.read_csv(matched_file)
         feature_df = pd.read_csv(feature_file)
 
-        # Ensure IDs are strings
+        # Ensure ID fields are strings for consistent merging
         matched_df["extracted_sentence_id"] = matched_df["extracted_sentence_id"].astype(str)
         feature_df["extracted_sentence_id"] = feature_df["extracted_sentence_id"].astype(str)
 
-        # Merge on extracted_sentence_id
+        # Merge on sentence ID
         merged = pd.merge(matched_df, feature_df, on="extracted_sentence_id", how="left")
 
-        # Rename for clarity
-        merged.rename(columns={"extracted_sentence": "matched_extracted_sentence"}, inplace=True)
+        # Rename to avoid suffix confusion
+        if "extracted_sentence_x" in merged.columns:
+            merged.rename(columns={"extracted_sentence_x": "matched_extracted_sentence"}, inplace=True)
+            merged.drop(columns=["extracted_sentence_y"], inplace=True, errors="ignore")
+            filter_col = "matched_extracted_sentence"
+        else:
+            logger.warning(f"{base_name}: 'extracted_sentence_x' missing after merge — skipping filtering.")
+            filter_col = None
+
+        # Filter rows with no sentence
+        initial_count = len(merged)
+        if filter_col:
+            merged = merged[merged[filter_col].notnull()]
+        final_count = len(merged)
+
+        logger.info(f"{base_name}: kept {final_count}/{initial_count} rows with valid matches.")
 
         # Save output
         output_path = output_dir / f"{base_name}_merged.csv"
         merged.to_csv(output_path, index=False)
         logger.info(f"✓ Merged: {output_path.name}")
+
     except Exception as e:
         logger.error(f"✗ Failed on {matched_file.name}: {e}")
 
@@ -46,9 +61,9 @@ def merge_matched_with_features(args):
 def main():
     config = load_config()
 
-    matched_dir = Path(config["data_paths"]["matched_sentences"])
-    feature_dir = Path(config["data_paths"]["features"])
-    output_dir = Path(config["data_paths"]["merged_data"])
+    matched_dir = Path(config["data_paths"]["DB_matched_sentences"])
+    feature_dir = Path(config["data_paths"]["DB_features"])
+    output_dir = Path(config["data_paths"]["DB_merged_data"])
     output_dir.mkdir(parents=True, exist_ok=True)
     clear_directory(output_dir)
 

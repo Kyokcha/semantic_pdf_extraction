@@ -9,6 +9,13 @@ data_paths:
   DB_extracted: "data/DB_extracted"
   DB_ground_truth: "data/DB_ground_truth"
   DB_extracted_sentences: "data/DB_extracted_sentences"
+  DB_features: "data/DB_features"
+  DB_embeddings_GT: "data/DB_embeddings_GT"
+  DB_embeddings_PDF: "data/DB_embeddings_PDF"
+  DB_matched_sentences: "data/DB_matched_sentences"
+  DB_merged_data: "data/DB_merged_data"
+  DB_final_training_data: "data/DB_final_training_data"
+  DB_extractor_summary: "data/DB_extractor_summary"
   # jsons: "data/jsons"
   # extracted: "data/extracted"
   # extracted_sentences: "data/extracted_sentences"
@@ -48,12 +55,12 @@ pipeline:
   run_extractors: false
   generate_gt_sentences: false
   generate_extracted_sentences: false
-  # extract_features: false
-  # embed_gt: false
-  # embed_extracted: false
-  # match_sentences: false
-  # merged_data: false
-  # final_training_dataset: false
+  extract_features: false
+  embed_gt: false
+  embed_extracted: false
+  match_sentences: false
+  merged_data: false
+  final_training_dataset: false
   # run_model: false
   # rebuild_documents: true
   # evaluate: true

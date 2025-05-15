@@ -15,8 +15,8 @@ logger = logging.getLogger(__name__)
 def main():
     config = load_config()
 
-    merged_dir = Path(config["data_paths"]["merged_data"])
-    output_dir = Path(config["data_paths"]["final_training_data"])
+    merged_dir = Path(config["data_paths"]["DB_merged_data"])
+    output_dir = Path(config["data_paths"]["DB_final_training_data"])
     output_dir.mkdir(parents=True, exist_ok=True)
     clear_directory(output_dir)
     

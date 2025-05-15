@@ -29,9 +29,14 @@ def process_file(args):
             logger.warning(f"Skipping {csv_path.name}: missing required columns")
             return
 
-        # Extract features for each sentence using the extractor name
+        # Ensure all sentences are strings
+        df["extracted_sentence"] = df["extracted_sentence"].astype(str)
+
+        # Extract features with basic validation
         features = [
             sentence_features.sentence_features(row["extracted_sentence"], row["extractor"])
+            if row["extracted_sentence"].lower() != "nan" and row["extracted_sentence"].strip()
+            else {}
             for _, row in df.iterrows()
         ]
         features_df = pd.DataFrame(features)
@@ -54,8 +59,8 @@ def main():
     """
     config = load_config()
 
-    extracted_dir = Path(config["data_paths"]["extracted_sentences"])
-    feature_dir = Path(config["data_paths"]["features"])
+    extracted_dir = Path(config["data_paths"]["DB_extracted_sentences"])
+    feature_dir = Path(config["data_paths"]["DB_features"])
     feature_dir.mkdir(parents=True, exist_ok=True)
 
     # Optional: clear any existing outputs

@@ -26,8 +26,8 @@ def embed_csv_file(args):
 def main():
     config = load_config()
 
-    input_dir = Path("data/ground_truth")
-    output_dir = Path(config["data_paths"]["embeddings_GT"])
+    input_dir = Path(config["data_paths"]["DB_ground_truth"])
+    output_dir = Path(config["data_paths"]["DB_embeddings_GT"])
     output_dir.mkdir(parents=True, exist_ok=True)
     clear_directory(output_dir)
 
