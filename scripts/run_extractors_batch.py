@@ -45,8 +45,8 @@ def process_pdf(args):
 
 def main():
     config = load_config()
-    pdf_dir = Path(config["data_paths"]["pdfs"])
-    output_dir = Path(config["data_paths"]["extracted"])
+    pdf_dir = Path(config["data_paths"]["DB_pdfs"])
+    output_dir = Path(config["data_paths"]["DB_extracted"])
     output_dir.mkdir(parents=True, exist_ok=True)
     clear_directory(output_dir)
 
@@ -57,8 +57,13 @@ def main():
 
     logger.info(f"Enabled extractors: {', '.join(extractors.keys())}")
 
-    pdf_paths = list(pdf_dir.glob("*.pdf"))
-    logger.info(f"Found {len(pdf_paths)} PDF files to process.")
+    # restrict to first 40 files. replace with commented text below to run for all files
+    pdf_paths = sorted(pdf_dir.glob("doc_*.pdf"))
+    pdf_paths = [p for p in pdf_paths if p.stem[-3:].isdigit() and 1 <= int(p.stem[-3:]) <= 40]
+    logger.info(f"Filtered to {len(pdf_paths)} PDF files for test batch (doc_001 to doc_040).")
+    
+    # pdf_paths = list(pdf_dir.glob("*.pdf"))
+    # logger.info(f"Found {len(pdf_paths)} PDF files to process.")
 
     args = [(path, output_dir, extractors) for path in pdf_paths]
 

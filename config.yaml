@@ -1,29 +1,29 @@
 # configs/config.yaml
 
 data_paths:
-  dump: "data/dump"
-  raw: "data/raw"
-  ground_truth: "data/ground_truth"
-  jsons: "data/jsons"
-  extracted: "data/extracted"
-  extracted_sentences: "data/extracted_sentences"
-  embeddings_PDF: "data/embeddings_PDF"
-  embeddings_GT: "data/embeddings_GT"
-  pdfs: "data/pdfs"
-  extractor_summary: "data/extractor_summary"
-  features: "data/features"
-  matched_sentences: "data/matched_sentences"
-  merged_data: "data/merged_data"
-  final_training_data: "data/final_training_data"
-  model_outputs: "data/model_outputs"
-  rebuilt_documents: "data/rebuilt_documents"
-  evaluation_outputs: "data/evaluation_outputs"
+  DB_dump: "data/DB_dump"
+  DB_raw: "data/DB_raw"
+  DB_jsons: "data/DB_jsons"
+  DB_pdfs: "data/DB_pdfs"
+  DB_raw_manual: "data/DB_manual_raw"
+  DB_extracted: "data/DB_extracted"
+  DB_ground_truth: "data/DB_ground_truth"
+  # jsons: "data/jsons"
+  # extracted: "data/extracted"
+  # extracted_sentences: "data/extracted_sentences"
+  # embeddings_PDF: "data/embeddings_PDF"
+  # embeddings_GT: "data/embeddings_GT"
+  # extractor_summary: "data/extractor_summary"
+  # features: "data/features"
+  # matched_sentences: "data/matched_sentences"
+  # merged_data: "data/merged_data"
+  # final_training_data: "data/final_training_data"
+  # model_outputs: "data/model_outputs"
+  # rebuilt_documents: "data/rebuilt_documents"
+  # evaluation_outputs: "data/evaluation_outputs"
 
-wikipedia:
-  num_articles: 250
-  min_words: 200
-  snapshot: "20220301.en"
-  seed: 42
+docbank_processing:
+  line_y_tolerance: 5
 
 pdf_generation:
   layouts:  # Enable/disable layouts here
@@ -42,21 +42,20 @@ extraction:
     plumber: true
 
 pipeline:
-  extract_raw: false
-  convert_json: false
-  render_pdfs: false
+  setup_docbank: false
+  parse_to_json: false
   run_extractors: false
   generate_gt_sentences: false
-  generate_extracted_sentences: false
-  extract_features: false
-  embed_gt: false
-  embed_extracted: false
-  match_sentences: false
-  merged_data: false
-  final_training_dataset: false
-  run_model: false
-  rebuild_documents: true
-  evaluate: true
+  # generate_extracted_sentences: false
+  # extract_features: false
+  # embed_gt: false
+  # embed_extracted: false
+  # match_sentences: false
+  # merged_data: false
+  # final_training_dataset: false
+  # run_model: false
+  # rebuild_documents: true
+  # evaluate: true
 
 features_to_use:
   - similarity_score
