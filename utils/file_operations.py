@@ -1,5 +1,7 @@
 # utils/file_operations.py
 
+import os
+import json
 import shutil
 from pathlib import Path
 
@@ -28,3 +30,9 @@ def clear_directory(directory_path):
         else:
             item.unlink()
     print(f"Cleared contents of {directory_path}")
+    
+
+def save_json(data, path):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
