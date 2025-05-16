@@ -1,43 +1,58 @@
-# scripts/generate_extracted_sentences
+# scripts/generate_extracted_sentences.py
 
 import logging
 import pandas as pd
 from pathlib import Path
-from nltk.tokenize import sent_tokenize
 from multiprocessing import Pool, cpu_count
 from utils.config import load_config
 from utils.file_operations import clear_directory
+import spacy
 import re
 
-# Set up logging
+# Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Load spaCy NLP model once
+nlp = spacy.load("en_core_web_sm")
+
 
 def is_probable_table_line(text):
     tokens = text.split()
 
     if len(tokens) < 3:
-        return False  # too short to be a table row
+        return False
 
-    # Count PascalCase or all-caps terms
     caps_or_mixed_case = sum(
         1 for w in tokens if re.match(r'^[A-Z][a-zA-Z0-9]*$', w) or w.isupper()
     )
-
-    # Count terms with math-like symbols or digits
     mathy_words = sum(
         1 for w in tokens if any(c in w for c in "*+/=∗−()N0123456789")
     )
-
     has_no_punctuation = not any(p in text for p in ".!?")
 
     return (caps_or_mixed_case + mathy_words) / len(tokens) > 0.4 and has_no_punctuation
 
 
+def clean_sentence(sent):
+    # Strip and normalize whitespace
+    sentence = sent.text.strip()
+    if not sentence:
+        return None
+
+    # Filter out likely headers or junk
+    if len(sentence.split()) < 4 and not sentence.endswith((".", "!", "?")):
+        return None
+    if sentence.isupper() or re.match(r"^\d+\.\s?[A-Z ]+$", sentence):
+        return None
+
+    return sentence
+
+
 def process_text_file(args):
     txt_path, output_dir = args
-
     base_name = txt_path.stem  # e.g., doc_001-ocr
+
     if "-" not in base_name:
         logger.warning(f"Skipping file with unexpected name format: {txt_path.name}")
         return
@@ -51,25 +66,21 @@ def process_text_file(args):
         return
 
     lines = raw_text.splitlines()
-    text_lines = []
-    table_lines = []
-    sentence_blocks = []
+    text_lines, table_lines, sentence_blocks = [], [], []
     data = []
     global_id = 0
 
     for line in lines:
         line = line.replace("-\n", "").strip()
-        line = " ".join(line.split())  # Normalize whitespace
+        line = " ".join(line.split())
 
         if not line:
             continue
 
         if is_probable_table_line(line):
-            # Flush any collected text block
             if text_lines:
                 sentence_blocks.append(" ".join(text_lines))
                 text_lines = []
-
             table_lines.append({
                 "type": "table_candidate",
                 "text": line
@@ -77,25 +88,24 @@ def process_text_file(args):
         else:
             text_lines.append(line)
 
-    # Flush remaining text
     if text_lines:
         sentence_blocks.append(" ".join(text_lines))
 
-    # Process full text blocks into sentences
     for block in sentence_blocks:
-        for sentence in sent_tokenize(block):
-            if sentence.strip():
+        doc = nlp(block)
+        for sent in doc.sents:
+            cleaned = clean_sentence(sent)
+            if cleaned:
                 data.append({
                     "extracted_sentence_id": f"{article_id}_{extractor}_{global_id}",
                     "article_id": article_id,
                     "extractor": extractor,
                     "sentence_id": global_id,
-                    "extracted_sentence": sentence.strip(),
+                    "extracted_sentence": cleaned,
                     "content_type": "text"
                 })
                 global_id += 1
 
-    # Process table lines
     for table_entry in table_lines:
         data.append({
             "extracted_sentence_id": f"{article_id}_{extractor}_{global_id}",
@@ -114,7 +124,7 @@ def process_text_file(args):
     df = pd.DataFrame(data)
     output_file = output_dir / f"{base_name}.csv"
     df.to_csv(output_file, index=False)
-    logger.info(f"Processed {txt_path.name} -> {output_file.name}")
+    logger.info(f"✓ Processed {txt_path.name} → {output_file.name}")
 
 
 def main():

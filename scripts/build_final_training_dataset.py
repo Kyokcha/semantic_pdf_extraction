@@ -4,7 +4,7 @@ import pandas as pd
 from pathlib import Path
 from utils.config import load_config
 from utils.file_operations import clear_directory
-from utils.data_transformers import flatten_extractor_outputs  # <-- new import
+from utils.data_transformers import flatten_extractor_outputs
 import logging
 
 # Setup logging
@@ -19,7 +19,7 @@ def main():
     output_dir = Path(config["data_paths"]["DB_final_training_data"])
     output_dir.mkdir(parents=True, exist_ok=True)
     clear_directory(output_dir)
-    
+
     training_cfg = config["training_config"]
     resolve_ties_randomly = training_cfg.get("resolve_ties_randomly", True)
     random_state = training_cfg.get("seed", 42)
@@ -45,7 +45,7 @@ def main():
     feature_cols = config["features_to_use"]
     extractor_name_map = config["extractor_name_map"]
 
-    # Flatten the dataset
+    # Flatten
     final_df = flatten_extractor_outputs(
         full_df,
         feature_cols,
@@ -54,10 +54,18 @@ def main():
         random_state=random_state
     )
 
-    # Save
+    # Save to disk
     final_file = output_dir / "training_data.csv"
     final_df.to_csv(final_file, index=False)
-    logger.info(f"Saved flattened training dataset to {final_file}")
+    logger.info(f"✓ Saved flattened training dataset to {final_file}")
+
+    # Log extractor distribution
+    if "best_extractor" in final_df.columns:
+        extractor_counts = final_df["best_extractor"].value_counts(normalize=True).round(3)
+        for extractor, proportion in extractor_counts.items():
+            logger.info(f"Extractor win rate: {extractor} — {proportion:.1%}")
+    else:
+        logger.warning("No 'best_extractor' column found — skipping distribution log.")
 
 
 if __name__ == "__main__":

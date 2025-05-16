@@ -1,4 +1,4 @@
-# scripts/match_sentences_by_similarity.py
+# scripts/match_by_hungarian_algorithm.py
 
 import torch
 import pandas as pd
@@ -31,8 +31,6 @@ def extract_layout_and_extractor(stem):
 
 def process_article(args):
     article_id, gt_csv_dir, gt_emb_dir, extracted_csv_dir, extracted_emb_dir, output_dir = args
-
-    threshold = 0.75
 
     gt_csv = gt_csv_dir / f"{article_id}_manual.csv"
     gt_emb = gt_emb_dir / f"{article_id}_manual.pt"
@@ -74,24 +72,24 @@ def process_article(args):
 
         for g, e in zip(gt_idx, ext_idx):
             score = sim_matrix[g, e]
-            if score >= threshold:
-                gt_row = gt_df.iloc[g]
-                matched_row = extracted_df.iloc[e]
+            gt_row = gt_df.iloc[g]
+            matched_row = extracted_df.iloc[e]
 
-                matched_rows.append({
-                    "gt_sentence_id": gt_row["gt_sentence_id"],
-                    "gt_sentence": gt_row["sentence"],
-                    "extracted_sentence_id": matched_row["extracted_sentence_id"],
-                    "extracted_sentence": matched_row["extracted_sentence"],
-                    "extractor": extractor,
-                    "layout": layout,
-                    "similarity_score": score
-                })
+            matched_rows.append({
+                "gt_sentence_id": gt_row["gt_sentence_id"],
+                "gt_sentence": gt_row["sentence"],
+                "extracted_sentence_id": matched_row["extracted_sentence_id"],
+                "extracted_sentence": matched_row["extracted_sentence"],
+                "extractor": extractor,
+                "layout": layout,
+                "similarity_score": score
+            })
 
         out_df = pd.DataFrame(matched_rows)
         output_path = output_dir / f"{base_name}_matched.csv"
         out_df.to_csv(output_path, index=False)
         logger.info(f"✓ Saved: {output_path.name} ({len(out_df)} matches)")
+
 
 def main():
     config = load_config()

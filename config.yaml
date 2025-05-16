@@ -12,10 +12,13 @@ data_paths:
   DB_features: "data/DB_features"
   DB_embeddings_GT: "data/DB_embeddings_GT"
   DB_embeddings_PDF: "data/DB_embeddings_PDF"
+  DB_clustered_sentences: "data/DB_clustered_sentences"
+  DB_clustered_embeddings: "data/DB_clustered_embeddings"
   DB_matched_sentences: "data/DB_matched_sentences"
   DB_merged_data: "data/DB_merged_data"
   DB_final_training_data: "data/DB_final_training_data"
   DB_extractor_summary: "data/DB_extractor_summary"
+  DB_model_outputs: "data/DB_model_outputs"
   # jsons: "data/jsons"
   # extracted: "data/extracted"
   # extracted_sentences: "data/extracted_sentences"
@@ -58,10 +61,11 @@ pipeline:
   extract_features: false
   embed_gt: false
   embed_extracted: false
+  cluster_extracted: false
   match_sentences: false
   merged_data: false
   final_training_dataset: false
-  # run_model: false
+  run_model: false
   # rebuild_documents: true
   # evaluate: true
 
@@ -96,7 +100,7 @@ model_config:
   data_selection:
     default: true
   data_paths:
-    default: data/final_training_data/training_data.csv
+    default: data/DB_final_training_data/training_data.csv
 
 evaluation_paths:
   predictions_path: outputs/model_predictions.csv

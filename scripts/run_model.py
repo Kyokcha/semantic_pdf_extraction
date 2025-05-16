@@ -13,12 +13,6 @@ from models.lightgbm_model import train_lightgbm
 
 
 def train_model(data_path: str, target_col: str = 'best_extractor', test_size: float = 0.2, random_state: int = 42):
-    """
-    Train the selected model using document-level splitting.
-
-    This ensures that all sentences from the same article are either in the training
-    set or the test set — not both — so we can properly reconstruct full documents.
-    """
     config = load_config()
     model_flags = config["model_config"]["model_selection"]
 
@@ -27,7 +21,6 @@ def train_model(data_path: str, target_col: str = 'best_extractor', test_size: f
         raise ValueError(f"Expected exactly one model to be selected in config, found: {selected_models}")
 
     model_type = selected_models[0]
-
     model_map = {
         'random_forest': train_random_forest,
         'logistic_regression': train_logistic_regression,
@@ -37,45 +30,40 @@ def train_model(data_path: str, target_col: str = 'best_extractor', test_size: f
 
     df = pd.read_csv(data_path)
 
-    # Extract article ID
-    df["article_id"] = df["gt_sentence_id"].str.extract(r"^(article_\d{3})")[0]
+    # Add article_id back if needed (assuming your gt_sentence_id still encodes it)
+    df["article_id"] = df["gt_sentence_id"].str.extract(r"^(doc_\d{3})")[0]
 
-    # Optionally filter out ties
-    df = df[df['is_tie'] == False]
+    df = df[df['is_tie'] == False]  # filter out ambiguous cases
 
-    # Document-level split
-    unique_articles = df["article_id"].unique()
-    train_articles, test_articles = train_test_split(
-        unique_articles, test_size=test_size, random_state=random_state
-    )
+    # Split by document
+    train_ids, test_ids = train_test_split(df["article_id"].unique(), test_size=test_size, random_state=random_state)
+    train_df = df[df["article_id"].isin(train_ids)]
+    test_df = df[df["article_id"].isin(test_ids)]
 
-    train_df = df[df["article_id"].isin(train_articles)].reset_index(drop=True)
-    test_df = df[df["article_id"].isin(test_articles)].reset_index(drop=True)
-
-    drop_cols = [target_col, 'article_id', 'gt_sentence_id', 'is_tie',
-                 'sentence_pypdf2', 'sentence_ocr', 'sentence_plumber']
-
-    X_train = train_df.drop(columns=drop_cols).reset_index(drop=True)
-    y_train = train_df[target_col].reset_index(drop=True)
-    X_test = test_df.drop(columns=drop_cols).reset_index(drop=True)
-    y_test = test_df[target_col].reset_index(drop=True)
+    # Prepare features
+    drop_cols = ['article_id', 'gt_sentence_id', 'best_extractor', 'is_tie',
+                 'sentence_pypdf2', 'sentence_ocr', 'sentence_plumber',
+                 'similarity_score_pypdf2', 'similarity_score_ocr', 'similarity_score_plumber']
+    X_train = train_df.drop(columns=drop_cols)
+    y_train = train_df['best_extractor']
+    X_test = test_df.drop(columns=drop_cols)
+    y_test = test_df['best_extractor']
 
     clf = model_map[model_type](X_train, y_train, random_state)
     y_pred = clf.predict(X_test)
 
     evaluate_model(clf, X_test, y_test, y_pred)
 
-    # Save model predictions
-    output_dir = Path(config["data_paths"]["model_outputs"])
+    # Save predictions
+    output_dir = Path(config["data_paths"]["DB_model_outputs"])
     output_dir.mkdir(parents=True, exist_ok=True)
 
     X_test_with_meta = X_test.copy()
-    X_test_with_meta["gt_sentence_id"] = test_df["gt_sentence_id"]
-    X_test_with_meta["article_id"] = test_df["article_id"]
+    X_test_with_meta["gt_sentence_id"] = test_df["gt_sentence_id"].values
+    X_test_with_meta["article_id"] = test_df["article_id"].values
     X_test_with_meta["predicted_extractor"] = y_pred
-
     X_test_with_meta["selected_sentence"] = [
-        test_df.loc[i, f"sentence_{extractor}"] for i, extractor in zip(test_df.index, y_pred)
+        test_df.iloc[i][f"sentence_{extractor}"] for i, extractor in enumerate(y_pred)
     ]
 
     X_test_with_meta[["article_id", "gt_sentence_id", "predicted_extractor", "selected_sentence"]] \

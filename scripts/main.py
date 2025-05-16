@@ -16,10 +16,12 @@ SCRIPT_SEQUENCE = [
     ("extract_features", "scripts/extract_features.py"),
     ("embed_gt", "scripts/embed_groundtruth_sentences.py"),
     ("embed_extracted", "scripts/embed_extracted_sentences.py"),
-    ("match_sentences", "scripts/match_sentences_by_similarity.py"),
+    ("match_sentences", "scripts/match_by_hungarian_algorithm.py"),
+    # ("cluster_sentences", "scripts/cluster_extracted_sentences.py"),
+    # ("match_sentences", "scripts/match_clustered_sentences.py"),
     ("merged_data", "scripts/merge_matches_with_features.py"),
-    ("final_training_dataset", "scripts/build_final_training_dataset.py"),
-    # ("run_model", "scripts/run_model.py"),
+    ("final_training_dataset", "scripts/build_final_training_dataset.py")
+    ("run_model", "scripts/run_model.py"),
     # ("rebuild_documents", "scripts/rebuild_documents.py"),
     # ("evaluate", "scripts/evaluate_doc_semantic_similarity")
 ]

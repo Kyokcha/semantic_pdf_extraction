@@ -12,12 +12,8 @@ def evaluate_model(clf, X_test, y_test, y_pred):
 
     print("Confusion Matrix:")
     cm = confusion_matrix(y_test, y_pred, labels=clf.classes_)
-    sns.heatmap(cm, annot=True, fmt='d', xticklabels=clf.classes_, yticklabels=clf.classes_)
-    plt.xlabel("Predicted")
-    plt.ylabel("True")
-    plt.title("Confusion Matrix")
-    plt.tight_layout()
-    plt.show()
+    cm_df = pd.DataFrame(cm, index=clf.classes_, columns=clf.classes_)
+    print(cm_df.to_string())
 
     # Show feature importances for models that support it
     if hasattr(clf, "feature_importances_"):
