@@ -11,77 +11,78 @@ from multiprocessing import Pool, cpu_count
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-
-def merge_matched_with_features(args):
-    matched_file, feature_dir, output_dir = args
-    doc_id = matched_file.stem.replace("_matched", "")  # includes extractor, e.g., "doc_038-ocr"
-
+def merge_matched_with_features(doc_base, matched_dir, feature_dir, output_dir):
     try:
-        matched_df = pd.read_csv(matched_file)
-
-        if matched_df.empty or "extracted_sentence_id" not in matched_df.columns:
-            logger.warning(f"{doc_id}: No extracted_sentence_id column or empty data.")
+        # Gather all extractor-specific matches for this doc
+        matched_paths = list(matched_dir.glob(f"{doc_base}-*_matched.csv"))
+        if not matched_paths:
+            logger.warning(f"{doc_base}: No matched files found.")
             return
 
-        # Load the corresponding feature file
-        feature_files = list(feature_dir.glob(f"{doc_id}.csv"))
-        if not feature_files:
-            logger.warning(f"Missing features for: {doc_id}")
-            return
-
-        logger.info(f"{doc_id}: Found {len(feature_files)} feature file(s).")
-
-        feature_dfs = []
-        for f in feature_files:
+        dfs = []
+        for path in matched_paths:
             try:
-                df = pd.read_csv(f)
-                feature_dfs.append(df)
+                df = pd.read_csv(path)
+                df['extractor'] = path.stem.split("-")[1].replace("_matched", "")
+                dfs.append(df)
             except Exception as e:
-                logger.warning(f"Couldn't read feature file {f.name}: {e}")
+                logger.warning(f"Couldn't read {path.name}: {e}")
 
-        if not feature_dfs:
-            logger.warning(f"No readable features for: {doc_id}")
+        if not dfs:
+            logger.warning(f"{doc_base}: All matched files failed to load.")
             return
 
-        feature_df = pd.concat(feature_dfs, ignore_index=True)
+        matched_df = pd.concat(dfs, ignore_index=True)
+        if "extracted_sentence_id" not in matched_df.columns:
+            logger.warning(f"{doc_base}: No 'extracted_sentence_id' column.")
+            return
 
-        # Ensure ID fields are strings for consistent merging
-        matched_df["extracted_sentence_id"] = matched_df["extracted_sentence_id"].astype(str)
+        # Load feature file (per document)
+        feature_path = feature_dir / f"{doc_base}.csv"
+        if not feature_path.exists():
+            logger.warning(f"{doc_base}: No features found at {feature_path}")
+            return
+
+        feature_df = pd.read_csv(feature_path)
         feature_df["extracted_sentence_id"] = feature_df["extracted_sentence_id"].astype(str)
+        matched_df["extracted_sentence_id"] = matched_df["extracted_sentence_id"].astype(str)
 
         # Merge on sentence ID
-        merged = pd.merge(
-            matched_df,
-            feature_df,
-            on="extracted_sentence_id",
-            how="left"
-        )
+        merged = pd.merge(matched_df, feature_df, on="extracted_sentence_id", how="left")
 
-        # Clean up columns
-        if "extracted_sentence_x" in merged.columns:
-            merged.rename(columns={"extracted_sentence_x": "matched_extracted_sentence"}, inplace=True)
-            merged.drop(columns=["extracted_sentence_y"], inplace=True, errors="ignore")
-        elif "extracted_sentence" in merged.columns:
-            merged.rename(columns={"extracted_sentence": "matched_extracted_sentence"}, inplace=True)
+        # Keep clean version of extracted sentence
+        if "extracted_sentence_y" in merged.columns:
+            merged.drop(columns=["extracted_sentence_x"], inplace=True, errors="ignore")
+            merged.rename(columns={"extracted_sentence_y": "extracted_sentence"}, inplace=True)
+        elif "extracted_sentence" not in merged.columns:
+            logger.warning(f"{doc_base}: No extracted_sentence column after merge.")
+            return
+        
+        # Keep clean version of extractor column
+        if "extractor_x" in merged.columns:
+            merged.drop(columns=["extractor_y"], inplace=True, errors="ignore")
+            merged.rename(columns={"extractor_x": "extractor"}, inplace=True)
+        elif "extractor" not in merged.columns:
+            logger.warning(f"{doc_base}: No extractor column after merge.")
+            return
 
-        # Drop rows without matched sentences
-        initial_count = len(merged)
-        merged = merged[merged["matched_extracted_sentence"].notnull()]
-        final_count = len(merged)
-        logger.info(f"{doc_id}: kept {final_count}/{initial_count} rows with valid matches.")
 
-        # Save output
-        output_path = output_dir / f"{doc_id}_merged.csv"
+        # Fill similarity comparison columns if missing
+        sim_cols = [col for col in merged.columns if "jaccard" in col or "cosine_sim" in col]
+        merged[sim_cols] = merged[sim_cols].fillna(0)
+
+        logger.info(f"{doc_base}: merged {len(merged)} rows across all extractors.")
+
+        # Save merged file
+        output_path = output_dir / f"{doc_base}_merged.csv"
         merged.to_csv(output_path, index=False)
         logger.info(f"✓ Merged: {output_path.name}")
 
     except Exception as e:
-        logger.error(f"✗ Failed on {matched_file.name}: {e}")
-
+        logger.error(f"✗ Failed on {doc_base}: {e}")
 
 def main():
     config = load_config()
-
     matched_dir = Path(config["data_paths"]["DB_matched_sentences"])
     feature_dir = Path(config["data_paths"]["DB_features"])
     output_dir = Path(config["data_paths"]["DB_merged_data"])
@@ -89,16 +90,16 @@ def main():
     clear_directory(output_dir)
 
     matched_files = list(matched_dir.glob("*_matched.csv"))
-    logger.info(f"Found {len(matched_files)} matched files to merge.")
+    doc_bases = sorted(set(f.stem.split("-")[0] for f in matched_files))
+    logger.info(f"Found {len(doc_bases)} documents with matched data.")
 
-    args_list = [(f, feature_dir, output_dir) for f in matched_files]
+    args_list = [(doc_base, matched_dir, feature_dir, output_dir) for doc_base in doc_bases]
 
     cores = min(cpu_count() - 1, 8)
     logger.info(f"Using {cores} CPU cores.")
 
     with Pool(processes=cores) as pool:
-        pool.map(merge_matched_with_features, args_list)
-
+        pool.starmap(merge_matched_with_features, args_list)
 
 if __name__ == "__main__":
     main()

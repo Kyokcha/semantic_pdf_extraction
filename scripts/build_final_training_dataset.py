@@ -20,10 +20,6 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     clear_directory(output_dir)
 
-    training_cfg = config["training_config"]
-    resolve_ties_randomly = training_cfg.get("resolve_ties_randomly", True)
-    random_state = training_cfg.get("seed", 42)
-
     merged_files = list(merged_dir.glob("*_merged.csv"))
     logger.info(f"Found {len(merged_files)} merged files to stack.")
 
@@ -50,8 +46,6 @@ def main():
         full_df,
         feature_cols,
         extractor_name_map,
-        resolve_ties_randomly=resolve_ties_randomly,
-        random_state=random_state
     )
 
     # Save to disk

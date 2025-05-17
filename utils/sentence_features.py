@@ -1,70 +1,109 @@
 # utils/sentence_features.py
 
-import string
 import spacy
+import numpy as np
 import torch
 from transformers import GPT2LMHeadModel, GPT2TokenizerFast
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
 
-# Load spaCy model for POS tagging and tokenization
+# Load models once (global)
 nlp = spacy.load("en_core_web_sm")
-
-# Load lightweight GPT-2 model and tokenizer for perplexity scoring
-gpt2_model = GPT2LMHeadModel.from_pretrained("distilgpt2")
-gpt2_tokenizer = GPT2TokenizerFast.from_pretrained("distilgpt2")
-gpt2_model.eval()  # Set to evaluation mode (no gradient tracking)
+gpt2_model = GPT2LMHeadModel.from_pretrained("gpt2").eval()
+gpt2_tokenizer = GPT2TokenizerFast.from_pretrained("gpt2")
+sbert_model = SentenceTransformer("all-MiniLM-L6-v2")
 
 
-def sentence_features(sentence: str, extractor_name: str) -> dict:
+def get_gpt2_perplexity(sentence):
+    try:
+        encodings = gpt2_tokenizer(sentence, return_tensors="pt", truncation=True, max_length=512)
+        input_ids = encodings.input_ids
+        with torch.no_grad():
+            outputs = gpt2_model(input_ids, labels=input_ids)
+        loss = outputs.loss
+        return torch.exp(loss).item()
+    except Exception:
+        return None
+
+
+def get_sbert_embedding(sentence):
+    try:
+        return sbert_model.encode([sentence])[0]
+    except Exception:
+        return np.zeros(384)
+
+
+def jaccard_similarity(a, b):
+    set_a = set(a.lower().split())
+    set_b = set(b.lower().split())
+    intersection = set_a.intersection(set_b)
+    union = set_a.union(set_b)
+    return len(intersection) / len(union) if union else 0
+
+
+def compute_sentence_features(text):
+    """Basic NLP features for a single sentence."""
+    doc = nlp(text)
+    tokens = [token for token in doc if not token.is_space and not token.is_punct]
+    
+    features = {
+        "num_tokens": len(tokens),
+        "num_chars": len(text),
+        "num_nouns": sum(1 for t in tokens if t.pos_ == "NOUN"),
+        "num_verbs": sum(1 for t in tokens if t.pos_ == "VERB"),
+        "num_adjs": sum(1 for t in tokens if t.pos_ == "ADJ"),
+        "num_advs": sum(1 for t in tokens if t.pos_ == "ADV"),
+        "num_entities": len(doc.ents),
+        "num_sentences": len(list(doc.sents)),
+        "gpt2_perplexity": get_gpt2_perplexity(text),
+        "num_words": len(text.split()),
+        "avg_word_len": sum(len(w) for w in text.split()) / (len(text.split()) + 1e-6),
+        "num_punct": sum(1 for c in text if c in ".,;!?-—()[]{}\"'"),
+        "has_verb": int(any(t.pos_ == "VERB" for t in tokens))
+    }
+
+    emb = get_sbert_embedding(text)
+    for i in range(5):  # optionally truncate
+        features[f"sbert_dim_{i}"] = emb[i]
+
+    return features
+
+
+def inter_extractor_features(current_sentence, other_sentences):
+    """Compare this sentence to the same sentence from other extractors."""
+    features = {}
+    curr_emb = get_sbert_embedding(current_sentence)
+
+    for name, other_sentence in other_sentences.items():
+        jacc = jaccard_similarity(current_sentence, other_sentence)
+        features[f"jaccard_with_{name}"] = jacc
+
+        try:
+            other_emb = get_sbert_embedding(other_sentence)
+            cos_sim = cosine_similarity([curr_emb], [other_emb])[0][0]
+        except:
+            cos_sim = 0.0
+
+        features[f"cosine_sim_with_{name}"] = cos_sim
+
+    return features
+
+
+def sentence_features(row, all_sentences=None):
     """
-    Extract various linguistic and semantic features from a sentence.
-    These can be used to assess sentence quality or train a model.
+    Master function that computes all features for a sentence.
 
     Args:
-        sentence (str): Sentence to extract features from.
-        extractor_name (str): Which extractor produced this sentence.
-
-    Returns:
-        dict: Dictionary of extracted features.
+        row (dict): contains 'extracted_sentence', 'extractor', 'sentence_id', etc.
+        all_sentences (dict): mapping {extractor_name: sentence_text}
     """
-    doc = nlp(sentence)
-    tokens = [token.text for token in doc]
+    text = row.get("extracted_sentence", "")
+    base_feats = compute_sentence_features(text)
 
-    # Surface-level features
-    num_chars = len(sentence)
-    num_words = len(tokens)
-    avg_word_len = sum(len(w) for w in tokens) / max(len(tokens), 1)
-    num_punct = sum(1 for c in sentence if c in string.punctuation)
+    # Inter-extractor features
+    if all_sentences:
+        others = {k: v for k, v in all_sentences.items() if k != row.get("extractor")}
+        base_feats.update(inter_extractor_features(text, others))
 
-    # Part-of-speech (POS) feature counts
-    pos_counts = {pos: 0 for pos in ['VERB', 'NOUN', 'ADJ', 'ADV']}
-    for token in doc:
-        if token.pos_ in pos_counts:
-            pos_counts[token.pos_] += 1
+    return base_feats
 
-    has_verb = pos_counts["VERB"] > 0
-
-    # GPT-2 perplexity: lower = more semantically plausible sentence
-    try:
-        encoded = gpt2_tokenizer.encode(sentence, return_tensors='pt')
-        with torch.no_grad():
-            output = gpt2_model(encoded, labels=encoded)
-            loss = output.loss
-            perplexity = torch.exp(loss).item()
-    except Exception:
-        # If model fails (e.g., empty sentence), return high perplexity
-        perplexity = 1000
-
-    return {
-        "sentence": sentence,
-        "extractor": extractor_name,
-        "num_chars": num_chars,
-        "num_words": num_words,
-        "avg_word_len": avg_word_len,
-        "num_punct": num_punct,
-        "has_verb": has_verb,
-        "num_verbs": pos_counts["VERB"],
-        "num_nouns": pos_counts["NOUN"],
-        "num_adjs": pos_counts["ADJ"],
-        "num_advs": pos_counts["ADV"],
-        "gpt2_perplexity": perplexity
-    }

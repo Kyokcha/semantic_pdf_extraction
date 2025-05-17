@@ -13,71 +13,98 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def process_file(args):
-    """
-    Process a single CSV file to extract linguistic and structural features from each sentence.
+def merge_extractor_files_for_doc(doc_id, extractor_files):
+    """Merge all extractor outputs for one document into a single DataFrame."""
+    dfs = []
+    for path in extractor_files:
+        df = pd.read_csv(path)
+        if {"sentence_id", "extractor", "extracted_sentence"}.issubset(df.columns):
+            dfs.append(df)
+    if dfs:
+        merged = pd.concat(dfs, ignore_index=True)
+        merged["article_id"] = doc_id
+        return merged
+    else:
+        return pd.DataFrame()
 
-    Args:
-        args (tuple): (csv_path, feature_dir)
-    """
-    csv_path, feature_dir = args
+
+def process_document(args):
+    doc_id, extractor_paths, feature_dir = args
     try:
-        df = pd.read_csv(csv_path)
-
-        # Ensure required columns exist
-        if "extracted_sentence" not in df.columns or "extractor" not in df.columns:
-            logger.warning(f"Skipping {csv_path.name}: missing required columns")
+        df = merge_extractor_files_for_doc(doc_id, extractor_paths)
+        if df.empty:
+            logger.warning(f"Skipping {doc_id}: no valid extractor outputs")
             return
 
-        # Ensure all sentences are strings
         df["extracted_sentence"] = df["extracted_sentence"].astype(str)
+        grouped = df.groupby("sentence_id")
+        enriched_rows = []
 
-        # Extract features with basic validation
-        features = [
-            sentence_features.sentence_features(row["extracted_sentence"], row["extractor"])
-            if row["extracted_sentence"].lower() != "nan" and row["extracted_sentence"].strip()
-            else {}
-            for _, row in df.iterrows()
-        ]
-        features_df = pd.DataFrame(features)
+        for sentence_id, group in grouped:
+            # Map: extractor → sentence string
+            sentence_versions = {
+                row["extractor"]: row["extracted_sentence"]
+                for _, row in group.iterrows()
+                if isinstance(row["extracted_sentence"], str) and row["extracted_sentence"].strip()
+            }
 
-        # Merge original metadata with features
-        enriched_df = pd.concat([df.reset_index(drop=True), features_df], axis=1)
+            for _, row in group.iterrows():
+                text = row["extracted_sentence"]
+                if not isinstance(text, str) or text.strip().lower() == "nan":
+                    continue
 
-        # Save to features directory
-        output_path = feature_dir / csv_path.name
-        enriched_df.to_csv(output_path, index=False)
-        logger.info(f"✓ Processed: {csv_path.name}")
+                extractor = row["extractor"]
+
+                # Remove self from comparison list for inter-extractor features
+                other_versions = {
+                    name: sent for name, sent in sentence_versions.items()
+                    if name != extractor
+                }
+
+                feats = sentence_features.sentence_features(
+                    row=row,
+                    all_sentences=other_versions,
+                )
+
+                enriched_row = row.to_dict()
+                enriched_row.update(feats)
+                enriched_rows.append(enriched_row)
+
+        if enriched_rows:
+            enriched_df = pd.DataFrame(enriched_rows)
+            output_path = feature_dir / f"{doc_id}.csv"
+            enriched_df.to_csv(output_path, index=False)
+            logger.info(f"✓ Processed: {doc_id}")
+        else:
+            logger.warning(f"No valid rows for {doc_id}")
+
     except Exception as e:
-        logger.error(f"✗ Failed on {csv_path.name}: {e}")
+        logger.error(f"✗ Failed on {doc_id}: {e}")
 
 
 def main():
-    """
-    Main control flow for batch feature extraction from sentence CSVs.
-    Uses multiprocessing for efficiency.
-    """
     config = load_config()
-
     extracted_dir = Path(config["data_paths"]["DB_extracted_sentences"])
     feature_dir = Path(config["data_paths"]["DB_features"])
     feature_dir.mkdir(parents=True, exist_ok=True)
 
-    # Optional: clear any existing outputs
     clear_directory(feature_dir)
 
-    csv_files = list(extracted_dir.glob("*.csv"))
-    logger.info(f"Found {len(csv_files)} sentence files to process.")
+    # Collect all CSVs and group by doc_id prefix (before "-ocr.csv")
+    extractor_files = list(extracted_dir.glob("*.csv"))
+    doc_groups = {}
+    for path in extractor_files:
+        doc_id = path.name.split("-")[0]
+        doc_groups.setdefault(doc_id, []).append(path)
 
-    # Decide on number of cores to use
+    logger.info(f"Found {len(doc_groups)} documents with extractor outputs.")
     usable_cores = min(8, cpu_count() - 1)
     logger.info(f"Using {usable_cores} CPU cores.")
 
-    args_list = [(csv_path, feature_dir) for csv_path in csv_files]
+    args_list = [(doc_id, paths, feature_dir) for doc_id, paths in doc_groups.items()]
 
-    # Run in parallel
     with Pool(processes=usable_cores) as pool:
-        pool.map(process_file, args_list)
+        pool.map(process_document, args_list)
 
 
 if __name__ == "__main__":

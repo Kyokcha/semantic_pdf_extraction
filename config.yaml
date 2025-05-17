@@ -12,13 +12,14 @@ data_paths:
   DB_features: "data/DB_features"
   DB_embeddings_GT: "data/DB_embeddings_GT"
   DB_embeddings_PDF: "data/DB_embeddings_PDF"
-  DB_clustered_sentences: "data/DB_clustered_sentences"
-  DB_clustered_embeddings: "data/DB_clustered_embeddings"
+  # DB_clustered_sentences: "data/DB_clustered_sentences"
+  # DB_clustered_embeddings: "data/DB_clustered_embeddings"
   DB_matched_sentences: "data/DB_matched_sentences"
   DB_merged_data: "data/DB_merged_data"
   DB_final_training_data: "data/DB_final_training_data"
   DB_extractor_summary: "data/DB_extractor_summary"
   DB_model_outputs: "data/DB_model_outputs"
+  DB_evaluation_outputs: "data/DB_evaluation_outputs"
   # jsons: "data/jsons"
   # extracted: "data/extracted"
   # extracted_sentences: "data/extracted_sentences"
@@ -54,33 +55,43 @@ extraction:
 
 pipeline:
   setup_docbank: false
-  parse_to_json: false
-  run_extractors: false
-  generate_gt_sentences: false
-  generate_extracted_sentences: false
-  extract_features: false
-  embed_gt: false
-  embed_extracted: false
-  cluster_extracted: false
-  match_sentences: false
-  merged_data: false
-  final_training_dataset: false
-  run_model: false
+  parse_to_json: true
+  run_extractors: true
+  generate_gt_sentences: true
+  generate_extracted_sentences: true
+  extract_features: true
+  embed_gt: true
+  embed_extracted: true
+  # cluster_extracted: false
+  match_sentences: true
+  merged_data: true
+  final_training_dataset: true
+  run_model: true
   # rebuild_documents: true
-  # evaluate: true
+  evaluate: true
 
 features_to_use:
-  - similarity_score
+  # Structural
   - num_chars
   - num_words
   - avg_word_len
   - num_punct
+  # Syntactic
   - has_verb
   - num_verbs
   - num_nouns
   - num_adjs
   - num_advs
+  # Fluency
   - gpt2_perplexity
+  # Inter-extractor similarity
+  - jaccard_with_ocr
+  - jaccard_with_plumber
+  - jaccard_with_pypdf2
+  - cosine_sim_with_ocr
+  - cosine_sim_with_plumber
+  - cosine_sim_with_pypdf2
+
 
 extractor_name_map:
   pypdf2: extractor_1

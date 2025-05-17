@@ -4,7 +4,6 @@ import pandas as pd
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 from utils.config import load_config
-
 from models.base import evaluate_model
 from models.random_forest import train_random_forest
 from models.logistic_regression import train_logistic_regression
@@ -42,8 +41,7 @@ def train_model(data_path: str, target_col: str = 'best_extractor', test_size: f
 
     # Prepare features
     drop_cols = ['article_id', 'gt_sentence_id', 'best_extractor', 'is_tie',
-                 'sentence_pypdf2', 'sentence_ocr', 'sentence_plumber',
-                 'similarity_score_pypdf2', 'similarity_score_ocr', 'similarity_score_plumber']
+                 'sentence_pypdf2', 'sentence_ocr', 'sentence_plumber']
     X_train = train_df.drop(columns=drop_cols)
     y_train = train_df['best_extractor']
     X_test = test_df.drop(columns=drop_cols)
