@@ -41,7 +41,8 @@ def train_model(data_path: str, target_col: str = 'best_extractor', test_size: f
 
     # Prepare features
     drop_cols = ['article_id', 'gt_sentence_id', 'best_extractor', 'is_tie',
-                 'sentence_pypdf2', 'sentence_ocr', 'sentence_plumber']
+                 'sentence_pypdf2', 'sentence_ocr', 'sentence_plumber', 'similarity_score_pypdf2',
+                 'similarity_score_ocr', 'similarity_score_plumber']
     X_train = train_df.drop(columns=drop_cols)
     y_train = train_df['best_extractor']
     X_test = test_df.drop(columns=drop_cols)

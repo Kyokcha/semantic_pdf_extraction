@@ -59,7 +59,7 @@ def main():
 
     # restrict to first 40 files. replace with commented text below to run for all files
     pdf_paths = sorted(pdf_dir.glob("doc_*.pdf"))
-    pdf_paths = [p for p in pdf_paths if p.stem[-3:].isdigit() and 1 <= int(p.stem[-3:]) <= 40]
+    pdf_paths = [p for p in pdf_paths if p.stem[-3:].isdigit() and 1 <= int(p.stem[-3:]) <= 100]
     logger.info(f"Filtered to {len(pdf_paths)} PDF files for test batch (doc_001 to doc_040).")
     
     # pdf_paths = list(pdf_dir.glob("*.pdf"))
