@@ -106,8 +106,8 @@ model_config:
   model_selection:
     random_forest: true
     logistic_regression: false
-    xgboost: false
-    lightgbm: false
+    xgboost: true
+    lightgbm: true
   data_selection:
     default: true
   data_paths:

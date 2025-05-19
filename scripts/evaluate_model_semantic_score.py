@@ -4,6 +4,8 @@ import pandas as pd
 from pathlib import Path
 from utils.config import load_config
 import logging
+from scipy.stats import ttest_ind
+import numpy as np
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -45,17 +47,96 @@ def main():
 
     data["predicted_similarity"] = data.apply(get_predicted_score, axis=1)
 
-    # Group by article and compute means
-    summary = data.groupby("article_id").agg({
-        "predicted_similarity": "mean",
-        "similarity_score_ocr": "mean",
-        "similarity_score_plumber": "mean",
-        "similarity_score_pypdf2": "mean"
-    }).reset_index()
+    # Compute best extractor per row
+    def get_best_extractor(row):
+        scores = {
+            "pypdf2": row["similarity_score_pypdf2"],
+            "ocr": row["similarity_score_ocr"],
+            "plumber": row["similarity_score_plumber"]
+        }
+        return max(scores, key=scores.get)
 
-    # Save output
+    data["best_extractor"] = data.apply(get_best_extractor, axis=1)
+
+    # Per-document t-tests
+    results = []
+
+    for article_id, group in data.groupby("article_id"):
+        predicted_scores = group["predicted_similarity"].dropna()
+        best_extractor = group["best_extractor"].mode()[0]
+        best_scores = group[f"similarity_score_{best_extractor}"].dropna()
+
+        if len(predicted_scores) > 1 and len(best_scores) > 1:
+            t_stat, p_val = ttest_ind(predicted_scores, best_scores, equal_var=False)
+        else:
+            t_stat, p_val = np.nan, np.nan
+
+        if pd.isna(p_val):
+            result = "Insufficient data"
+        elif p_val < 0.05:
+            if predicted_scores.mean() > best_scores.mean():
+                result = "Model significantly better"
+            else:
+                result = "Best extractor significantly better"
+        else:
+            result = "Tie"
+
+        results.append({
+            "article_id": article_id,
+            "predicted_similarity": predicted_scores.mean(),
+            "similarity_score_pypdf2": group["similarity_score_pypdf2"].mean(),
+            "similarity_score_ocr": group["similarity_score_ocr"].mean(),
+            "similarity_score_plumber": group["similarity_score_plumber"].mean(),
+            "best_extractor": best_extractor,
+            "t_statistic": t_stat,
+            "p_value": p_val,
+            "comparison_result": result
+        })
+
+    summary = pd.DataFrame(results)
+
+    # Save per-document comparison
     summary.to_csv(output_path, index=False)
     logger.info(f"✓ Saved semantic similarity comparison to {output_path}")
+
+    # === Aggregate-level t-tests across all sentences ===
+
+    logger.info("Running aggregate-level t-tests...")
+
+    all_model_scores = data['predicted_similarity'].dropna()
+    all_pypdf2_scores = data['similarity_score_pypdf2'].dropna()
+    all_ocr_scores = data['similarity_score_ocr'].dropna()
+    all_plumber_scores = data['similarity_score_plumber'].dropna()
+
+    def compare_extractors(model_scores, other_scores, other_name):
+        t_stat, p_val = ttest_ind(model_scores, other_scores, equal_var=False)
+        model_mean = model_scores.mean()
+        other_mean = other_scores.mean()
+        if p_val < 0.05:
+            if model_mean > other_mean:
+                result = f"Model significantly better than {other_name}"
+            else:
+                result = f"{other_name} significantly better than Model"
+        else:
+            result = f"Tie with {other_name}"
+        return {
+            "extractor": other_name,
+            "model_mean": model_mean,
+            "other_mean": other_mean,
+            "t_statistic": t_stat,
+            "p_value": p_val,
+            "comparison_result": result
+        }
+
+    aggregate_results = [
+        compare_extractors(all_model_scores, all_pypdf2_scores, "pypdf2"),
+        compare_extractors(all_model_scores, all_ocr_scores, "ocr"),
+        compare_extractors(all_model_scores, all_plumber_scores, "plumber")
+    ]
+
+    aggregate_df = pd.DataFrame(aggregate_results)
+    print("\n=== Aggregate Comparison Across All Documents ===")
+    print(aggregate_df.to_string(index=False))
 
 
 if __name__ == "__main__":
