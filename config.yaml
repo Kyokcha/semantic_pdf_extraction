@@ -12,27 +12,12 @@ data_paths:
   DB_features: "data/DB_features"
   DB_embeddings_GT: "data/DB_embeddings_GT"
   DB_embeddings_PDF: "data/DB_embeddings_PDF"
-  # DB_clustered_sentences: "data/DB_clustered_sentences"
-  # DB_clustered_embeddings: "data/DB_clustered_embeddings"
   DB_matched_sentences: "data/DB_matched_sentences"
   DB_merged_data: "data/DB_merged_data"
   DB_final_training_data: "data/DB_final_training_data"
   DB_extractor_summary: "data/DB_extractor_summary"
   DB_model_outputs: "data/DB_model_outputs"
   DB_evaluation_outputs: "data/DB_evaluation_outputs"
-  # jsons: "data/jsons"
-  # extracted: "data/extracted"
-  # extracted_sentences: "data/extracted_sentences"
-  # embeddings_PDF: "data/embeddings_PDF"
-  # embeddings_GT: "data/embeddings_GT"
-  # extractor_summary: "data/extractor_summary"
-  # features: "data/features"
-  # matched_sentences: "data/matched_sentences"
-  # merged_data: "data/merged_data"
-  # final_training_data: "data/final_training_data"
-  # model_outputs: "data/model_outputs"
-  # rebuilt_documents: "data/rebuilt_documents"
-  # evaluation_outputs: "data/evaluation_outputs"
 
 docbank_processing:
   line_y_tolerance: 5
@@ -62,12 +47,10 @@ pipeline:
   extract_features: true
   embed_gt: true
   embed_extracted: true
-  # cluster_extracted: false
   match_sentences: true
   merged_data: true
   final_training_dataset: true
   run_model: true
-  # rebuild_documents: true
   evaluate: true
 
 features_to_use:
