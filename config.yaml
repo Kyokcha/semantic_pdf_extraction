@@ -22,16 +22,6 @@ data_paths:
 docbank_processing:
   line_y_tolerance: 5
 
-pdf_generation:
-  layouts:  # Enable/disable layouts here
-    one_column: true
-    two_column: true
-    header_footer: true
-    mixed_format: true
-    side_bar: true
-    three_col: true
-    two_col_min: true
-
 extraction:
   extractors:
     pypdf2: true
@@ -89,8 +79,8 @@ model_config:
   model_selection:
     random_forest: true
     logistic_regression: false
-    xgboost: true
-    lightgbm: true
+    xgboost: false
+    lightgbm: false
   data_selection:
     default: true
   data_paths:

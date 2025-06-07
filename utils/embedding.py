@@ -2,6 +2,7 @@
 
 import torch
 import pandas as pd
+from pathlib import Path
 from sentence_transformers import SentenceTransformer
 
 _model = None  # Global variable to hold the loaded model
