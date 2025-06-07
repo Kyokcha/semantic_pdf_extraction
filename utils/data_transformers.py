@@ -1,4 +1,4 @@
-# utils/data_transformers.py
+"""Transform and restructure data for model training and evaluation."""
 
 import pandas as pd
 from typing import List, Dict
@@ -11,12 +11,27 @@ def flatten_extractor_outputs(
     df: pd.DataFrame,
     feature_cols: List[str],
     name_map: Dict[str, str],
-    group_col: str = 'gt_sentence_id',
+    group_col: str = 'gt_sentence_id'
 ) -> pd.DataFrame:
-    """
-    Flatten a long-format dataframe so that each row corresponds to one ground truth sentence,
-    with features from each extractor flattened into separate columns, and duplicate rows
-    created when multiple extractors tie for the highest similarity score.
+    """Transform long-format extractor outputs into wide format for model training.
+    
+    Args:
+        df (pd.DataFrame): Input DataFrame in long format.
+        feature_cols (List[str]): List of feature columns to pivot.
+        name_map (Dict[str, str]): Mapping of extractor names to internal IDs.
+        group_col (str, optional): Column to group by. Defaults to 'gt_sentence_id'.
+    
+    Returns:
+        pd.DataFrame: Wide-format DataFrame with features and sentences from all extractors.
+    
+    Note:
+        Creates duplicate rows when multiple extractors tie for highest similarity.
+        Always includes 'similarity_score' in pivoting even if not in feature_cols.
+        Handles both 'extracted_sentence' and 'matched_extracted_sentence' columns.
+        
+    Raises:
+        ValueError: If required sentence column is missing.
+        KeyError: If specified feature columns are not found.
     """
     # Map extractors to internal column-safe names
     df['extractor_id'] = df['extractor'].map(name_map)

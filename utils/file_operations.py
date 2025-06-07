@@ -1,17 +1,19 @@
-# utils/file_operations.py
+"""File system utilities for directory management."""
 
 import shutil
 from pathlib import Path
 
 
-def clear_directory(directory_path):
-    """
-    Ensures a directory exists and is empty.
-    If the directory exists, its contents will be removed.
-    If it doesn't exist, it will be created (including any parent directories).
+def clear_directory(directory_path: str | Path) -> None:
+    """Ensure a directory exists and is empty.
     
     Args:
-        directory_path (str or Path): Path to the directory to be cleared/created
+        directory_path (str | Path): Path to the directory to manage.
+    
+    Note:
+        Creates directory (and parents) if it doesn't exist.
+        Removes all contents if directory exists.
+        Handles both files and subdirectories.
     """
     directory_path = Path(directory_path)  # Convert to Path object if it's a string
     

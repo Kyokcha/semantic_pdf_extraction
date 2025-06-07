@@ -1,4 +1,4 @@
-# utils/sentence_features.py
+"""Generate linguistic and semantic features from sentences for model training."""
 
 import spacy
 import numpy as np
@@ -14,7 +14,18 @@ gpt2_tokenizer = GPT2TokenizerFast.from_pretrained("gpt2")
 sbert_model = SentenceTransformer("all-MiniLM-L6-v2")
 
 
-def get_gpt2_perplexity(sentence):
+def get_gpt2_perplexity(sentence: str) -> float | None:
+    """Calculate GPT-2 perplexity score for a sentence.
+    
+    Args:
+        sentence (str): Input text to evaluate.
+    
+    Returns:
+        float | None: Perplexity score or None if calculation fails.
+    
+    Note:
+        Truncates input to 512 tokens maximum.
+    """
     try:
         encodings = gpt2_tokenizer(sentence, return_tensors="pt", truncation=True, max_length=512)
         input_ids = encodings.input_ids
@@ -26,14 +37,35 @@ def get_gpt2_perplexity(sentence):
         return None
 
 
-def get_sbert_embedding(sentence):
+def get_sbert_embedding(sentence: str) -> np.ndarray:
+    """Generate sentence embedding using SBERT.
+    
+    Args:
+        sentence (str): Input text to embed.
+    
+    Returns:
+        np.ndarray: 384-dimensional embedding vector.
+        Returns zero vector if embedding fails.
+    """
     try:
         return sbert_model.encode([sentence])[0]
     except Exception:
         return np.zeros(384)
 
 
-def jaccard_similarity(a, b):
+def jaccard_similarity(a: str, b: str) -> float:
+    """Calculate Jaccard similarity between two strings.
+    
+    Args:
+        a (str): First string to compare.
+        b (str): Second string to compare.
+    
+    Returns:
+        float: Similarity score between 0 and 1.
+    
+    Note:
+        Tokenizes by whitespace and converts to lowercase before comparison.
+    """
     set_a = set(a.lower().split())
     set_b = set(b.lower().split())
     intersection = set_a.intersection(set_b)
@@ -41,8 +73,20 @@ def jaccard_similarity(a, b):
     return len(intersection) / len(union) if union else 0
 
 
-def compute_sentence_features(text):
-    """Basic NLP features for a single sentence."""
+def compute_sentence_features(text: str) -> dict:
+    """Extract linguistic features from a sentence.
+    
+    Args:
+        text (str): Input sentence to analyze.
+    
+    Returns:
+        dict: Features including token counts, POS tags, perplexity,
+              and first 5 dimensions of SBERT embedding.
+    
+    Note:
+        Ignores spaces and punctuation in token counts.
+        Uses spaCy for linguistic analysis and named entity recognition.
+    """
     doc = nlp(text)
     tokens = [token for token in doc if not token.is_space and not token.is_punct]
     
@@ -69,8 +113,20 @@ def compute_sentence_features(text):
     return features
 
 
-def inter_extractor_features(current_sentence, other_sentences):
-    """Compare this sentence to the same sentence from other extractors."""
+def inter_extractor_features(current_sentence: str, other_sentences: dict) -> dict:
+    """Compare a sentence against versions from other extractors.
+    
+    Args:
+        current_sentence (str): Sentence to compare.
+        other_sentences (dict): Mapping of extractor names to their versions.
+    
+    Returns:
+        dict: Jaccard and cosine similarities with each other extractor.
+    
+    Note:
+        Cosine similarity uses SBERT embeddings for comparison.
+        Returns 0.0 for cosine similarity if embedding fails.
+    """
     features = {}
     curr_emb = get_sbert_embedding(current_sentence)
 
@@ -89,13 +145,19 @@ def inter_extractor_features(current_sentence, other_sentences):
     return features
 
 
-def sentence_features(row, all_sentences=None):
-    """
-    Master function that computes all features for a sentence.
-
+def sentence_features(row: dict, all_sentences: dict | None = None) -> dict:
+    """Generate all features for a sentence, including inter-extractor comparisons.
+    
     Args:
-        row (dict): contains 'extracted_sentence', 'extractor', 'sentence_id', etc.
-        all_sentences (dict): mapping {extractor_name: sentence_text}
+        row (dict): Row containing 'extracted_sentence', 'extractor', etc.
+        all_sentences (dict, optional): Mapping of extractor names to sentences.
+    
+    Returns:
+        dict: Combined linguistic and comparison features.
+    
+    Note:
+        Combines basic linguistic features with inter-extractor comparisons
+        when all_sentences is provided.
     """
     text = row.get("extracted_sentence", "")
     base_feats = compute_sentence_features(text)
@@ -106,4 +168,3 @@ def sentence_features(row, all_sentences=None):
         base_feats.update(inter_extractor_features(text, others))
 
     return base_feats
-

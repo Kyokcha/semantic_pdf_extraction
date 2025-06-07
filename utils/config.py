@@ -1,7 +1,8 @@
-# Simple helper to call the config.yaml file when required
+"""Configuration loading utility for accessing YAML settings."""
+
 import yaml
 
 
-def load_config(path="config.yaml"):
+def load_config(path: str = "config.yaml") -> dict:
     with open(path, "r") as file:
         return yaml.safe_load(file)
