@@ -1,4 +1,4 @@
-# scripts/generate_gt_sentences.py
+"""Convert ground truth JSON files to structured CSV format using parallel processing."""
 
 import json
 import pandas as pd
@@ -8,8 +8,19 @@ from utils.file_operations import clear_directory
 from multiprocessing import Pool, cpu_count
 
 
-def process_json(json_path_output_tuple):
-    json_path, output_dir = json_path_output_tuple
+def process_json(args: tuple) -> None:
+    """Process a single JSON file into structured sentence data.
+    
+    Args:
+        args (tuple): Contains (json_path, output_dir) where:
+            - json_path (Path): Path to input JSON file
+            - output_dir (Path): Directory for saving CSV output
+    
+    Note:
+        Generates unique sentence IDs using article_id and sequence number.
+        Uses entry 'type' field as section identifier.
+    """
+    json_path, output_dir = args
 
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -32,7 +43,16 @@ def process_json(json_path_output_tuple):
     print(f"✓ Saved GT: {out_file.name}")
 
 
-def main():
+def main() -> None:
+    """Convert all ground truth JSON files to CSV format.
+    
+    Processes JSON files containing manually annotated sentences into
+    structured CSV format suitable for further processing.
+    
+    Note:
+        Uses (CPU core count - 1) up to max 8 cores for parallel processing.
+        Output directory is cleared before processing starts.
+    """
     config = load_config()
     input_dir = Path(config["data_paths"]["DB_jsons"])
     output_dir = Path(config["data_paths"]["DB_ground_truth"])

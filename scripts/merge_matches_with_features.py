@@ -1,4 +1,4 @@
-# scripts/merge_matches_with_features.py
+"""Merge matched sentences with their extracted features for model training."""
 
 import pandas as pd
 from pathlib import Path
@@ -11,7 +11,22 @@ from multiprocessing import Pool, cpu_count
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def merge_matched_with_features(doc_base, matched_dir, feature_dir, output_dir):
+
+def merge_matched_with_features(doc_base: str, matched_dir: Path, 
+                              feature_dir: Path, output_dir: Path) -> None:
+    """Merge matched sentences with their features for a single document.
+    
+    Args:
+        doc_base (str): Base document identifier (e.g., 'doc_001')
+        matched_dir (Path): Directory containing matched sentence CSVs
+        feature_dir (Path): Directory containing feature CSVs
+        output_dir (Path): Directory for saving merged outputs
+    
+    Note:
+        Handles multiple extractors per document.
+        Missing similarity scores are filled with 0.
+        Maintains clean versions of extracted_sentence and extractor columns.
+    """
     try:
         # Gather all extractor-specific matches for this doc
         matched_paths = list(matched_dir.glob(f"{doc_base}-*_matched.csv"))
@@ -66,7 +81,6 @@ def merge_matched_with_features(doc_base, matched_dir, feature_dir, output_dir):
             logger.warning(f"{doc_base}: No extractor column after merge.")
             return
 
-
         # Fill similarity comparison columns if missing
         sim_cols = [col for col in merged.columns if "jaccard" in col or "cosine_sim" in col]
         merged[sim_cols] = merged[sim_cols].fillna(0)
@@ -81,7 +95,17 @@ def merge_matched_with_features(doc_base, matched_dir, feature_dir, output_dir):
     except Exception as e:
         logger.error(f"✗ Failed on {doc_base}: {e}")
 
-def main():
+
+def main() -> None:
+    """Merge matched sentences with features for all documents.
+    
+    Combines matched sentence data with extracted features, processing
+    each document independently in parallel.
+    
+    Note:
+        Uses (CPU core count - 1) up to max 8 cores for parallel processing.
+        Output directory is cleared before processing starts.
+    """
     config = load_config()
     matched_dir = Path(config["data_paths"]["DB_matched_sentences"])
     feature_dir = Path(config["data_paths"]["DB_features"])
@@ -100,6 +124,7 @@ def main():
 
     with Pool(processes=cores) as pool:
         pool.starmap(merge_matched_with_features, args_list)
+
 
 if __name__ == "__main__":
     main()

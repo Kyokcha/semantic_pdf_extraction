@@ -1,4 +1,4 @@
-# scripts/training_data_summary.py
+"""Generate summary statistics for extractor performance across the dataset."""
 
 import pandas as pd
 from pathlib import Path
@@ -6,7 +6,17 @@ from collections import defaultdict
 from utils.config import load_config
 
 
-def main():
+def main() -> None:
+    """Calculate and save extractor performance summary by document.
+    
+    Processes the final training dataset to compute the proportion of best
+    extractions achieved by each extractor method per document.
+    
+    Note:
+        Handles ties by splitting credit equally among tied extractors.
+        Skips sentences where all extractors score 0 or NA.
+        Rounds proportions to 4 decimal places.
+    """
     config = load_config()
 
     input_path = Path(config["data_paths"]["DB_final_training_data"]) / "training_data.csv"

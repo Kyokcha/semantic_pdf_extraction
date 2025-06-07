@@ -1,4 +1,4 @@
-# scripts/match_by_hungarian_algorithm.py
+"""Match extracted sentences to ground truth using Hungarian algorithm and cosine similarity."""
 
 import torch
 import pandas as pd
@@ -15,12 +15,32 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def load_embeddings(path):
+def load_embeddings(path: Path) -> tuple[list[str], torch.Tensor]:
+    """Load sentence embeddings from a PyTorch file.
+    
+    Args:
+        path (Path): Path to the .pt file containing embeddings.
+    
+    Returns:
+        tuple: Contains (sentence_ids, embeddings) where:
+            - sentence_ids (list[str]): List of sentence identifiers
+            - embeddings (torch.Tensor): Matrix of sentence embeddings
+    """
     data = torch.load(path)
     return data["ids"], data["embeddings"].cpu().numpy()
 
 
-def extract_layout_and_extractor(stem):
+def extract_layout_and_extractor(stem: str) -> tuple[str, str]:
+    """Extract layout type and extractor name from filename.
+    
+    Args:
+        stem (str): Filename stem to parse.
+    
+    Returns:
+        tuple[str, str]: Contains (layout_type, extractor_name).
+        Returns ('na', extractor) if no layout info found.
+        Returns ('unknown', 'unknown') if format is unexpected.
+    """
     parts = stem.split("-")
     if len(parts) == 2:
         return "na", parts[1]
@@ -29,7 +49,18 @@ def extract_layout_and_extractor(stem):
         return "unknown", "unknown"
 
 
-def process_article(args):
+def process_article(args: tuple) -> None:
+    """Match extracted sentences to ground truth for a single article.
+    
+    Args:
+        args (tuple): Contains (article_id, gt_csv_dir, gt_emb_dir, 
+                               extracted_csv_dir, extracted_emb_dir, output_dir)
+    
+    Note:
+        Uses Hungarian algorithm to find optimal matching based on cosine similarity.
+        Processes each extractor's output separately.
+        Saves matches with similarity scores to CSV files.
+    """
     article_id, gt_csv_dir, gt_emb_dir, extracted_csv_dir, extracted_emb_dir, output_dir = args
 
     gt_csv = gt_csv_dir / f"{article_id}_manual.csv"
@@ -91,7 +122,17 @@ def process_article(args):
         logger.info(f"✓ Saved: {output_path.name} ({len(out_df)} matches)")
 
 
-def main():
+def main() -> None:
+    """Match extracted sentences to ground truth for all articles.
+    
+    Loads embeddings for ground truth and extracted sentences, then finds
+    optimal matches using the Hungarian algorithm and cosine similarity.
+    
+    Note:
+        Uses (CPU core count - 1) up to max 8 cores for parallel processing.
+        Output directory is cleared before processing starts.
+        Skips articles with missing or mismatched data.
+    """
     config = load_config()
 
     gt_csv_dir = Path(config["data_paths"]["DB_ground_truth"])

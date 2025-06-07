@@ -1,4 +1,4 @@
-# scripts/embed_groundtruth_sentences.py
+"""Generate sentence embeddings for ground truth text using parallel processing."""
 
 import logging
 from pathlib import Path
@@ -12,7 +12,18 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def embed_csv_file(args):
+def embed_csv_file(args: tuple) -> None:
+    """Embed sentences from a single ground truth CSV file.
+    
+    Args:
+        args (tuple): Contains (csv_path, output_dir) where:
+            - csv_path (Path): Path to input CSV file
+            - output_dir (Path): Directory for saving embeddings
+    
+    Note:
+        Saves embeddings in PyTorch format (.pt files).
+        Logs success or failure for each file processed.
+    """
     csv_path, output_dir = args
     out_path = output_dir / f"{csv_path.stem}.pt"
 
@@ -23,7 +34,16 @@ def embed_csv_file(args):
         logger.error(f"Failed to embed {csv_path.name}: {e}")
 
 
-def main():
+def main() -> None:
+    """Process all ground truth files to generate embeddings.
+    
+    Reads CSV files containing ground truth sentences and generates embeddings
+    using parallel processing for efficiency.
+    
+    Note:
+        Uses (CPU core count - 1) up to max 8 cores for parallel processing.
+        Output directory is cleared before processing starts.
+    """
     config = load_config()
 
     input_dir = Path(config["data_paths"]["DB_ground_truth"])
