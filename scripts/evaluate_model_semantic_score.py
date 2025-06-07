@@ -1,4 +1,4 @@
-# scripts/evaluate_model_semantic_score.py
+"""Evaluate model performance using semantic similarity scores and statistical tests."""
 
 import pandas as pd
 from pathlib import Path
@@ -12,7 +12,79 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def main():
+def get_predicted_score(row: pd.Series) -> float:
+    """Get similarity score for the predicted extractor.
+    
+    Args:
+        row (pd.Series): DataFrame row containing predictions and scores.
+    
+    Returns:
+        float: Similarity score for the predicted extractor.
+    """
+    key = f"similarity_score_{row['predicted_extractor']}"
+    return row.get(key, None)
+
+
+def get_best_extractor(row: pd.Series) -> str:
+    """Determine best extractor based on similarity scores.
+    
+    Args:
+        row (pd.Series): DataFrame row containing similarity scores.
+    
+    Returns:
+        str: Name of extractor with highest similarity score.
+    """
+    scores = {
+        "pypdf2": row["similarity_score_pypdf2"],
+        "ocr": row["similarity_score_ocr"],
+        "plumber": row["similarity_score_plumber"]
+    }
+    return max(scores, key=scores.get)
+
+
+def compare_extractors(model_scores: pd.Series, other_scores: pd.Series, 
+                      other_name: str) -> dict:
+    """Compare model scores against another extractor using t-test.
+    
+    Args:
+        model_scores (pd.Series): Similarity scores from model predictions.
+        other_scores (pd.Series): Similarity scores from comparison extractor.
+        other_name (str): Name of comparison extractor.
+    
+    Returns:
+        dict: Comparison results including means, t-stat, p-value and interpretation.
+    """
+    t_stat, p_val = ttest_ind(model_scores, other_scores, equal_var=False)
+    model_mean = model_scores.mean()
+    other_mean = other_scores.mean()
+    if p_val < 0.05:
+        if model_mean > other_mean:
+            result = f"Model significantly better than {other_name}"
+        else:
+            result = f"{other_name} significantly better than Model"
+    else:
+        result = f"Tie with {other_name}"
+    return {
+        "extractor": other_name,
+        "model_mean": model_mean,
+        "other_mean": other_mean,
+        "t_statistic": t_stat,
+        "p_value": p_val,
+        "comparison_result": result
+    }
+
+
+def main() -> None:
+    """Evaluate model performance through statistical comparison of similarity scores.
+    
+    Performs both document-level and aggregate-level t-tests comparing model
+    predictions against individual extractors.
+    
+    Note:
+        Uses Welch's t-test (unequal variance) for all comparisons.
+        Significance level is set at p < 0.05.
+        Outputs per-document comparisons to CSV and prints aggregate results.
+    """
     config = load_config()
 
     pred_path = Path(config["data_paths"]["DB_model_outputs"]) / "model_predictions.csv"
@@ -40,22 +112,8 @@ def main():
     ]
     data = merged[cols].copy()
 
-    # Compute predicted extractor score for each row
-    def get_predicted_score(row):
-        key = f"similarity_score_{row['predicted_extractor']}"
-        return row.get(key, None)
-
+    # Compute scores and best extractors
     data["predicted_similarity"] = data.apply(get_predicted_score, axis=1)
-
-    # Compute best extractor per row
-    def get_best_extractor(row):
-        scores = {
-            "pypdf2": row["similarity_score_pypdf2"],
-            "ocr": row["similarity_score_ocr"],
-            "plumber": row["similarity_score_plumber"]
-        }
-        return max(scores, key=scores.get)
-
     data["best_extractor"] = data.apply(get_best_extractor, axis=1)
 
     # Per-document t-tests
@@ -100,33 +158,12 @@ def main():
     logger.info(f"✓ Saved semantic similarity comparison to {output_path}")
 
     # === Aggregate-level t-tests across all sentences ===
-
     logger.info("Running aggregate-level t-tests...")
 
     all_model_scores = data['predicted_similarity'].dropna()
     all_pypdf2_scores = data['similarity_score_pypdf2'].dropna()
     all_ocr_scores = data['similarity_score_ocr'].dropna()
     all_plumber_scores = data['similarity_score_plumber'].dropna()
-
-    def compare_extractors(model_scores, other_scores, other_name):
-        t_stat, p_val = ttest_ind(model_scores, other_scores, equal_var=False)
-        model_mean = model_scores.mean()
-        other_mean = other_scores.mean()
-        if p_val < 0.05:
-            if model_mean > other_mean:
-                result = f"Model significantly better than {other_name}"
-            else:
-                result = f"{other_name} significantly better than Model"
-        else:
-            result = f"Tie with {other_name}"
-        return {
-            "extractor": other_name,
-            "model_mean": model_mean,
-            "other_mean": other_mean,
-            "t_statistic": t_stat,
-            "p_value": p_val,
-            "comparison_result": result
-        }
 
     aggregate_results = [
         compare_extractors(all_model_scores, all_pypdf2_scores, "pypdf2"),

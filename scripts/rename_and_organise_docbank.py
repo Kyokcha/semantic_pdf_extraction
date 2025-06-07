@@ -1,14 +1,25 @@
+"""Prepare DocBank dataset by renaming and organizing PDF/text pairs."""
+
 from pathlib import Path
 import shutil
 import logging
 from utils.config import load_config
-from utils.pdf_utils import extract_single_pdf_page  # <-- utility for page extraction
+from utils.pdf_utils import extract_single_pdf_page
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def main():
+def main() -> None:
+    """Process DocBank files by matching PDFs with text files and standardizing names.
+    
+    Takes PDF/text pairs from the source directory, extracts relevant pages,
+    and saves them with standardized names (doc_001, doc_002, etc.).
+    
+    Note:
+        Only extracts the specific page mentioned in the text filename.
+        Skips pairs where PDF page extraction fails.
+    """
     config = load_config()
 
     source_dir = Path(config["data_paths"]["DB_dump"])
@@ -42,7 +53,7 @@ def main():
             page_num = int(page_str)
             extract_single_pdf_page(pdf_src, page_num, pdf_dst)
         except Exception as e:
-            logger.error(f"❌ Failed to extract page from {pdf_src.name}: {e}")
+            logger.error(f"Failed to extract page from {pdf_src.name}: {e}")
             continue
 
         shutil.copy2(txt_src, txt_dst)

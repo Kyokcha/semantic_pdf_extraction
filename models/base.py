@@ -1,11 +1,24 @@
-# models/base.py
+"""Model evaluation utilities for classification models."""
 
 import pandas as pd
 from sklearn.metrics import classification_report, confusion_matrix
 import numpy as np
 
 
-def evaluate_model(clf, X_test, y_test, y_pred, class_labels=None):
+def evaluate_model(clf, X_test, y_test, y_pred, class_labels=None) -> None:
+    """Evaluate a classifier and print performance metrics.
+    
+    Args:
+        clf (sklearn.base.ClassifierMixin): Fitted classifier object with predict method.
+        X_test (pd.DataFrame): Test feature matrix.
+        y_test (array-like): Ground truth labels.
+        y_pred (array-like): Predicted labels from the model.
+        class_labels (list, optional): Class label names. If None, inferred from y_test.
+    
+    Note:
+        Feature importance display is limited to top 20 features.
+        Only works with classifiers that have feature_importances_ attribute.
+    """
     print("\nClassification Report:\n")
     print(classification_report(y_test, y_pred))
 

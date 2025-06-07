@@ -1,4 +1,4 @@
-# scripts/extract_features.py
+"""Generate features from extracted sentences for model training."""
 
 import pandas as pd
 import logging
@@ -13,8 +13,19 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def merge_extractor_files_for_doc(doc_id, extractor_files):
-    """Merge all extractor outputs for one document into a single DataFrame."""
+def merge_extractor_files_for_doc(doc_id: str, extractor_files: list[Path]) -> pd.DataFrame:
+    """Combine outputs from different extractors for a single document.
+    
+    Args:
+        doc_id (str): Document identifier.
+        extractor_files (list[Path]): List of CSV file paths for each extractor.
+    
+    Returns:
+        pd.DataFrame: Combined data from all extractors, or empty DataFrame if no valid data.
+        
+    Note:
+        Requires 'sentence_id', 'extractor', and 'extracted_sentence' columns in CSVs.
+    """
     dfs = []
     for path in extractor_files:
         df = pd.read_csv(path)
@@ -28,7 +39,19 @@ def merge_extractor_files_for_doc(doc_id, extractor_files):
         return pd.DataFrame()
 
 
-def process_document(args):
+def process_document(args: tuple) -> None:
+    """Process a single document to generate features for each extracted sentence.
+    
+    Args:
+        args (tuple): Contains (doc_id, extractor_paths, feature_dir) where:
+            - doc_id (str): Document identifier
+            - extractor_paths (list[Path]): Paths to extractor output files
+            - feature_dir (Path): Output directory for feature files
+            
+    Note:
+        Generates inter-extractor comparison features.
+        Skips invalid or empty sentences.
+    """
     doc_id, extractor_paths, feature_dir = args
     try:
         df = merge_extractor_files_for_doc(doc_id, extractor_paths)
@@ -82,7 +105,16 @@ def process_document(args):
         logger.error(f"✗ Failed on {doc_id}: {e}")
 
 
-def main():
+def main() -> None:
+    """Generate features for all extracted sentences using parallel processing.
+    
+    Processes each document's extracted sentences to generate features for
+    model training, including inter-extractor comparisons.
+    
+    Note:
+        Uses (CPU core count - 1) up to max 8 cores for parallel processing.
+        Output directory is cleared before processing starts.
+    """
     config = load_config()
     extracted_dir = Path(config["data_paths"]["DB_extracted_sentences"])
     feature_dir = Path(config["data_paths"]["DB_features"])

@@ -1,4 +1,4 @@
-# scripts/build_final_training_dataset
+"""Build final training dataset by combining and flattening merged data files."""
 
 import pandas as pd
 from pathlib import Path
@@ -12,7 +12,16 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def main():
+def main() -> None:
+    """Combine merged data files into a single flattened training dataset.
+    
+    Reads all merged CSV files, combines them, and flattens the data structure
+    for training. Features are selected based on config settings.
+    
+    Note:
+        Outputs extractor win rates if 'best_extractor' column is present.
+        Directory is cleared before new files are written.
+    """
     config = load_config()
 
     merged_dir = Path(config["data_paths"]["DB_merged_data"])
@@ -32,7 +41,7 @@ def main():
             logger.error(f"Failed to read {file.name}: {e}")
 
     if not all_rows:
-        logger.error("❌ No data to combine.")
+        logger.error("No data to combine.")
         return
 
     full_df = pd.concat(all_rows, ignore_index=True)

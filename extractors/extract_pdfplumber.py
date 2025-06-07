@@ -1,17 +1,24 @@
-# extractors/extract_pdf_plumber.py
+"""Extract text from PDFs using pdfplumber."""
 
 import pdfplumber
 
 
 def extract_text(pdf_path: str) -> str:
-    """
-    Extract text from a PDF using pdfplumber.
-
+    """Extract text from a PDF using pdfplumber.
+    
     Args:
-        pdf_path (str): Path to the PDF file.
-
+        pdf_path: Path to the PDF file to process.
+    
     Returns:
         str: Extracted text from all pages, joined by newlines.
+             Returns empty string if extraction fails.
+    
+    Raises:
+        FileNotFoundError: If the PDF file doesn't exist.
+        pdfplumber.pdfminer.pdfparser.PDFSyntaxError: If the PDF is corrupted.
+    
+    Note:
+        Pages without extractable text are skipped.
     """
     full_text = []
 

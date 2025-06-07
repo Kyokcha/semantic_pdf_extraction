@@ -1,4 +1,4 @@
-# scripts/generate_extracted_sentences.py
+"""Process extracted text files to generate clean, structured sentence data."""
 
 import logging
 import pandas as pd
@@ -17,7 +17,19 @@ logger = logging.getLogger(__name__)
 nlp = spacy.load("en_core_web_sm")
 
 
-def is_probable_table_line(text):
+def is_probable_table_line(text: str) -> bool:
+    """Detect if a line of text likely belongs to a table.
+    
+    Args:
+        text (str): Line of text to analyze.
+    
+    Returns:
+        bool: True if line appears to be tabular data.
+    
+    Note:
+        Uses heuristics like capitalization patterns and mathematical symbols
+        to identify table-like content.
+    """
     tokens = text.split()
 
     if len(tokens) < 3:
@@ -34,7 +46,18 @@ def is_probable_table_line(text):
     return (caps_or_mixed_case + mathy_words) / len(tokens) > 0.4 and has_no_punctuation
 
 
-def clean_sentence(sent):
+def clean_sentence(sent) -> str | None:
+    """Clean and validate a spaCy sentence.
+    
+    Args:
+        sent (spacy.tokens.span.Span): Sentence span from spaCy.
+    
+    Returns:
+        str | None: Cleaned sentence text or None if invalid.
+    
+    Note:
+        Filters out likely headers and short fragments without proper punctuation.
+    """
     # Strip and normalize whitespace
     sentence = sent.text.strip()
     if not sentence:
@@ -49,7 +72,18 @@ def clean_sentence(sent):
     return sentence
 
 
-def process_text_file(args):
+def process_text_file(args: tuple) -> None:
+    """Process a single text file into structured sentence data.
+    
+    Args:
+        args (tuple): Contains (txt_path, output_dir) where:
+            - txt_path (Path): Path to input text file
+            - output_dir (Path): Directory for saving CSV output
+    
+    Note:
+        Generates unique IDs for each sentence using article_id and extractor info.
+        Separates content into text and table candidates.
+    """
     txt_path, output_dir = args
     base_name = txt_path.stem  # e.g., doc_001-ocr
 
@@ -127,7 +161,16 @@ def process_text_file(args):
     logger.info(f"✓ Processed {txt_path.name} → {output_file.name}")
 
 
-def main():
+def main() -> None:
+    """Process all extracted text files into structured sentence data.
+    
+    Reads raw extracted text files and converts them into CSV files containing
+    cleaned, structured sentence data with content type classification.
+    
+    Note:
+        Uses parallel processing with (CPU core count - 1) up to max 8 cores.
+        Output directory is cleared before processing starts.
+    """
     config = load_config()
     input_dir = Path(config["data_paths"]["DB_extracted"])
     output_dir = Path(config["data_paths"]["DB_extracted_sentences"])

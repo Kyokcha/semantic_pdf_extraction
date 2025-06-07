@@ -1,4 +1,4 @@
-# scripts/run_extractors_batch.py
+"""Run multiple PDF text extractors in parallel on a batch of documents."""
 
 import logging
 from pathlib import Path
@@ -16,17 +16,37 @@ ALL_EXTRACTORS = {
     # Add more as needed
 }
 
-
-def get_enabled_extractors(config):
-    flags = config.get("extraction", {}).get("extractors", {})
-    return {name: func for name, func in ALL_EXTRACTORS.items() if flags.get(name, False)}
-
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def process_pdf(args):
+def get_enabled_extractors(config: dict) -> dict:
+    """Get dictionary of enabled extractors based on configuration.
+    
+    Args:
+        config (dict): Configuration dictionary containing extraction settings.
+    
+    Returns:
+        dict: Mapping of enabled extractor names to their functions.
+    """
+    flags = config.get("extraction", {}).get("extractors", {})
+    return {name: func for name, func in ALL_EXTRACTORS.items() if flags.get(name, False)}
+
+
+def process_pdf(args: tuple) -> None:
+    """Process a single PDF with all enabled extractors.
+    
+    Args:
+        args (tuple): Contains (pdf_path, output_dir, extractors) where:
+            - pdf_path (Path): Path to input PDF
+            - output_dir (Path): Directory for output text files
+            - extractors (dict): Mapping of extractor names to functions
+    
+    Note:
+        Output files are named as {pdf_name}-{extractor}.txt
+        Failed extractions are logged but don't stop processing.
+    """
     pdf_path, output_dir, extractors = args
     base_name = pdf_path.stem
 
@@ -43,7 +63,16 @@ def process_pdf(args):
             logger.error(f"[{name}] {base_name}: Failed - {e}")
 
 
-def main():
+def main() -> None:
+    """Run batch text extraction on PDF files using enabled extractors.
+    
+    Processes PDFs in parallel using multiple extractors based on configuration.
+    Currently limited to first 100 documents for test batch.
+    
+    Note:
+        Uses (CPU core count - 1) up to max 8 cores for parallel processing.
+        Output directory is cleared before processing starts.
+    """
     config = load_config()
     pdf_dir = Path(config["data_paths"]["DB_pdfs"])
     output_dir = Path(config["data_paths"]["DB_extracted"])

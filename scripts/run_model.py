@@ -1,4 +1,4 @@
-# scripts/run_model.py
+"""Train and evaluate multiple classifier models for extractor selection."""
 
 import pandas as pd
 from pathlib import Path
@@ -11,7 +11,25 @@ from models.xgboost_model import train_xgboost
 from models.lightgbm_model import train_lightgbm
 
 
-def run_model_variant(name, train_func, X_train, X_test, y_train, y_test, test_df, output_dir):
+def run_model_variant(name: str, train_func, X_train: pd.DataFrame, X_test: pd.DataFrame, 
+                     y_train: pd.Series, y_test: pd.Series, test_df: pd.DataFrame, 
+                     output_dir: Path) -> None:
+    """Train and evaluate a specific model variant.
+    
+    Args:
+        name (str): Name identifier for the model variant.
+        train_func (callable): Model training function.
+        X_train (pd.DataFrame): Training features.
+        X_test (pd.DataFrame): Test features.
+        y_train (pd.Series): Training labels.
+        y_test (pd.Series): Test labels.
+        test_df (pd.DataFrame): Full test dataset with metadata.
+        output_dir (Path): Directory to save model predictions.
+    
+    Note:
+        Saves predictions to CSV with format: model_predictions_{name}.csv
+        Uses LabelEncoder to handle categorical labels.
+    """
     print(f"\n⚙️ Training and evaluating {name}...")
 
     le = LabelEncoder()
@@ -25,7 +43,6 @@ def run_model_variant(name, train_func, X_train, X_test, y_train, y_test, test_d
     y_pred_labels = le.inverse_transform(y_pred_enc)
 
     evaluate_model(clf, X_test, y_test_labels, y_pred_labels, class_labels=le.classes_)
-
 
     output_path = output_dir / f"model_predictions_{name}.csv"
     X_test_with_meta = X_test.copy()
@@ -41,7 +58,17 @@ def run_model_variant(name, train_func, X_train, X_test, y_train, y_test, test_d
     print(f"✅ Saved predictions for {name} to {output_path}")
 
 
-def main():
+def main() -> None:
+    """Train all model variants on the selected dataset.
+    
+    Loads data based on configuration, splits into train/test sets,
+    and evaluates multiple classifier models.
+    
+    Note:
+        Requires exactly one dataset to be selected in config.
+        Uses 80/20 train/test split at article level.
+        Skips tie cases where best extractor is ambiguous.
+    """
     config = load_config()
     data_flags = config["model_config"]["data_selection"]
     data_paths = config["model_config"]["data_paths"]
@@ -83,6 +110,7 @@ def main():
 
     for name, func in models.items():
         run_model_variant(name, func, X_train, X_test, y_train, y_test, test_df, output_dir)
+
 
 if __name__ == "__main__":
     main()

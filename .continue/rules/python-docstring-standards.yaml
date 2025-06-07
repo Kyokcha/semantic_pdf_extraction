@@ -1,0 +1,17 @@
+name: Python Docstring Standards
+version: 0.0.1
+schema: v1
+rules:
+  - name: Python Docstring Standards
+    rule: >-
+      Use Google-style docstrings:
+
+      - Simple functions: One-line description
+
+      - Complex functions: Full docstring with Args, Returns, Raises (if
+      applicable)
+
+      - Classes: Class description, Attributes, and example usage if complex
+
+      - Modules: Module-level docstring describing purpose and main components
+    globs: "**/*.py"

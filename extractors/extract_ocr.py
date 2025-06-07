@@ -1,4 +1,4 @@
-#extractors/extract_ocr.py
+"""Extract text from PDFs using Optical Character Recognition (OCR)."""
 
 import pytesseract
 from pdf2image import convert_from_path
@@ -6,14 +6,22 @@ import tempfile
 
 
 def extract_text(pdf_path: str) -> str:
-    """
-    Extract text from a PDF using OCR (pytesseract + pdf2image).
-
+    """Extract text from a PDF using OCR.
+    
     Args:
-        pdf_path (str): Path to the PDF file.
-
+        pdf_path: Path to the PDF file to process.
+        
     Returns:
-        str: The extracted text from all pages.
+        str: Extracted text from all pages concatenated with newlines.
+             Returns empty string if extraction fails.
+        
+    Raises:
+        FileNotFoundError: If the PDF file doesn't exist.
+        PermissionError: If the PDF file can't be accessed.
+        
+    Note:
+        Uses a DPI of 300 for image conversion to balance quality and performance.
+        Temporary images are automatically cleaned up after processing.
     """
     text_output = []
 

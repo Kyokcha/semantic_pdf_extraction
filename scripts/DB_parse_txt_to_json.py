@@ -1,10 +1,25 @@
+"""Convert DocBank text files to structured JSON format."""
+
 import json
 from pathlib import Path
 from utils.config import load_config
 from utils.file_operations import clear_directory
 
 
-def parse_txt_file(filepath):
+def parse_txt_file(filepath: Path) -> list[dict]:
+    """Parse a text file into structured content with type annotations.
+    
+    Args:
+        filepath (Path): Path to the input text file.
+    
+    Returns:
+        list[dict]: List of dictionaries containing typed content.
+                   Each dict has 'type' and 'sentence' keys.
+    
+    Note:
+        Recognizes special markers [TABLE_START] and [TABLE_END].
+        Content types include: 'table_row', 'list_item', and 'text'.
+    """
     output = []
     in_table = False
 
@@ -31,7 +46,16 @@ def parse_txt_file(filepath):
     return output
 
 
-def process_all_txt_files():
+def process_all_txt_files() -> None:
+    """Convert all text files in input directory to JSON format.
+    
+    Reads text files from DB_raw_manual directory and saves structured JSON
+    outputs to DB_jsons directory.
+    
+    Note:
+        Output directory is cleared before processing starts.
+        JSON files are saved with UTF-8 encoding and pretty printing.
+    """
     config = load_config()
     input_dir = Path(config["data_paths"]["DB_raw_manual"])
     output_dir = Path(config["data_paths"]["DB_jsons"])

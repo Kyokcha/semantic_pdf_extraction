@@ -1,4 +1,4 @@
-# scripts/main.py
+"""Main pipeline orchestration script for running the full processing sequence."""
 
 import logging
 from utils.config import load_config
@@ -25,7 +25,16 @@ SCRIPT_SEQUENCE = [
 ]
 
 
-def run_pipeline():
+def run_pipeline() -> None:
+    """Execute the full processing pipeline based on configuration.
+    
+    Runs a sequence of Python scripts in order, with each step controlled
+    by the pipeline configuration. Steps can be enabled/disabled via config.
+    
+    Note:
+        Pipeline execution stops if any step returns a non-zero exit code.
+        Scripts are run using Poetry to ensure correct environment.
+    """
     config = load_config()
     pipeline_config = config.get("pipeline", {})
 
