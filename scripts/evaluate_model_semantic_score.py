@@ -6,6 +6,7 @@ from utils.config import load_config
 import logging
 from scipy.stats import ttest_ind
 import numpy as np
+from itertools import combinations
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -116,6 +117,23 @@ def main() -> None:
     data["predicted_similarity"] = data.apply(get_predicted_score, axis=1)
     data["best_extractor"] = data.apply(get_best_extractor, axis=1)
 
+    # Sentence-Level Analysis: Which extractor wins per sentence?
+    score_cols = {
+        "pypdf2": "similarity_score_pypdf2",
+        "ocr": "similarity_score_ocr",
+        "plumber": "similarity_score_plumber"
+    }
+
+    # Determine which extractor had the highest similarity per sentence
+    data["true_best_extractor"] = data[[*score_cols.values()]].idxmax(axis=1).str.replace("similarity_score_", "")
+
+    # Count how often each extractor was the best
+    win_counts = data["true_best_extractor"].value_counts()
+    print("\n=== Sentence-Level Win Counts ===")
+    for extractor, count in win_counts.items():
+        print(f"{extractor} was best on {count} sentences.")
+
+
     # Per-document t-tests
     results = []
 
@@ -172,7 +190,7 @@ def main() -> None:
     ]
 
     aggregate_df = pd.DataFrame(aggregate_results)
-    print("\n=== Aggregate Comparison Across All Documents ===")
+    print("\n=== Aggregate Comparison Across All Sentences ===")
     print(aggregate_df.to_string(index=False))
 
 

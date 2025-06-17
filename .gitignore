@@ -19,3 +19,6 @@ data/
 # Editor/IDE config
 .vscode/
 .idea/
+
+# Ingore editing parameters
+.continue/

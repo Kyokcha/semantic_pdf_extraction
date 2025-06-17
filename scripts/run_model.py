@@ -9,11 +9,12 @@ from models.base import evaluate_model
 from models.random_forest import train_random_forest
 from models.xgboost_model import train_xgboost
 from models.lightgbm_model import train_lightgbm
+import pickle
 
 
 def run_model_variant(name: str, train_func, X_train: pd.DataFrame, X_test: pd.DataFrame, 
                      y_train: pd.Series, y_test: pd.Series, test_df: pd.DataFrame, 
-                     output_dir: Path) -> None:
+                     output_dir: Path) -> tuple:
     """Train and evaluate a specific model variant.
     
     Args:
@@ -26,9 +27,8 @@ def run_model_variant(name: str, train_func, X_train: pd.DataFrame, X_test: pd.D
         test_df (pd.DataFrame): Full test dataset with metadata.
         output_dir (Path): Directory to save model predictions.
     
-    Note:
-        Saves predictions to CSV with format: model_predictions_{name}.csv
-        Uses LabelEncoder to handle categorical labels.
+    Returns:
+        tuple: (trained_model, label_encoder, test_accuracy, model_name)
     """
     print(f"\n⚙️ Training and evaluating {name}...")
 
@@ -42,7 +42,7 @@ def run_model_variant(name: str, train_func, X_train: pd.DataFrame, X_test: pd.D
     y_test_labels = le.inverse_transform(y_test_enc)
     y_pred_labels = le.inverse_transform(y_pred_enc)
 
-    evaluate_model(clf, X_test, y_test_labels, y_pred_labels, class_labels=le.classes_)
+    metrics = evaluate_model(clf, X_test, y_test_labels, y_pred_labels, class_labels=le.classes_)
 
     output_path = output_dir / f"model_predictions_{name}.csv"
     X_test_with_meta = X_test.copy()
@@ -56,13 +56,15 @@ def run_model_variant(name: str, train_func, X_train: pd.DataFrame, X_test: pd.D
         .to_csv(output_path, index=False)
 
     print(f"✅ Saved predictions for {name} to {output_path}")
+    
+    return clf, le, metrics['accuracy'], name
 
 
 def main() -> None:
     """Train all model variants on the selected dataset.
     
     Loads data based on configuration, splits into train/test sets,
-    and evaluates multiple classifier models.
+    and evaluates multiple classifier models. Saves the best performing model.
     
     Note:
         Requires exactly one dataset to be selected in config.
@@ -108,8 +110,30 @@ def main() -> None:
         'lightgbm': train_lightgbm,
     }
 
+    # Train all models and track their performance
+    model_results = []
     for name, func in models.items():
-        run_model_variant(name, func, X_train, X_test, y_train, y_test, test_df, output_dir)
+        model_result = run_model_variant(name, func, X_train, X_test, y_train, y_test, test_df, output_dir)
+        model_results.append(model_result)
+
+    # Find the best performing model
+    best_model, best_encoder, best_accuracy, best_name = max(model_results, key=lambda x: x[2])
+
+    # Save the best model and its metadata
+    model_info = {
+        'model': best_model,
+        'encoder': best_encoder,
+        'feature_columns': X_train.columns.tolist()
+    }
+    
+    with open(output_dir / "best_model.pkl", 'wb') as f:
+        pickle.dump(model_info, f)
+    
+    print(f"\n📋 Model Performance Summary:")
+    for _, _, accuracy, name in model_results:
+        print(f"{name}: {accuracy:.3f}")
+    
+    print(f"\n🏆 Best model ({best_name}, accuracy: {best_accuracy:.3f}) has been pickled for future use.")
 
 
 if __name__ == "__main__":

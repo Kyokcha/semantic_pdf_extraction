@@ -18,6 +18,7 @@ data_paths:
   DB_extractor_summary: "data/DB_extractor_summary"
   DB_model_outputs: "data/DB_model_outputs"
   DB_evaluation_outputs: "data/DB_evaluation_outputs"
+  DB_QE: "data/DB_QE"
 
 docbank_processing:
   line_y_tolerance: 5
@@ -30,16 +31,16 @@ extraction:
 
 pipeline:
   setup_docbank: false
-  parse_to_json: true
-  run_extractors: true
-  generate_gt_sentences: true
-  generate_extracted_sentences: true
-  extract_features: true
-  embed_gt: true
-  embed_extracted: true
-  match_sentences: true
-  merged_data: true
-  final_training_dataset: true
+  parse_to_json: false
+  run_extractors: false
+  generate_gt_sentences: false
+  generate_extracted_sentences: false
+  extract_features: false
+  embed_gt: false
+  embed_extracted: false
+  match_sentences: false
+  merged_data: false
+  final_training_dataset: false
   run_model: true
   evaluate: true
 

@@ -1,11 +1,11 @@
 """Model evaluation utilities for classification models."""
 
 import pandas as pd
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import numpy as np
 
 
-def evaluate_model(clf, X_test, y_test, y_pred, class_labels=None) -> None:
+def evaluate_model(clf, X_test, y_test, y_pred, class_labels=None) -> dict:
     """Evaluate a classifier and print performance metrics.
     
     Args:
@@ -14,6 +14,9 @@ def evaluate_model(clf, X_test, y_test, y_pred, class_labels=None) -> None:
         y_test (array-like): Ground truth labels.
         y_pred (array-like): Predicted labels from the model.
         class_labels (list, optional): Class label names. If None, inferred from y_test.
+    
+    Returns:
+        dict: Dictionary containing performance metrics.
     
     Note:
         Feature importance display is limited to top 20 features.
@@ -38,3 +41,10 @@ def evaluate_model(clf, X_test, y_test, y_pred, class_labels=None) -> None:
         print("\nTop Feature Importances:")
         importances = pd.Series(clf.feature_importances_, index=X_test.columns)
         print(importances.sort_values(ascending=False).head(20))
+    
+    # Return metrics dictionary
+    return {
+        'accuracy': accuracy_score(y_test, y_pred),
+        'confusion_matrix': cm,
+        'class_labels': labels
+    }
