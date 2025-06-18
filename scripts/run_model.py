@@ -122,10 +122,12 @@ def main() -> None:
     best_model, best_encoder, best_accuracy, best_name = max(model_results, key=lambda x: x[2])
 
     # Save the best model and its metadata
+    index_to_extractor = {i: label for i, label in enumerate(best_encoder.classes_)}
     model_info = {
         'model': best_model,
         'encoder': best_encoder,
-        'feature_columns': X_train.columns.tolist()
+        'feature_columns': X_train.columns.tolist(),
+        'index_to_extractor': index_to_extractor
     }
     
     with open(output_dir / "best_model.pkl", 'wb') as f:
