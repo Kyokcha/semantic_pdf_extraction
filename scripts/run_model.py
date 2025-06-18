@@ -94,7 +94,9 @@ def main() -> None:
 
     drop_cols = ['article_id', 'gt_sentence_id', 'best_extractor', 'is_tie',
                  'sentence_pypdf2', 'sentence_ocr', 'sentence_plumber',
-                 'similarity_score_pypdf2', 'similarity_score_ocr', 'similarity_score_plumber']
+                 'similarity_score_pypdf2', 'similarity_score_ocr', 'similarity_score_plumber',
+                 'cosine_sim_with_ocr_ocr','cosine_sim_with_pypdf2_pypdf2','cosine_sim_with_plumber_plumber',
+                 'jaccard_with_ocr_ocr','jaccard_with_pypdf2_pypdf2','jaccard_with_plumber_plumber']
 
     X_train = train_df.drop(columns=drop_cols)
     y_train = train_df['best_extractor']
