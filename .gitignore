@@ -13,8 +13,15 @@ __pycache__/
 # Ignore notebook checkpoints
 .ipynb_checkpoints/
 
-# Ignore data
+# Ignore all data
 data/
+
+# Except keep these subfolders and files
+!data/DB_pdfs/
+!data/DB_manual_raw/
+!data/README.md
+!data/LICENSE.docbank
+!data/LICENSE.ground_truth
 
 # Editor/IDE config
 .vscode/

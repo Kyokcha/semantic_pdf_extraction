@@ -116,6 +116,8 @@ Supported classifiers:
 - Tesseract OCR
 - Poetry for dependency management
 
-## License
+## Licence
 
-[Add license information]
+- The code in this repository is licensed under the [MIT Licence](LICENCE).
+- PDF data from DocBank is under the [Apache 2.0 Licence](data/LICENCE.docbank).
+- Ground truth annotations in `data/DB_manual_raw/` are licensed under the [MIT Licence](data/LICENCE.ground_truth).
