@@ -1,0 +1,36 @@
+statistical model calculations overestimate the measured 64Zn(p,α)61Cu at the lowest studied energies while the agreement becomes fairly good when the energy increases.  
+In the case of the SMARAGD code (and in its predecessor NON-SMOKER) the standard calculations are carried out with the alpha-nucleus optical potential of McFadden and Satchler [11].  
+This potential was developed based on 25 MeV experimental data and does not have any energy dependence.  
+It is therefore not surprising that experimental evidence is gathering that the potential fails at low energies where an energy dependence of at least the imaginary part of the potential seems to be required.  
+In order to cure the low energy problem of the McFadden–Satchler potential, an energy dependent modification was recently recommended [12].  
+The depth of the imaginary part was modified using a Fermi-type function with a diffuseness parameter aE.  
+Several recent experiments indicate that this modification leads to a better reproduction of the measured data (see e.g. [13] and references therein).  
+In the present paper this modification is tested for the 64Zn(p,α)65Cu reaction.  
+Figure 2 shows the comparison of the experimental data with SMARAGD calculation in the form of astrophysical S-factor.  
+(Calculations with the TALYS code are omitted here as they were presented in [4].)  
+The green line shows the standard calculation using the original McFadden–Satchler potential.  
+The grey band indicates the obtained S-factors by the modified potential with the aE parameter in the range between 1.5 and 5 MeV.  
+It is evident that the modification leads to a much better reproduction of the experimental data.  
+The best agreement is achieved with aE = 2.5 MeV as indicated by the red curve.  
+5. Summary and conclusions  
+The present experimental data prove directly at astrophysical energies that the standard low energy α-nucleus optical potential must be modified.  
+The new data support the recently suggested modification of the potential.  
+The implementation of this modification in the reaction rate calculations for astrophysical models is recommended.  
+The comparison of the measured and calculated 64Zn(p,γ)65Ga cross section data indicate that further experimental effort is needed as only measured data can help find the correct nuclear input parameters of calculations which show highly divergent results depending on the parameters.  
+Acknowledgments  
+The authors thank T. Rauscher for providing the results of the SMARAGD code.  
+This work was supported by OTKA grants No. K101328 and K108459.  
+References  
+[1] Rauscher T et al. 2013 Rep. Prog. Phys. 76 066201  
+[2] Gyürky Gy et al. 2015 Proceeding of the Nuclear Physics in Astrophysics VI conference, in press  
+[3] Szűcs T, Dillmann I, Plag R, Fülöp Zs 2014 Nuclear Data Sheets 120 191  
+[4] Gyürky Gy et al. 2014 Phys. Rev. C 90 052801(R)  
+[5] Rauscher T 2012 The Astrophysical Journal Supplement Series 201 26  
+[6] T. Rauscher, code SMARAGD, http://nucastro.org/smaragd.html  
+[7] Rauscher T and Thielemann F-K 2001 At. Data Nucl. Data Tables 79 47; www.nucastro.org  
+[8] Koning A J, Hilaire S and Duijvestijn M C 2008, TALYS version 1.4 Proceedings of the International Conference on Nuclear Data for Science and Technology - ND2007, p.211  
+[9] Goriely S, Tondeur F, Pearson J M 2001 Atom. Data Nucl. Data Tables 77 311  
+[10] Kopecky J and Uhl M 1990 Phys. Rev. C 42 1941  
+[11] McFadden L, Satchler G R 1966 Nucl. Phys. 84 177  
+[12] Sauerwein A et al. 2011 Phys. Rev. C 84 045808  
+[13] Yalçın C et al. 2015 Phys. Rev. C 91 034610

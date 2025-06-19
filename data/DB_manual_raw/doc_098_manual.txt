@@ -1,0 +1,10 @@
+FIG. 3. Energy as function of T for the Monte Carlo runs.  
+The phase transition happens at T = 2750 ± 10K.  
+The phase at low temperatures is certainly 353, not L11, resulting from the present choice of first-principles calculation parameters.  
+One distinguishes the two phases by the value of Π̄(σ) corresponding to the nearest-neighbour tetrahedron of sites.  
+The calculated transition temperature is much too high, even higher than the melting temperature.  
+Two reasons concur to that: 1 - We are using an Ising Hamiltonian, not Heisenberg.  
+For instance, 2D Ising models have ordered phases, Heisenberg models have not because the transverse spin components allow paths of relaxation.  
+2 - We are assuming that sublattice magnetizations are unique and do not depend on spin configuration of the lattice.  
+That is, given the concentration x, the magnetization is known.  
+Fig. 1 shows the real situation where the magnetization can fluctuate to some extent for configurations with the same x.

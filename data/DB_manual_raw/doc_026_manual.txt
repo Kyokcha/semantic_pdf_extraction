@@ -1,0 +1,17 @@
+where the operator D is defined as D[...] = (1/r²) ∂/∂r [r²...].
+The expressions we then obtain for the components ˆu_r, ˆu_θ, ˆu_φ of the flow field ˆu are given in Appendix C.
+We now consider the derivation for the first-order solution (in Reynolds) u(1).
+That flow field contains terms of different frequencies, but we are here only interested in the steady part of the flow.
+For the sake of simplicity, we use u(1) to denote the steady component of this first-order flow.
+The latter satisfies the following set of equations: ∇·σ(1) = (1/4)[(ˆu(0)·∇)ˆu(0) + (ˆu(0)·∇)ˆu(0)], and ∇·u(1) = 0.
+Where complex conjugate quantities are underlined.
+In the first-order governing equations, the term (v‖·∇)u(0) has been dropped since this term is time-dependent (dimensionless frequency 1) and we are only interested in steady flows.
+Equations (57) and (58) have to be completed by the boundary conditions: u(1) = v(1) on S, and u(1) → 0 at infinity.
+Where the unknown quantity v(1) is linked to v‖ by the relationship v‖ = Re v(1).
+In order to obtain the first-order translation speed, we could try to derive the full velocity and stress fields u(1) and σ(1), and integrate the stress over the particle surface to obtain the propulsive force.
+However, it is more convenient to use a suitable version of the reciprocal theorem, as suggested by Ho & Leal.
+The standard version of the Lorentz reciprocal theorem can be found in Ref. [35].
+For the same geometry, we consider now an auxiliary Stokes velocity and stress fields (ū, σ̄) satisfying ∇·σ̄ = 0 and ∇·ū = 0, with suitable boundary conditions to be specified below.
+Subtracting the inner product of equation (57) with ū and the inner product of equation (62) with u(1), and integrating over the volume of fluid V leads to the equality of virtual powers as:
+∫_V [ū·(∇·σ(1)) − u(1)·(∇·σ̄)] dV = (1/4) ∫_V ū·[(ˆu(0)·∇)ˆu(0) + (ˆu(0)·∇)ˆu(0)] dV.
+Then, using the general vector identity: ū·(∇·σ(1)) − u(1)·(∇·σ̄) = ∇·(ū·σ(1) − u(1)·σ̄) + (∇u(1) : σ̄ − ∇ū : σ(1)).

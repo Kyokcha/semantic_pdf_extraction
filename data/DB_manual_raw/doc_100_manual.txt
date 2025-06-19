@@ -1,0 +1,17 @@
+∇e^(−|x−x₀|² / 4r) = (−2(x−x₀) / 4r) e^(−|x−x₀|² / 4r) (3.12)  
+Since by lemma 2.5 the entropy for a compact hypersurface will be attained by an F functional centered in its convex hull, without loss of generality x₀ is in the convex hull of M#.  
+Since for such x₀ we have |x−x₀| ≤ D < ∞², we see for a lower bound c on r we have |∇e^(−|x−x₀|² / 4r)| ≤ D / (2c) < ∞ for any choice of x ∈ MT.  
+Denote this upper bound by ρ.  
+We also note similarly for r > c that the Gaussian weight of an F_{x₀,r} functional (with x₀ in the convex hull of M) is bounded below by e^(−D² / 4c) > 0.  
+Denote this lower bound by σ.  
+Also denote by m_{x₀,r} and M_{x₀,r} the minimum and maximum respectively of the Gaussian weight of F_{x₀,r} in Uₑ.  
+Then the following is true:  
+1 ≥ m_{x₀,r} / M_{x₀,r} ≥ m_{x₀,r} / (m_{x₀,r} + r³ρ) ≥ σ / (σ + r e ρ) = 1 − (r e ρ) / (σ + r e ρ) (3.13)  
+Since σ > 0 and ρ < ∞ we can make this quotient as close to one as we like by making r e sufficiently small.  
+In other words, we can make the ratio of the minimum to the maximum of the weight in these F functionals as close to 1 as we want in Uₑ by increasing H_{neck}.  
+Switching to the translated and rescaled picture (the ratio persists under rescaling), we have for x₀ ∈ Ũ_f and for r > c₁ the following:  
+F_{x₀,r}(Ṁ⁺) = ∫_{Ṁ⁺} 1 / (4πr)^{n/2} e^(−|x−x₀|² / 4r)  
+≤ ∫_{Ṁ⁺ \ Ũₑ} 1 / (4πr)^{n/2} e^(−|x−x₀|² / 4r) + ∫_{Ṁ⁺ ∩ Ũₑ} 1 / (4πr)^{n/2} e^(−|x−x₀|² / 4r)  
+(because surgery only happens in Ũₑ)  
+= ∫_{Ṁ# \ Ũₑ} 1 / (4πr)^{n/2} e^(−|x−x₀|² / 4r) + ∫_{Ṁ⁺ ∩ Ũₑ} 1 / (4πr)^{n/2} e^(−|x−x₀|² / 4r)  
+≤ ∫_{Ṁ# \ Ũₑ} 1 / (4πr)^{n/2} e^(−|x−x₀|² / 4r) + ∫_{Ṁ⁺ ∩ Ũₑ} 1 / (4πr)^{n/2} M_{x₀,r} (3.14)  

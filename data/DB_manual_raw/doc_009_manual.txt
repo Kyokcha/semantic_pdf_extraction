@@ -1,0 +1,26 @@
+where u, ρ and c are the background flow velocity, density and speed of sound, and t and ∇ are the standard time and gradient operator of Newtonian mechanics. 
+Conservation of mass for the background flow tells us that,
+(2) ∂ρ/∂t + ∇·(ρu) = 0.
+Using this along with Eq. (1) we obtain a slightly altered expression for φ,
+(3) (∂/∂t + ∇·u)(ρ/c2)()(∂/∂t + u ·∇)φ −∇·(ρ∇φ) = 0,
+where ∇ acts on everything to its right. 
+This may seem like a needless complication, but as pointed out by, for example, Visser, we can write this as the d’Alembertian of a curved, 4-dimensional space-time of mixed signature,
+(4) ∆φ = 1√−g∂μ(√−ggμν∂νφ) = 0.
+gμν is the inverse of the metric gμν of the space, and g is the determinant of gμν. 
+Hence it becomes clear that we can regard φ as a scalar field on a 4-dimensional space with the metric gμν defined by the background flow. 
+This space is the acoustic space-time. 
+The authors who have pointed this out have largely used it as a tool to illuminate what parts of general relativity are due to Einstein’s field equations specifically, and what phenomena remain when the equations are changed but the form of the geometry remains (this is where black holes are of interest).
+We, however, would like to turn this on its head, making use of the acoustic space-time to illuminate how variable transformations can be used to understand sound propagation in the presence of background flow.
+The idea of these transformations is to use a change of variables to convert a challenging equation, such as Eq. (1), into, say, the classic wave equation. 
+To the authors knowledge the most general transformation to date of this kind was first presented by Taylor [5], and is valid for irrotational, barotropic, low Mach number, steady background flows for acoustic fields where the wavelength is of the same order of magnitude or smaller than the length scale of variations of the background flow [7]. 
+The presentation of this transformation is fairly ad hoc, and we would like to use the acoustic space-time to derive and generalise such transformations in a more systematic way.
+2 Calculus on Curved Manifolds
+In order to proceed further we shall introduce some new tools to deal with calculus on general manifolds. 
+More precisely we shall introduce Geometric Algebra (GA).
+GA deals with general manifolds through the concept of embedding. 
+A flat vector space of large dimension is first defined, within which the, possibly curved, manifold of interest is placed. 
+The embedded manifold then inherits a metric from the extrinsic space, and this allows a study of Riemannian geometry. 
+Some readers may wonder why we use GA instead of the more widely used differential forms and differential geometry (see for example Nakahara [8]); ultimately this a preference of the authors. 
+We find that the approach gives more streamlined and intuitive proofs of some key results, and also allows more to be expressed independently of coordinates. 
+A debate of the relative benefits is beyond the scope of the current paper. 
+As was

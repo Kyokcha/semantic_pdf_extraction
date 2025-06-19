@@ -1,0 +1,23 @@
+At the LO QCD corrections can be found from Eq. (62).
+Since Q₁,₂ mix with the QCD and EW penguin operators, i.e. Q₃−₁₀, we basically need the 10×10 ADM matrix for the operators Q₁−₁₀.
+Since the mixture of Q₁,₂ and Q₃−₁₀ is dominated by the QCD penguin operators, we adopt the 6×6 ADM for the new physics effects, and the ADM is given as [54]:
+γ̂(0)QCD =
+[TABLE_START]
+(6/Nc, 6, 0, 0, 0, 0  
+6, −6/Nc, −2/3Nc, 2/3, −2/3Nc, 2/3  
+0, 0, −22/3Nc, 22/3, −4/3Nc, 4/3  
+0, 0, 6 − 2f/3Nc, −6/Nc + 2f/3, −2f/3Nc, 2f/Nc  
+0, 0, 0, 0, 6/Nc, −6  
+0, 0, −2f/3Nc, 2f/3, −3f/3Nc, −6(−1 + Nc²)/Nc + 2f/3)
+[TABLE_END]
+with f being the number of flavors.
+If we take the operators Q₁−₆ as a basis, from Eq. (24), the corresponding Wilson coefficients can form a vector and be expressed as Cᵀ = (1, −1, 0, 0, 0, 0)ζLL₂₁ and C′ᵀ = (1, −1, 0, 0, 0, 0)ζRR₂₁ at the mH₃ scale.
+Using RG evolution with ADM in Eq. (63) [54], the Wilson coefficients at the mc scale can be obtained as:
+Cᵀ(mc) ≈ (2.0, −2.0, 0, 0, 0, 0)ζLL₂₁, (64)
+where we have ignored the effects that are less than or around ±0.1, and C′ᵀ(mc) can be obtained from Cᵀ(mc) using ζRR₂₁ instead of ζLL₂₁.
+Similarly, we can apply the same approach to the Q(′)SLL,u₁−₄ operators.
+From the Hamiltonian in Eq. (24), the Wilson coefficients at the µ = mH₃ scale can be formed as CSLL,u = (4, 4, 1, 1)ζLR₂₁ and C′SLL,u = (4, 4, 1, 1)ζRL₂₁.
+Using the ADM in Eq. (62), the Wilson coefficients at µ = mc can then be obtained as:
+CSLL,u(mc) = (−5.44, 1.33, 2.41, 0.09)ζLR₂₁. (65)
+We can obtain C′SLL,u(mc) from CSLL,u(mc) using ζRL₂₁ instead of ζLR₂₁.
+Following Eqs. (24) and (54) and using the introduced matrix elements, the Re(ε′/ε) from the tree-level diquark contributions can be formulated as:

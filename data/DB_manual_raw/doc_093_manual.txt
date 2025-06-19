@@ -1,0 +1,14 @@
+Fp^A = ∑_i |ni| (m²_i(φ₀) − m²_i(φn)) ∫ d³p / (2π)³ 2Ei,p(φ₀) f_eq i,p(φ₀).  
+Here ni is the number of degrees of freedom for species i, mi(φ) are the field-dependent masses (including the thermal masses for the bosons), Ei,p(φ) = √(p² + m²_i(φ)), and f_eq i,p are the equilibrium distribution functions.  
+Since the wall’s motion is assumed to be ultra-relativistic, the passage of the wall changes the masses sharply but leaves the distribution functions as they were in the symmetric phase to leading order in 1/γ (where γ = 1/√(1 − v²)) [95].  
+As pointed out in Ref. [92], the above expression is equivalent to the free-energy density difference between the minima in the so-called mean field T ≠ 0 thermal effective potential, Ṽ_T [92, 95].  
+Ṽ_T is simply given by a Taylor expansion of V₁,T around the symmetric minimum in field space, truncated at quadratic order in the field-dependent masses, i.e.  
+Ṽ_T(φ, T ≠ 0) ≡ V_T(φ₀, T ≠ 0) + ∑_i (m²_i(φ) − m²_i(φ₀)) dV_T(φ₀, T ≠ 0) / dm²_i.  
+With this definition, the condition that must be satisfied for the wall to run away can be re-phrased as Ṽ_T(φn, Tn) − Ṽ_T(φ₀, Tn) < V₁(φ₀, T = 0) − V₁(φn, T = 0).  
+Re-arranging, and defining the full 1-loop mean field effective potential Ṽ(φ, T) ≡ V₀(φ) + V₁(φ, T = 0) + Ṽ_T(φ, T), the runaway condition becomes  
+Ṽ(φ₀, Tn) − Ṽ(φn, Tn) > 0, ↔ Runaway solution exists.  
+This suggests the following criterion for determining whether the wall is safe from runaway [92]:  
+If tunneling to the broken minimum φn is not energetically favored in the mean field potential, the wall cannot run away.  
+Thus, for all of our benchmarks, it suffices to compute both the full effective potential and the mean field potential along the tunneling direction.  
+If the symmetry-breaking minimum disappears or is raised above the symmetric minimum in the mean field limit, the wall will remain sub-luminal.  
+We will check against this criterion for all of the points we consider.

@@ -1,0 +1,27 @@
+The charm semileptonic decays D⁺ → ηe⁺νₑ and D⁺ → η′e⁺νₑ are studied with a sample of e⁺e⁻ collision data corresponding to an integrated luminosity of 2.93 fb⁻¹ collected at √s = 3.773 GeV with the BESIII detector.  
+We measure the branching fractions for D⁺ → ηe⁺νₑ to be (10.74 ± 0.81 ± 0.51) × 10⁻⁴, and for D⁺ → η′e⁺νₑ to be (1.91 ± 0.51 ± 0.13) × 10⁻⁴, where the uncertainties are statistical and systematic, respectively.  
+In addition, we perform a measurement of the form factor in the decay D⁺ → ηe⁺νₑ.  
+All the results are consistent with those obtained by the CLEO-c experiment.  
+Charm semileptonic (SL) decays involve both the c-quark weak decay and the strong interaction.  
+In the Standard Model, the Cabibbo-Kobayashi-Maskawa (CKM) matrix [1] describes the mixing among the quark flavors in the weak decay.  
+The strong interaction effects in the hadronic current are parameterized by a form factor, which is numerically calculable with Lattice Quantum Chromodynamics (LQCD).  
+The differential decay rate for the charm SL decay D⁺ → ηe⁺νₑ, neglecting the positron mass, is given by  
+dΓ(D⁺ → ηe⁺νₑ)/dq² = G_F² |V_cd|² / (24π³) × |p⃗_η|³ |f₊(q²)|².  
+Here G_F is the Fermi constant, V_cd is the relevant CKM matrix element, p⃗_η is the momentum of the η meson in the D⁺ rest frame, and f₊(q²) is the form factor parametrizing the strong interaction dynamics as a function of the squared four-momentum transfer q², which is the square of the invariant mass of the e⁺νₑ pair.  
+Precise measurements of the SL decay rates provide input to constrain the CKM matrix element V_cd and to test the theoretical descriptions of the form factor.  
+LQCD calculations of the form factor can be tested by comparing to the ones determined from the partial branching fraction (BF) measurements, once the CKM matrix element V_cd is known.  
+Moreover, the mixing η-η′ or η-η′-G, where G stands for a glueball, is of great theoretical interest, because it concerns many aspects of the underlying dynamics and hadronic structure of pseudoscalar mesons and glueballs [2].  
+The SL decay D⁺ → η(′)e⁺νₑ can be used to study the η-η′ mixing in a much cleaner way than in hadronic processes due to the absence of final-state interaction [3].  
+Based on a data sample with an integrated luminosity of 818 pb⁻¹ collected at √s = 3.77 GeV, the CLEO collaboration measured the BF for D⁺ → ηe⁺νₑ and D⁺ → η′e⁺νₑ to be B_ηe⁺νₑ = (11.4 ± 0.9 ± 0.4) × 10⁻⁴ and B_η′e⁺νₑ = (2.16 ± 0.53 ± 0.07) × 10⁻⁴ [4], respectively.  
+In this paper, we present new measurements of these BFs, using DD̄ meson pairs produced near threshold at √s = 3.773 GeV with an integrated luminosity of 2.93 fb⁻¹ [5] collected with the BESIII detector [6].  
+In addition, the modulus of the form factor f₊(q²) in D⁺ → ηe⁺νₑ is measured.  
+The Beijing Spectrometer (BESIII) detects e⁺e⁻ collisions produced by the double-ring collider BEPCII.  
+BESIII is a general-purpose detector [6] with 93% coverage of the full solid angle.  
+From the interaction point (IP) to the outside, BESIII is equipped with a main drift chamber (MDC) consisting of 43 layers of drift cells, a time-of-flight (TOF) counter with double-layer scintillator in the barrel part and single-layer scintillator in the end-cap part, an electromagnetic calorimeter (EMC) composed of 6240 CsI(Tl) crystals, a superconducting solenoid magnet providing a magnetic field of 1.0 T along the beam direction, and a muon counter containing multi-layer resistive plate chambers installed in the steel flux-return yoke of the magnet.  
+The MDC spatial resolution is about 135 µm and the momentum resolution is about 0.5% for a charged track with transverse momentum of 1 GeV/c.  
+The energy resolution for electromagnetic showers in the EMC is 2.5% at 1 GeV.  
+More details of the spectrometer can be found in Ref. [6].  
+Monte Carlo (MC) simulation serves to estimate the detection efficiencies and to understand background components.  
+High statistics MC samples are generated with a geant4-based [7] software package, which includes simulations of the geometry of the spectrometer and interactions of particles with the detector materials.  
+kkmc is used to model the beam energy spread and the initial-state radiation (ISR) in the e⁺e⁻ annihilations [8].  
+The inclusive MC samples consist of the production of DD pairs with consideration of quantum coherence for all neutral D modes, the non-DD decays of ψ(3770), the ISR production of low mass ψ states, and continuum processes.

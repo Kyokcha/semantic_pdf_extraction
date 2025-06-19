@@ -1,0 +1,24 @@
+4.1 T4 mirror maps from coassociative fibrations
+Let us begin by analyzing the generalized T4 mirror symmetry map in the context of TCS G2 manifolds.
+As the Kovalev CYs X± admit mirrors by assumption, by the SYZ argument, these have two T3 special lagrangian fibrations.
+Let us denote such fibrations by L±.
+In the asymptotically cylindrical region of the manifold X± ∼ R+ × S1 × S±, the SYZ special lagrangians must asymptote to L± ∼ S1 × Λ±, where Λ± are the SYZ special lagrangian T2 fibrations within the asymptotic K3s (with respect to the K3 complex structure induced by the ambient CY).
+In particular, they do not extend along the R+ direction.
+Let us fix the phase of the holomorphic top form on X± such that the SYZ special lagrangians are calibrated as follows
+volL± = −Im(Ω3,0±)|L±. (4.4)
+Notice that a special lagrangian L gives rise to a coassociative cycle ML ≡ S1 × L ⊂ S1 × X if and only if it satisfies (4.4).
+In particular,
+Im(Ω3,0±) = dθ± ∧ IS± − dt± ∧ RS±. (4.5)
+Therefore, for our special lagrangians L± we have
+Im(Ω3,0±)|L± = −dθ± ∧ IS±. (4.6)
+Now, Equation (3.3) entails that the four-cycles M± ≡ (S1)± × L± ⊂ J± are such that
+?ϕ±|M± = dξ± ∧ dθ± ∧ (IS±)|Λ± = volM±. (4.7)
+Which entails these are coassociative submanifolds.
+Since
+Ξ∗(?ϕ−|M−) = Ξ∗(dξ− ∧ dθ− ∧ IS−)  
+= −dθ+ ∧ dξ+ ∧ −IS+  
+= dξ+ ∧ dθ+ ∧ IS+  
+= ?ϕ+|M+, (4.8)
+the TCS glueing diffeomorphism Ξ is such that M± are glued into a coassociative submanifold M ⊂ J which has the topology of a T4, which may become singular along loci in J.
+Performing three T-dualities along the L± SYZ fibres is mapping X± to their mirrors X∨± by construction.
+However, as the S1 within the asymptotic CY cylinders are swapped with

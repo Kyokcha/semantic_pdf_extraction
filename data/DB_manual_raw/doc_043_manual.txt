@@ -1,0 +1,23 @@
+s = 4πL1L2r^(θ−(1+ξ))  
+h ∼ T^((1+ξ−θ)/z). (3.22)
+In (3.20) and (3.21) we replaced T with rh by using (3.19) to simplify the expression.
+Thus, the diffusivities are:
+DT,x = κxx / cρ = z / [(2z − 2)(θ − 1− ξ)] * LrL1^(−2) * rh^(2−z)
+DT,y = κyy / cρ = z / [(2z − 2(2− ξ))(θ − 1− ξ)] * LrL2^(−2) * rh^(2ξ−z)  (3.23)
+and the butterfly velocities (3.15) are:
+vB,x² = (2πT) / (θ − 1− ξ) * LrL1^(−2) * rh^(2−z)
+vB,y² = (2πT) / (θ − 1− ξ) * LrL2^(−2) * rh^(2ξ−z)  (3.24)
+Finally, by noticing that τL = (2πT)^−1 we have:
+Ex = DT,x / (vB,x² * τL) = (1/2) * zx / (zx − 1) = (1/2) * z / (z − 1)  (3.25)
+Ey = DT,y / (vB,y² * τL) = (1/2) * zy / (zy − 1) = (1/2) * z / (z − ξ)  (3.26)
+Notice that the Ex and Ey depend only on z and ξ irrespective of θ and ζ. 
+They are also independent of charge density ρ and momentum relaxations k1 and k2. 
+This universality is nontrivial because the thermal conductivities, specific heat and butterfly velocity, all of them depend on (θ, ζ, ρ, k1, k2) through (Lr, L1, L2, rh). 
+When it comes to the combinations Ex and Ey, all Lr, L1, L2 and rh are canceled out.
+To investigate if there is any lower or upper bound of Ex and Ey, we need to understand the parameter region of z and ξ. 
+We will restrict ourselves to positive zi. Based on the allowed parameter region obtained in section we find:
+- Class I and II
+  - λ2 / λ1 ≥ 1 ⇒ (1/2) ≤ Ex < (1/2) * (1 / (1 − ξ^−1)), (1/2) ≤ Ey
+  - λ1 / λ2 ≥ 1 ⇒ (1/2) ≤ Ex, (1/2) ≤ Ey < (1/2) * (1 / (1 − ξ))
+where ξ = λ2 / λ1.
+- Class I-i

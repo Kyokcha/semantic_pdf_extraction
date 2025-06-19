@@ -1,0 +1,36 @@
+C. Application example
+Let us consider the two black and white images of size 64 × 64 in Fig. 2, in which the pixel in position (40,40) has been changed.
+In this case, our hash function returns:
+34A5C1B3DFFCC8902F7B248C3ABEFE2C
+9C9538E5104D117B399C999F74CF1CAD
+for the Fig. 2(a) and
+5E67725CAA6B7B7434BE57F5F30F2D3D
+57056FA960B69052453CBC62D9267896
+for the Fig. 2(b).
+Let us consider now the two 256 graylevel images of Lena (256 × 256 pixels) in figure 3, in which the grayscale level of the pixel in position (50,50) has been transformed from 93 (fig. 3(a)) to 94 (fig. 3(b)).
+In this case, our hash function returns:
+FA9F51EFA97808CE6BFF5F9F662DCD73
+8C25101FE9F7F427CD4E2B8D40331B89
+for the left Lena and
+BABF2CE1455CA28F7BA20F52DFBD24B7
+6042DC572FCCA4351D264ACF4C2E108B
+for the right Lena.
+These examples give an illustration of the avalanche effect obtained by this algorithm.
+A more complete study of the properties possessed by our hash functions and resistance under collisions will be studied in future work.
+VI. CONCLUSION
+In this paper, a new approach to generate algorithms with chaotic behaviors is proposed.
+This approach is based on the well-known Devaney’s topological chaos.
+The algorithms which are of iterative nature are based on the so-called chaotic iterations.
+This is achieved by establishing a link between the notions of topological chaos and chaotic iterations.
+This is the first time that such an approach is considered for chaotic iterations.
+Indeed, we are not interested in stable states of such iterations as it has always been the case in the literature, but in their unpredictable behavior.
+After a solid theoretical study, we consider the practical implementation of the proposed algorithms by evaluating the case of finite sets.
+We study the behavior of the induced computer programs proving that it is possible to design true chaotic computer programs.
+A simple application is proposed in the area of hash functions.
+The security in this case is defined by the unpredictability of the behavior of the proposed algorithm.
+The algorithm derived from our approach satisfies important properties of topological chaos such as sensitivity to initial conditions, uniform repartition (as a result of the transitivity), and unpredictability.
+The results expected in our study have been experimentally checked.
+The choices made in this first study are simple: the aim was not to find the best hash function, but to give simple illustrated examples to prove the feasibility in using the new kind of chaotic algorithms in computer science.
+In future work, we will investigate other choices of iteration functions and chaotic strategies.
+We will try to characterize transitive functions.
+Other properties induced by topological chaos, such as entropy, will be explored and their interest in the information security framework will be shown.

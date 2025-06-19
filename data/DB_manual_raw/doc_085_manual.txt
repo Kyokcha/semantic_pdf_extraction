@@ -1,0 +1,30 @@
+to estimate the covariance matrix over a longer period of time, say five years for example, and use it as an input for some risk estimation method.  
+In this spirit, we want to know how well the homogeneous correlation matrix estimates the risk, taking fluctuating correlations into account.  
+For different time horizons, we estimate the empirical covariance matrix for the monthly returns of the S&P 500 stocks.  
+We compare the results for the empirical covariance matrix with the results for a covariance matrix with homogeneous correlation structure.  
+For each time horizon we determine the parameter N as described in section.  
+In addition, we estimate the volatilities and drift for each stock and the average correlation c.  
+The parameters are shown in Table 2.  
+For volatility and drift we only show the average values σ̄ and µ̄ over all stocks.  
+Notice that N must be an integer in our simulation.  
+During the financial crisis a smaller value of Nemp = 7 is necessary to model the higher than usual fluctuations of the volatilities.  
+[TABLE_START]
+Time horizon for estimation, K, Nhom, Nemp, σ̄ in month⁻¹ᐟ², µ̄ in month⁻¹, c  
+2006–2010, 465, 5, 12, 0.11, 0.009, 0.40  
+2002–2004, 436, 5, 14, 0.10, 0.015, 0.30  
+2008–2010, 478, 5, 7, 0.12, 0.01, 0.46  
+[TABLE_END]
+Table 2: Parameters used for the different time horizons.  
+We calculate the relative deviation of the VaR and ETL for different quantiles α = 0.99, 0.995, 0.999 from the empirical covariance matrix.  
+We study two cases for the covariance matrix with homogeneous correlation structure.  
+First, we use the average values of volatility and drift for each stock.  
+This resembles the homogeneous case discussed in section and is shown in Table 3.  
+Second, we use the empirically obtained volatilities and drifts for each stock, see Table 4.  
+Positive values of the relative deviation indicate that the covariance matrix with homogeneous correlation structure overestimates VaR and ETL, while negative values show an underestimation.  
+We round all values to an accuracy of 0.5.  
+For homogeneous volatilities and drifts we find that the covariance matrix with homogeneous correlations underestimates the risk in most cases.  
+If we use heterogeneous volatilities and drifts, we find that the covariance matrix with homogeneous correlations is an appropriate fit and in most cases slightly overestimates the VaR and ETL.  
+In all cases we observe decreasing deviations from the empirical covariance matrix for larger leverages F/V₀.  
+This shows that the structure of the correlation matrix plays a minor role and underlines the importance of getting the volatilities right.  
+In Figure 9 we demonstrate how the VaR is underestimated by using stationary correlations.  
+We calculate the relative deviation of the VaR for N → ∞ and for different

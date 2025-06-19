@@ -1,0 +1,2 @@
+FIG. 7.— Left column: from top to bottom, input Stokes Q maps for WMAP K1, Ka1, Q, V and W band respectively (after applying CMask). 
+Right column: same as left column, but for U Stokes parameter.

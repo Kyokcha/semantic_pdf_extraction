@@ -1,0 +1,19 @@
+Claim 2. There are no compressing disks for St′ ∩ M+ in H1_t′.  
+Proof. If such a compressing disk exists in H1_t′, then there exists a compressing disk in St ∩ M+ in H1_t for t < t̂ by Claim 1, contradicting the assumption that the first compressing disk for St′ ∩ M+ in H1_t′ appears for t′ > t̂.  
+Thus the side M− must be where the first compressing disk in H1_t′ appears at the level t′ (t < t̂ < t′).  
+That is, St′ ∩ M− has a compressing disk in H1_t′.  
+Then, there are no compressing disks for St′ ∩ M+ in H0_t′, for S is strongly irreducible.  
+Together with Claim 2, we conclude that, for t′ > t̂ and t′ very close to t̂, there are no compressing disks for St′ ∩ M+ in M+, i.e., St′ ∩ M+ is incompressible in M+.  
+Also, at the level t (t < t̂ < t′), there cannot be any compressing disks in St ∩ M− in H0_t.  
+Because if such a compressible disk exists, then it gives a compressing disk in St′ ∩ M− in H0_t′ by Claim 1, contradicting that St′ ∩ M− does not have compressing disks on both sides.  
+Also, at the level t, there cannot be any compressing disks in St ∩ M− in H1_t, for the first compressing disk for St′ ∩ M− in H1_t′ appears for t′ > t̂.  
+We conclude that there cannot be any compressing disks for St ∩ M− in M− at the level t, i.e., St ∩ M− is incompressible in M−.  
+This gives the second case of the theorem.  
+Finally the third case occurs when St ∩ M+ has no compressing disk in H0_t for t very close to t̂ and t < t̂.  
+In this case, there are no compressing disks for St ∩ M+ in H1_t, for the first compressing disk for St′ ∩ M+ in H1_t′ appears for t′ > t̂.  
+This implies that St ∩ M+ is incompressible in M+.  
+In the same way, St ∩ M− has no compressing disk in H1_t.  
+Claim 3. There are no compressing disks for St ∩ M− in H0_t.  
+Proof. If such a compressing disk exists for St ∩ M− in H0_t, then it extends to a compressing disk in St′ ∩ M− in H0_t′ for t′ > t̂ by Claim 1.  
+This gives a contradiction to the strong irreducibility of the splitting (resp. the assumption that St′ ∩ M− does not have compressing disks on both sides) in the case that the first compressing disk at the level t′ > t̂ appears in the M+ side (resp. the M− side).  
+Therefore we conclude that, for t < t̂ and t arbitrarily close to t̂, there are no compressing disks for either St ∩ M+ or St ∩ M−.

@@ -1,0 +1,31 @@
+netic energy functionals as local variational problems in auxiliary potential fields.  
+However, the proposed reformulation of electrostatic interactions is notably different from previous works, and enables the evaluation of variational configurational forces corresponding to both internal atomic relaxations as well as external cell relaxation under a single framework.  
+Further, the proposed formulation naturally extends to all-electron orbital-free DFT calculations of warm dense matter.  
+In the proposed real-space formulation, the ground-state orbital-free DFT problem is reformulated as an equivalent saddle point problem of a local functional in electron density, electrostatic potential and the auxiliary potential fields (kernel potentials) accounting for the extended interactions in the kinetic energy functional.  
+We employ a higher-order finite-element basis to discretize the formulation, and demonstrate the optimal numerical convergence of both the ground-state energy and configurational forces with respect to the discretization.  
+Further, we propose an efficient numerical approach to compute the saddle point problem in electron density, electrostatic potential and kernel potentials by expressing the saddle point problem as a fixed point iteration problem, and using a self-consistent field approach to solve the fixed point iteration problem.  
+We subsequently investigate the accuracy and transferability of the proposed real-space formulation of orbital-free DFT for Al and Mg materials systems.  
+To this end, we compute the bulk properties of Al, Mg and Al-Mg intermetallics, and compare it with Kohn-Sham DFT.  
+As orbital-free DFT only admits local pseudopotentials, the Kohn-Sham DFT calculations are conducted using both local and non-local pseudopotentials.  
+Our studies indicate that the bulk properties computed using orbital-free DFT for Al, Mg and Al-Mg intermetallics are in good agreement with Kohn-Sham DFT.  
+We further investigate the accuracy of orbital-free DFT by computing the interatomic forces in Al and Mg, which are also in good agreement with Kohn-Sham DFT calculations.  
+Our studies demonstrate that orbital-free DFT is accurate and transferable across a wide range of properties for Al, Mg and Al-Mg intermetallics, and can be used to study properties of these materials systems that require computational domains that are not accessible using Kohn-Sham DFT.  
+For instance, in the present study we computed the formation energy of β′ Al-Mg alloy containing 879 atoms in a unit cell employing the proposed real-space formulation of orbital-free DFT, but the same system was found to be prohibitively expensive using Kohn-Sham DFT.  
+We finally investigate the cell-size effects in the electronic structure of point defects, in particular a mono-vacancy in Al.  
+Prior studies using Fourier-based formulations of orbital-free DFT have suggested that the formation energy of a mono-vacancy in Al is well converged by 108–256 atom cell-sizes.  
+However, coarse-grained real-space calculations have suggested that much larger cell-sizes of the order of 1,000 atoms are required for convergence of vacancy formation energies, which was also supported by asymptotic estimates.  
+In order to understand the underpinnings of this discrepancy, we use the finite-element discretized real-space formulation of orbital-free DFT and compute the vacancy formation energy using two boundary conditions: (i) periodic boundary conditions, equivalent to Fourier-space based formulations; (ii) bulk Dirichlet boundary conditions, where the perturbations in the electronic structure arising due to the vacancy vanishes on the boundary of the computational domain.  
+Our study suggests that while the vacancy formation energy is well converged by 108 atom cell-size using periodic boundary conditions, the electronic fields are not well-converged by this cell-size.  
+On the other hand the bulk Dirichlet boundary conditions show well converged formation energy as well as electronic fields by cell sizes of ∼1,000 atoms, which is consistent with prior real-space calculations.  
+This study reveals that while periodic boundary conditions show a superior convergence in formation energies due to the variational nature of the formalism, the true cell-size effects which also measure convergence of electronic fields are provided by the bulk Dirichlet boundary conditions.  
+We note that the proposed real-space formulation with finite-element discretization are crucial to employing bulk Dirichlet boundary conditions, which enable the study of isolated defects in bulk.  
+The remainder of the paper is organized as follows.  
+Section II provides a description of the orbital-free DFT problem.  
+Section III presents the proposed real-space formulation of the orbital-free DFT problem, the configurational forces associated with structural relaxations, and the finite-element discretization of the formulation.  
+Section IV discusses the numerical implementation of the formulation and presents an efficient numerical approach for the solution of the saddle point real-space variational problem.  
+Section V presents the numerical convergence results of the finite-element discretization of the real-space formulation, the accuracy and transferability of the real-space orbital-free DFT formalism for Al-Mg materials system, and the study of the role of boundary conditions on the cell-size effects in electronic structure calculations of point defects.  
+We finally conclude with a summary and outlook in Section VI.  
+II. ORBITAL-FREE DENSITY FUNCTIONAL THEORY  
+The ground-state energy of a charge neutral materials system containing M nuclei and N valence electrons in density functional theory is given by  
+E(ρ, R) = Ts(ρ) + Exc(ρ) + EH(ρ) + Eext(ρ, R) + Ezz(R),  
+where ρ denotes the electron-density and R = {R₁, R₂, ..., RM} denotes the vector containing the positions of M nuclei.

@@ -1,0 +1,22 @@
+Proton instabilities in weakly collisional plasmas may be expressed by transport coefficients which are typically derived in the vicinity of thermal equilibrium (Braginskii 1965).
+A presence of other kinetic effects may render questionable these collision-dominated theoretical predictions (in the collisionless limit the transport coefficients of Braginskii (1965) diverge).
+Some collisional transport coefficients can be calculated even far from thermal equilibrium, for example assuming drifting bi-Maxwellian velocity distribution functions for all particle species (Barakat & Schunk 1981; Hellinger & Trávníček 2009).
+For instance the proton-proton isotropization frequency νpp [d(Tp⊥ − Tp‖)/dt]coll = −νpp (Tp⊥ − Tp‖) (1.1) may be given as νpp = e⁴np ln Λ / (10π³ᐟ²ε₀²m¹ᐟ²ₚk³ᐟ²ᴮ T³ᐟ²ₚ‖) ₂F₁(2, 3/2; 7/2, 1 − Tp⊥/Tp‖) (1.2) where ₂F₁ is the standard (Gauss) hypergeometric function.
+In collisionless plasmas kinetic instabilities lead to effective transport coefficients.
+In the quasi-linear approximation it is possible to derive some of the transport coefficients (Yoon & Seough 2012; Hellinger et al. 2013) assuming the particle velocity distribution function is close to bi-Maxwellian.
+The behavior of a driven system with Coulomb collisions and temperature anisotropy-driven instabilities is a complex nonlinear problem which is hard to investigate analytically so that a numerical approach is needed.
+In this paper we investigate expansion-driven proton temperature anisotropies in high beta, weakly collisional plasmas.
+In high beta (collisionless) plasmas there are two dominant instabilities driven by the proton temperature anisotropy.
+For Tp⊥ > Tp‖ it is the mirror instability (Hasegawa 1969).
+This instability is resonant (i.e., a substantial portion of the proton velocity distribution function resonates with the unstable waves (cf., Gary 1993)) through the Landau resonance.
+This kinetic feature is combined with fluid properties, the unstable waves are nonpropagating and have long wavelengths near threshold.
+The nonlinear properties of the mirror instability are not fully understood, as they seem to combine kinetic properties (the Landau resonance, particle scattering/trapping) and a fluid nonlinearity (Califano et al. 2008).
+For Tp⊥ < Tp‖ the dominant growing mode is the oblique fire hose instability (Hellinger & Matsumoto 2000).
+This instability is resonant through the cyclotron resonance and generates transient nonpropagating modes which eventually become propagating and damped (Hellinger & Trávníček 2008).
+Other instabilities (ion cyclotron, parallel fire hose, Weibel) may also play an important role in regulating the proton temperature anisotropy.
+This paper is organized as follows: section describes the numerical code, section presents the simulation results for one simulation for the parallel proton temperature anisotropy Tp⊥ < Tp‖ and one for the perpendicular anisotropy Tp⊥ > Tp‖.
+The simulations results are summarized and discussed in section.
+2. Expanding box model 
+Here we use the expanding box model (Grappin et al. 1993) implemented to the hybrid code developed by Matthews (1994) to study a response of a weakly collisional plasma to a slow expansion.
+In this Collisional Hybrid Expanding Box (CHEB) model the expansion is described as an external force.
+This model was developed in the context of the radial

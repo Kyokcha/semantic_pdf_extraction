@@ -1,0 +1,15 @@
+(Dated: January 24, 2018)
+We present a comprehensible introduction to tight informationally complete measurements for arbitrarily large multipartite systems and study their allowed entanglement configurations, focusing on those requiring simplest possible quantum resources. 
+We demonstrate that tight measurements cannot be exclusively composed neither by fully separable nor maximally entangled states, according to a selected measure of entanglement. 
+We establish an upper bound on the maximal number of fully separable states allowed by tight measurements and we study the distinguished case in which every measurement operator has the same amount of entanglement.
+Furthermore, we introduce the notion of nested tight measurements, i.e. multipartite tight informationally complete measurements such that every reduction to a certain number of parties induces a lower dimensional tight measurement, proving that they exist for any number of parties and internal levels.
+Keywords: Informationally complete quantum measurements, SIC-POVM, mutually unbiased bases, quantum entanglement.
+I. INTRODUCTION
+Information stored in physical systems can be retrieved by choosing a suitable set of measurements. 
+In quantum mechanics this information can be obtained by considering positive operator valued measures (POVM). 
+By implementing a set of measurements over an ensemble of particles it is possible to tomographically reconstruct quantum states. 
+The information gained from some special sets of measurements is enough to reconstruct any state of a quantum system. 
+Such kind of measurements are called informationally complete (IC)-POVM and the process to reconstruct the state is called quantum state tomography.
+These general measurements have a fundamental importance in quantum information theory, as they find applications in quantum processes tomography [1], quantum cryptography [2] and quantum fingerprinting [3].
+Among existing schemes of generalised quantum measurements one distinguishes a class called tight IC-POVM having some remarkable properties:
+(i) they provide a simple

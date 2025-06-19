@@ -1,0 +1,30 @@
+Table 3: Ordered moments from refining the low-temperature data from D10 and D23 using Irep(4).
+Two refinements were performed: one constraining the moments to lie only along a; and a second with the moments free in the (a,c) plane.
+The residuals for each refinement are also shown.
+All moment values are given in μB.
+Note that both nuclear and magnetic Bragg peaks were measured and that the refinements included both nuclear and magnetic structures.
+[TABLE_START]
+Parameter, D10 ,D23
+Scanned reflections,421,269
+Independent reflections,417,121
+[TABLE_END]
+[TABLE_START]
+IREP(4), (Mx,0,Mz), (Mx,0,0), (Mx,0,Mz), (Mx,0,0)
+Moment along a,3.13 (8),3.33 (7),3.3 (1),3.62 (6)
+Moment along c,−0.6 (1),−,−0.6 (1),−
+Total moment,3.36 (9),3.33 (7),3.5 (1),3.62 (6)
+RF2,8.759,9.14,10.50,11.51
+RwF2,46.47,47.30,22.77,25.06
+RF,11.32,11.71,9.714,10.56
+χ2,4.198,4.359,0.8128,0.9853
+[TABLE_END]
+most likely present.
+A schematic of the magnetic structure for CoPS3 is shown in figure 7.
+The originally published structure is shown in figure 7(b), while the results for the current refinement are shown in figure 7(c).
+The current refinement results in a structure that is qualitatively identical to that for NiPS3 [8].
+The temperature dependence of the (010) Bragg peak was followed as a function of temperature to quantify the critical behaviour of the sublattice magnetization in CoPS3.
+The results are shown in figure 8.
+The Bragg peak intensity decreases as a power law with an exponent of 2β = 0.60 ± 0.01 close to TN, which was established to be 119.1 ±0.1 K in the analysis.
+The exponent was determined from fitting data in the temperature range 109 ≤ T < TN, or from a reduced temperature (1 −T/TN) ≤ 0.085.
+The exponent is roughly similar to that expected for a phase transition in a three-dimensional material, suggesting that CoPS3 may be less two-dimensional than some of the other members of the MPS3 family.
+The temperature dependence is remarkably similar to that observed for NiPS3, with the same exponent within approximately the same reduced temperature range.

@@ -1,0 +1,28 @@
+Table 3: Extracted triadic energies.
+[TABLE_START]
+Type of triad,Total degeneracy EVE,Total degeneracy Cold War,−ln pi = βEi + ln Z EVE SOV,−ln pi = βEi + ln Z EVE +200,−ln pi = βEi + ln Z Middle-East,−ln pi = βEi + ln Z Cold War
+A: [+ +−],g(EA) = 525,g(EA) = 12,9.62 ± 0.33,9.52 ± 0.18,4.47,6.38 ± 0.49
+B: [−−−],g(EB) = 343,g(EB) = 1,7.41 ± 0.09,7.26 ± 0.07,2.11,3.24 ± 0.39
+D: [+−−],g(ED) = 735,g(ED) = 6,7.30 ± 0.04,7.26 ± 0.03,1.80,4.25 ± 0.40
+C: [+ + +],g(EC) = 125,g(EC) = 8,6.17 ± 0.18,6.45 ± 0.14,1.06,2.24 ± 0.06
+[TABLE_END]
+The triadic energies and corresponding error bars are obtained by time averaging the quantity −ln pi / g(Ei) = βEi + ln Z for the alliances (SOV and +200) in EVE Online (left and middle panel of Fig. 8) and for the international relations during the Cold War era (right panel of Fig. 8).  
+The gradual disintegration of N3 is reflected in a continuous increase of entropy (more randomness in the system).  
+This rise of the entropy comes to an end during August-September 2015 by which time the N3 alliances had formed new coalitions.  
+Another distinctive feature in the time series of the entropy is the spike in April 2016.  
+This marks the next great war, known as “World War Bee” or “The Casino War”, that struck EVE’s virtual world.  
+As a result of this war, The Imperium coalition fell apart in mid April 2016.  
+This is clearly visible as a strong rise in the ST for both types of alliances.  
+The information about the relationships of 21 agents involved in the Syrian Civil War of Fig. 6 can be converted into the occupation probabilities pi for the four types of triads.  
+Using the geometrical degeneracies gC(Ei) of Table 1, we obtain the βEi + ln Z values as contained in Table 3.  
+Using data from the Correlates of War project [COW, 2016] we extracted the time series for the triadic energies (Fig. 8) and entropies (Fig. 10).  
+The highest entropy value occurred during the 1962–1964 period that marks the Cuban Missile Crisis (October 16–28, 1962) and the Gulf of Tonkin incident (1964) that triggered the USA intervention in Vietnam.  
+The impact of those incidents is also clearly visible in the extracted energies (right panel of Fig. 8) which show a decreasing trend from 1964 onwards.  
+This trend can be attributed to a systematically increasing occupation probability for the [+ + +] triads at the cost of the occupation probabilities for triads including a "−" edge.  
+This is likely the result of the easing of the strained relations between the blocks of countries (often referred to as the “détente”).  
+Thus one can identify major change points in each political system from the changes in the entropy over time, with the direction of the changes intuitively translating into increased or decreased political stability.  
+The extracted triadic energies βEi + ln Z ± σβEi shown in Table 3 can be used to determine the strength parameters for the Hamiltonian of Eq. 6, as well as the unknown zero level Z0.  
+From this we can learn about the underlying dynamics in the formation of the triadic relationships.  
+We use the maximum likelihood method to determine the (α, γ, ω, Z0) that has the highest probability of generating the extracted βEi + ln Z sets.  
+The likelihood is computed from  
+L(βEi + ln Z | α, γ, ω, Z0) = ∏_{i ∈ (A,B,D,C)} exp(−(βEi + ln Z − (βHi(α, γ, ω) + Z0))² / σ²_βEi).

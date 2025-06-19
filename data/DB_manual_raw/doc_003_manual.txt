@@ -1,0 +1,55 @@
+TABLE V
+MANTISSAS AND EXPONENT PROCESSING COMPLEXITY OF COMPLEX BLOCK ALU
+[TABLE_START]
+Block Addition, Mantissas Scaling, Exponents Arithmetic
+Complex IEEE754, 4 ∗N, 2 ∗N
+Common Exponent, 4 ∗N, 2
+Exponent Box, 8 ∗N, 4
+Block Multiplication, Mantissas Scaling, Exponents Arithmetic
+Complex IEEE754, 8 ∗N, 6 ∗N
+Common Exponent, 8 ∗N, 2
+Exponent Box, 16 ∗N, 5
+Convolution, Mantissas Scaling, Exponents Arithmetic
+Complex IEEE754, 6 ∗N1N2 + 4 ∗(N1 −1)(N2 −1), 6 ∗N1N2 + 2 ∗(N1 −1)(N2 −1)
+Common Exponent, 6 ∗N1N2 + 4 ∗(N1 −1)(N2 −1), 3 ∗(N1 + N2 −1) + 1
+Exponent Box, 10 ∗N1N2 + 8 ∗(N1 −1)(N2 −1), 3 ∗(N1 + N2 −1) + 1
+[TABLE_END]
+With Exponent Box Encoding, in the worst case, we need eight more mantissas post-scaling.
+Also, the Shift Vectors allow for four possible intermediate exponent values instead of one intermediate exponent value in Common Exponent Encoding.
+C. Complex Convolution
+Let X₁ ∈ C¹ˣᴺ¹, X₂ ∈ C¹ˣᴺ², and Y ∈ C¹ˣ(ᴺ¹+ᴺ²−1) be complex-valued row vectors, where * denotes convolution, such that:
+Y = X₁ * X₂     (3)
+We assume N₁ < N₂ for practical reasons where the model of channel impulse response has a shorter sequence than the discrete-time samples.
+Each term in the complex block output is a complex inner product of two complex block inputs of varying length between 1 and min(N₁, N₂).
+Complex convolution is implemented as complex block multiplication and accumulation of intermediate results.
+We derive the processing complexity of mantissas and exponents in Appendix.
+IV. SYSTEM MODEL
+We apply Exponent Box Encoding to represent IQ components in baseband QAM transmitter (Figure 5) and baseband QAM receiver (Figure 6).
+The simulated channel model is Additive White Gaussian Noise (AWGN).
+Table VI contains the parameter definitions and values used in MATLAB simulation and Table VII summarizes the memory inputs/output rates (bits/sec) and multiply-accumulate rates required by discrete-time complex QAM transmitter and receiver chains.
+A. Discrete-time Complex Baseband QAM Transmitter
+We encode complex block IQ samples in Exponent Box Encoding and retain the floating-point resolution in 32-bit IEEE-754 precision in our model.
+For simplicity, we selectblock size to be, Nv = LT X fsym. 
+The symbol mapper generates a LT X fsym-size of complex block IQ samples that shares common exponent. 
+Pulse shape filter is implemented as Finite Impulse Response (FIR) filter of NT X -order and requires complex convolution on the upsampled complex block IQ samples.
+TABLE VI
+QAM TRANSMITTER, RECEIVER SPECIFICATIONS
+[TABLE_START]
+QAM Parameters, Definition, Values / Types
+Constellation Order, M, 1024
+Transceiver Parameters, Definition, Values / Types
+Up-sample Factor, LT X LRX, 4
+Symbol Rate (Hz), fsym, 2400
+Filter Order NT, X NRX, 32th
+Pulse Shape gT, X gRX, Root-Raised Cosine
+Excess Bandwidth Factor, αT xαRX, 0.2
+[TABLE_END]
+Fig. 5. Block diagram of discrete-time complex baseband QAM transmitter
+B. Discrete-time Complex Baseband QAM Receiver
+Due to the channel effect such as fading in practice, the received signals will have larger span in magnitude-phase response. 
+The Common Exponent Encoding applied on sampled complex block IQ samples is limited to selecting window size of minimum phase difference. 
+The Common Exponent Encoding must update its block size at the update rate of gain by the Automatic Gain Control (AGC). 
+Instead, our Exponent Box Encoding could lift the constraint and selects fixed block size, Nv = LRX fsym in this simulation. 
+We simulate matched filter of NRX -order.
+V. SIMULATION RESULTS
+Fig. 6. Block diagram of discrete-time complex baseband QAM receiver

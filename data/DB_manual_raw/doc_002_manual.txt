@@ -1,0 +1,10 @@
+Kobzar, Niemiec, Pohl & Bohdan
+Figure 13. 
+Distribution of the normalized magnetic-field amplitude Bz/B0 (a), normalized ion number density Ni/Ni0 (b) and the mean kinetic energy (temperature) of ions (c) and electrons (d), all taken at time tγmax = 15 in a small region harboring strong turbulence.
+Linear scales are used in all maps. 
+Overlaid on the maps in panels (a), (c) and (d) are in-plane magnetic-field lines and likewise in-plane electric-field lines in panel (b). 
+The white crosses are intended to facilitate cross-correlation of various details. 
+One example of an ion trajectory is shown as white solid line for times tγmax 6 15 and as dashed line for later times.
+Figure 14. 
+Distribution of the charge density in the plasma (a) and the resulting electrostatic field (b).
+MNRAS 000, 1–16 (2017)

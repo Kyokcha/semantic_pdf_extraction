@@ -1,0 +1,18 @@
+The anomalous triangle diagram gives a coefficient of 5/9 to the 2-flavour CME but 2/3 for the 3-flavour CME.
+It results in a relative CME current difference of 1/6 between 2-flavour and 3-flavour cases.
+However, because the traditional experimental observable γ of charge azimuthal correlation includes all inclusive charged hadrons, it limits one’s ability to measure the relative difference.
+Recently, the ALICE collaboration measured the identified hadron triggered charge azimuthal correlation, e.g. kaon-hadron correlation, which enables us to access the flavour property of the CME.
+Another advantage of kaon-hadron correlation is that it can avoid the contamination from ρ meson decay, which presumably plays a significant influence on the CME observable.
+In this work, we implement a multiphase transport (AMPT) model to investigate the flavour dependence of the CME.
+In our previous work, we imported the initial CME-like dipole charge separation to the AMPT model with a constant separation percentage, and found that though the original AMPT model can reproduce 60–70% magnitude of the CME observable γ in Au+Au collisions at 200 GeV, an initial charge separation percentage of ∼10% is needed to closely match the STAR data, and demonstrate that final state interactions strongly suppress the initial CME effect.
+In this work, we will improve our method to study the γ correlators in Pb+Pb collisions at 2.76 TeV, by taking two following improvements into account.
+Firstly, we use a centrality-dependent charge separation percentage which is assumed to be proportional to the magnitude of magnetic field in Pb+Pb collisions, which is more reasonable for simulating the CME.
+Secondly, we consider both 2-flavour and 3-flavour cases for the initial charge separation to mimic the 2-flavour and 3-flavour CME effect, while we only considered two flavours of quarks (u and d) in our previous work.
+This paper is organized as follows.
+We give a short introduction of our model and the method to introduce the 2-flavour and 3-flavour dipole charge separations in Sec. .
+In Sec. , we present our simulation results and expand some discussions.
+Finally, we summarize in Sec. .
+The AMPT Model
+We implemented the AMPT model with string melting mechanism in this study.
+The AMPT model, which is a Monte Carlo hybrid transport model, includes four main stages of relativistic heavy-ion collisions, i.e. initial condition, parton cascade, hadronization, and hadronic rescatterings.
+The initial condition, which includes the spatial and momentum

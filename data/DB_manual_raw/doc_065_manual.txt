@@ -1,0 +1,32 @@
+Eichler, D., Livio, M., Piran, T., & Schramm, D. N. 1989, Nature, 340, 126  
+Eichler, M., Nakamura, K., Takiwaki, T., et al. 2018, Journal of Physics G Nuclear Physics, 45, 014001  
+Ertl, T., Janka, H.-T., Woosley, S. E., Sukhbold, T., & Ugliano, M. 2016, Ap. J., 818, 124  
+Farouqi, K., Kratz, K.-L., Pfeiffer, B., et al. 2010, Ap. J., 712, 1359  
+Foglizzo, T., Kazeroni, R., Guilet, J., et al. 2015, Publ. Astron. Soc. Austr., 32, e009  
+Fowler, W. A., & Hoyle, F. 1964, Ap. J. Suppl., 9, 201  
+Fowler, W. A., Caughlan, G. R., & Zimmerman, B. A. 1967, Annu. Rev. Astron. Astrophys., 5, 525  
+Fowler, W. A., Caughlan, G. R., & Zimmerman, B. A. 1975, Annu. Rev. Astron. Astrophys., 13, 69  
+Freiburghaus, C., Rembges, J.-F., Rauscher, T., et al. 1999a, Ap. J., 516, 381  
+Freiburghaus, C., Rosswog, S., & Thielemann, F.-K. 1999b, Ap. J. Lett., 525, L121  
+Fröhlich, C., Hauser, P., Liebendörfer, M., et al. 2006a, Ap. J., 637, 415  
+Fröhlich, C., Martínez-Pinedo, G., Liebendörfer, M., et al. 2006b, Physical Review Letters, 96, 142502  
+Fujimoto, S.-i., Nishimura, N., & Hashimoto, M.-a. 2008, Ap. J., 680, 1350  
+Fuller, G. M., Fowler, W. A., & Newman, M. J. 1985, Ap. J., 293, 1  
+Georgy, C., Ekström, S., Eggenberger, P., et al. 2013, Astron. Astrophys., 558, A103  
+Goldstein, D. A., & Kasen, D. 2018, Ap. J. Lett., 852, L33  
+Goriely S., 1997, In: G. Reffo et al. (eds) Nuclear Data for Science and Technology, Italian Physical Society, p. 811  
+Goriely, S., Hilaire, S., & Koning, A. J. 2008, Astron. Astrophys., 487, 767  
+Goriely, S., & Martínez Pinedo, G. 2015, Nucl. Phys. A, 944, 158  
+Halevi, G., & Mösta, P. 2018, MNRAS, 477, 2366  
+Hansen, T. T., Holmbeck, E. M., Beers, T. C., et al. 2018, Ap. J., 858, 92  
+Heger, A., & Woosley, S. E. 2010, Ap. J., 724, 341  
+Hirai, Y., Ishimaru, Y., Saitoh, T. R., et al. 2017, MNRAS, 466, 2474  
+Hix, W. R., & Thielemann, F.-K. 1999, Journal of Computational and Applied Mathematics, 109, 321  
+Hoeflich, P., Chakraborty, S., Comaskey, W., et al. 2017, Mem. Soc. Astron. Italiana, 88, 302  
+Holmbeck, E. M., Beers, T. C., Roederer, I. U., et al. 2018a, Ap. J. Lett., 859, L24  
+Holmbeck, E. M., Surman, R., Sprouse, T. M., et al. 2018b, arXiv:1807.06662  
+Holmes, J. A., Woosley, S. E., Fowler, W. A., & Zimmerman, B. A. 1976, Atomic Data and Nuclear Data Tables, 18, 305  
+Horowitz, C. J., Arcones, A., Côté, B., et al. 2018, arXiv:1805.04637  
+Hotokezaka, K., Beniamini, P., & Piran, T. 2018, arXiv:1801.01141  
+Howard, W. M., Arnett, W. D., Clayton, D. D., & Woosley, S. E. 1972, Ap. J., 175, 201  
+Hoyle, F., & Fowler, W. A. 1960, Ap. J., 132, 565

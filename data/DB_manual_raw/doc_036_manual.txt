@@ -1,0 +1,14 @@
+We claim that q is adjacent to p in Ck.
+Indeed, conditions C1 and C3 hold trivially.
+To verify C2, consider a curve e ∈ S2 touching d at a point in the arc of d from q to q′.
+This touching point (as the whole arc of d from q to q′) lies inside Ti.
+However, e must intersect b, so it must leave Ti.
+It touches a, so it must leave through either bi or c′i.
+Here c′i has fewer than 2α²k points in X, by our choice of i, while bi contains fewer than α²k points in X, since Case 2 does not hold.
+Hence, e has fewer than 3α²k points where it can leave Ti, and there are at most 3α²k possible choices for the curve e.
+This means that condition C2 is satisfied and q is adjacent to p in Ck.
+By our choice of i, we can select the curve d in at least k/α different ways, each giving rise to a different edge in Ck incident to p.
+The total weight of these edges is α.
+This completes the analysis of the last case, showing that the total weight of all edges in Ak, A′k, A′′k, Bk and Ck incident to p is at least α.
+Summing over all l possible values of k and over all n² touching points in T, we conclude that the total weight of G is at least α d log n n².
+Comparing this lower bound with the upper bound proved in the preceding subsection and substituting α = √log n / log log n, Theorem 7 follows.

@@ -1,0 +1,15 @@
+Soft Graviton Emission at High and Low Energies in Yukawa and Scalar Theories
+Hualong Gervais
+C.N. Yang Institute for Theoretical Physics and Department of Physics and Astronomy Stony Brook University, Stony Brook, NY 11794-3840 USA
+May 29, 2020
+Abstract
+We study corrections to the soft graviton theorem at all loop orders in Yukawa and scalar theories, both in the high energy and low energy regions.
+It is found that the tree level soft theorem is corrected by matrix elements coupled to the Riemann curvature tensor of linearized gravity.
+Further corrections appear in the high energy region and we develop a power counting technique to classify all such loop corrections according to their order of magnitude.
+This leads to the construction of factorized contributions to the soft theorem, to which we apply an analysis analogous to Low’s theorem based on the gravitational Ward identity.
+In this analysis, we emphasize the role played by the external kinematics.
+Contents
+1 Introduction 1
+2 Expansion of the Elastic Amplitude 5
+2.1 Power Counting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+2.2 Factorization of the Elastic Amplitude . . . . . . . . . . . . . . . . . . . . . 14

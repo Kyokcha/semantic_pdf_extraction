@@ -1,0 +1,40 @@
+Figure 1: Phase diagram of the classical Hamiltonian (4) for N = 3 colors and disorder distribution (5) with Jh = 1, Jl = 0.25, and c = 0.5.
+The dots and triangles mark the numerically determined transitions between the Baxter, product, and paramagnetic phases.
+The solid lines are guides to the eye only.
+The dashed line marks εc = 1.281 which separates the weak and strong coupling regimes in the strong-disorder renormalization group calculations.
+Where ⟨...⟩ denotes the thermodynamic (Monte Carlo) average and [...]dis is the disorder average.
+In addition, we also measure the product order parameter
+p = (1 / 3LLt) ∑ (α < β) |∑ (i,t) Sαi,t Sβi,t|, (8)
+the corresponding product susceptibility χp, and the product Binder cumulant gp.
+The phase diagram of the classical Hamiltonian (4) resulting from these simulations is shown in Fig. 1.
+In the weak-coupling regime, ε < εc, we find a direct transition between the magnetically ordered Baxter phase at low temperatures and the paramagnetic high-temperature phase.
+For strong coupling, ε > εc, these two phases are separated by a product phase.
+In the following, we study the critical behaviors of the transitions separating these phases in detail, and we compare them to the renormalization group predictions.
+Weak coupling regime
+In the weak-coupling regime, ε < εc, we perform simulations for coupling strengths ε = 0, 0.3 and 0.5 employing the Wolff and Swendsen-Wang cluster algorithms as discussed above.
+Because the disorder breaks the symmetry between the space and (imaginary) time directions in the Hamiltonian (4), the finite-size scaling analysis of the data to find the critical exponents becomes more complicated.
+This is caused by the fact that the system sizes L and Lt in the space and time directions are expected to have different scaling behavior.
+Thus, the correct aspect ratios Lt/L of the samples to be used in the simulations are not known a priori.
+To overcome this problem we follow the iterative method employed in Refs. 45–48 which is based on the Binder cumulant.
+As the renormalization group calculations predict infinite-randomness criticality with activated dynamical scaling, the scaling form of the Binder cumulant (which has scale dimension 0) reads
+gav(r, L, Lt) = Xg(rL^(1/ν), ln(Lt/L₀t)/L^ψ). (9)
+Here r = (T − Tc)/Tc denotes the distance from criticality, Xg is a scaling function, and ψ and ν refer to the tunneling and correlation length critical exponents.
+L₀t is a microscopic reference scale.
+For fixed L, gav has a maximum as function of Lt at position Lmax_t and value gmax_av.
+The position of the maximum yields the optimal sample shape for which the system sizes L and Lt behave as the correlation lengths ξ and ξt.
+At criticality Lt must thus behave as ln(Lmax_t / L₀t) ∼ L^ψ, fixing the second argument of the scaling function Xg.
+Consequently, the peak value gmax_av is independent of L at criticality, and the gav vs. r curves of optimally shaped samples cross at T = Tc.
+Once the optimal sample shapes are found, finite-size scaling proceeds as usual.
+To test our simulation and data analysis technique, we first consider the case ε = 0 for which the quantum Ashkin-Teller model reduces to three decoupled random transverse-field Ising chains whose quantum phase transition is well understood.
+We perform simulations for sizes L = 10 to 50 and Lt = 2 to 20000 and find a critical temperature Tc ≈ 1.24.
+At this temperature, we confirm the activated scaling (9) of the Binder cumulant with the expected value ψ = 1/2.
+We also confirm the scaling of the magnetization at Tc (for the optimally shaped samples), m ∼ L^(−β/ν) with β = 0.382 and ν = 2.
+After this successful test, we now turn to the Ashkin-Teller model proper.
+We perform two sets of simulations: ε = 0.5 using system sizes L = 10 to 60, Lt = 2 to 60000 and ε = 0.3 with system sizes L = 10 to 50, Lt = 2 to 40000.
+In each case, we start from a guess for the optimal shapes and find an approximate value of Tc from the crossing of the gav vs. T curves for different L.
+We then find the maxima of the gav vs. Lt curves at this temperature which yield improved optimal shapes.
+After iterating this procedure two or three times, we obtain Tc and the optimal shapes with reasonable precision.
+Figure 2 shows the resulting Binder cumulant gav for ε = 0.5 as function of Lt for different L at the approximate critical temperature of Tc = 2.08(5).
+As expected at Tc, the maxima gmax_av of these curves are independent of L.
+The slightly lower values at the smallest L can be attributed to corrections to scaling.
+Moreover, the figure shows that the gav vs. Lt domes rapidly become broader with increasing spatial size L, indicating non-power-law scaling.

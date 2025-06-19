@@ -1,0 +1,27 @@
+Computational cost becomes a function of m only.  
+In particular, the cost of solving M̄ through dynamic programming becomes polynomial in m instead of n: while one application of T̂, the Bellman operator of M̂, is O(nn̂|A|), the computation of T̄ is O(m²|A|).  
+Therefore, KBSF’s time and memory complexities are only linear in n.  
+We note that, in practice, KBSF’s computational requirements can be reduced even further if one enforces the kernels κaτ and κ̄τ̄ to be sparse.  
+In particular, given a fixed s̄i, instead of computing k̄τ̄(s̄i, saj) for j = 1, 2, ..., na, one can evaluate the kernel on a pre-specified neighborhood of s̄i only.  
+Assuming that k̄τ̄(s̄i, saj) is zero for all saj outside this region, one avoids not only computing the kernel but also storing the resulting values.  
+The same reasoning applies to the computation of kτ(ŝai, s̄j) for a fixed ŝai.  
+4.1 A closer look at KBSF’s approximation  
+As outlined in Section , KBRL defines the probability of a transition from state ŝbi to state ŝak as being κaτ(ŝbi, sak), where a, b ∈ A.  
+Note that the kernel κaτ is computed with the initial state sak, and not ŝak itself.  
+The intuition behind this is simple: since we know the transition sak a−→ ŝak has occurred before, the more “similar” ŝbi is to sak, the more likely the transition ŝbi a−→ ŝak becomes (Ormoneit and Sen, 2002).  
+From (13), it is clear that the computation of matrices Ka performed by KBSF follows the same reasoning underlying the computation of KBRL’s matrices P̂a.  
+In particular, κaτ(s̄j, sak) gives the probability of a transition from s̄j to ŝak.  
+However, when we look at matrix D things are slightly different: here, the probability of a “transition” from ŝbi to representative state s̄j is given by κ̄τ̄(ŝbi, s̄j)—a computation that involves s̄j itself.  
+If we were to strictly adhere to KBRL’s logic when computing the transition probabilities to the representative states s̄j, the probability of transitioning from ŝbi to s̄j upon executing action a should be a function of ŝbi and a state s′ from which we knew a transition s′ a−→ s̄j had occurred.  
+In this case we would end up with one matrix Da for each action a ∈ A.  
+Note though that this formulation of the method is not practical, because the computation of the matrices Da would require a transition (·) a−→ s̄j for each a ∈ A and each s̄j ∈ S̄.  
+Clearly, such a requirement is hard to fulfill even if we have a generative model available to generate sample transitions.  
+In this section we provide an interpretation of the approximation computed by KBSF that supports our definition of matrix D.  
+We start by looking at how KBRL constructs the matrices P̂a.  
+As shown in Figure 2a, for each action a ∈ A the state ŝbi has an associated stochastic vector p̂aj ∈ R¹×n whose nonzero entries correspond to the kernel κaτ(ŝbi, ·) evaluated at sak, k = 1, 2, ..., na.  
+Since we are dealing with a continuous state space, it is possible to compute an analogous vector for any s ∈ S and any a ∈ A.  
+Focusing on the nonzero entries of p̂aj, we define the function  
+P̂Sa : S → R¹×na  
+P̂Sa(s) = p̂a ⇐⇒ p̂ai = κaτ(s, sai) for i = 1, 2, ..., na. (16)  
+Clearly, full knowledge of the function P̂Sa allows for an exact computation of KBRL’s transition matrix P̂a.  
+Now suppose we do not know P̂Sa and we want to compute an...

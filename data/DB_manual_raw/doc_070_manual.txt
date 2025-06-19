@@ -1,0 +1,19 @@
+and A. Georges, New J. Phys. 10, 053019 (2008).  
+[19] S. Hellmann, M. Beye, C. Sohrt, T. Rohwer, F. Sorgenfrei, H. Redlin, M. Kalläne, M. Marczynski-Bühlow, F. Hennies, M. Bauer, A. Föhlisch, L. Kipp, W. Wurth, and K. Rossnagel, Physical Review Letters 105, 187401 (2010).  
+[20] W. Shen, Y. Ge, A. Y. Liu, H. R. Krishnamurthy, T. P. Devereaux, and J. K. Freericks, Phys. Rev. Lett. 112, 176404 (2014).  
+[21] M. Bovet, S. van Smaalen, H. Berger, R. Gaal, L. Forró, L. Schlapbach, and P. Aebi, Phys. Rev. B 67, 125105 (2003).  
+[22] T. Ritschel, J. Trinckauf, K. Koepernik, B. Büchner, M. v. Zimmermann, H. Berger, Y. I. Joe, P. Abbamonte, and J. Geck, Nat. Phys. 11, 328 (2015).  
+[23] M. N. Faraggi, X. Zubizarreta, A. Arnau, and V. M. Silkin, Journal of Physics: Condensed Matter 28, 184004 (2016).  
+[24] C. Laulhé, L. Cario, B. Corraze, E. Janod, T. Huber, G. Lantz, S. Boulfaat, A. Ferrer, S. O. Mariager, J. A. Johnson, S. Grübel, A. Lübcke, G. Ingold, P. Beaud, S. L. Johnson, and S. Ravy, Physica B ECRYS-2014, 460, 100 (2015).  
+[25] B. Dardel, M. Grioni, D. Malterre, P. Weibel, Y. Baer, and F. Lévy, Phys. Rev. B 45, 1462 (1992).  
+[26] E. Baldini, A. Mann, S. Borroni, C. Arrell, F. van Mourik, and F. Carbone, arXiv:1608.03503 [physics] (2016), arXiv:1608.03503.  
+[27] A. Mann, E. Baldini, A. Tramontana, E. Pomjakushina, K. Conder, C. Arrell, F. van Mourik, J. Lorenzana, and F. Carbone, Phys. Rev. B 92, 035147 (2015).  
+[28] J. Demsar, L. Forró, H. Berger, and D. Mihailovic, Phys. Rev. B 66, 041101 (2002).  
+[29] S. Sugai, K. Murase, S. Uchida, and S. Tanaka, Physica B+C 105, 405 (1981).  
+[30] Y. Toda, K. Tateishi, and S. Tanda, Phys. Rev. B 70, 033106 (2004).  
+[31] J. Bardeen and W. Shockley, Physical Review 80, 72 (1950).  
+[32] T. Onozaki, Y. Toda, S. Tanda, and R. Morita, Jpn. J. Appl. Phys. 46, 870 (2007).  
+[33] M. Eichberger, H. Schäfer, M. Krumova, M. Beyer, J. Demsar, H. Berger, G. Moriena, G. Sciaini, and R. J. D. Miller, Nature 468, 799 (2010).  
+[34] G. A. Sai-Halasz and P. B. Perry, Solid State Commun. 21, 995 (1977).  
+[35] The full data sets are provided as supplementary material.  
+[36] R. Claessen, B. Burandt, H. Carstensen, and M. Skibowski, Phys. Rev. B 41, 8270 (1990).

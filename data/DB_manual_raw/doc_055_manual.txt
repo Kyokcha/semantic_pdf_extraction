@@ -1,0 +1,47 @@
+D(B)dB = (1 / √(2πσB)) * exp[−(B − B₀)² / (2σB²)] (1)
+where the two parameters, the mean barrier B₀ and the distribution width σB, are to be determined individually for each reaction.
+III. THE FUSION CROSS SECTION
+The energy dependence of the fusion cross section is obtained by folding the barrier distribution [9, 10] provided by Eq.(1), with the classical expression for the fusion cross section given by
+σf(B) = πRB² * (1 − B/E) for B ≤ E  
+= 0 for B ≥ E (2)
+where RB denotes the relative distance corresponding to the position of the barrier approximately, which yields
+σfus(E) = ∫₀^∞ σf(B)D(B)dB  
+= ∫₀^B₀ σf(B)D(B)dB + ∫B₀^E σf(B)D(B)dB (3)  
+= πRB² * (σB/E√(2π)) * [ξ√π{erf ξ + erf ξ₀} + e^(−ξ²) + e^(−ξ₀²)]
+where  
+ξ = (E − B₀) / (σB√2)  
+ξ₀ = B₀ / (σB√2) (4)
+and erf ξ is the Gaussian error integral of argument ξ.
+The parameters B₀ and σB along with RB are to be determined by fitting Eq.(3) along with Eq.(4) to a given fusion excitation function.
+In the derivation of formula Eq.(3), the quantum effect of sub-barrier tunneling is not accounted for explicitly.
+However, the influence of the tunneling on shape of a given fusion excitation function is effectively included in the width parameter σB.
+The fusion cross section formula of Eq.(3) obtained by using the diffused-barrier is a very elegant parametrization of the cross section for a process of overcoming the potential-energy barrier.
+Hence, it can be successfully used for analysis and predictions of the fusion excitation functions of light, medium and moderately heavy systems, especially in the range of near-barrier energies.
+The term ‘capture’ is used to refer the process of overcoming the interaction barrier in a nucleus-nucleus collision, followed by formation of a composite system.
+In general, the composite system undergoes fusion only in a fraction f of the capture events.
+For light and medium systems, f ≈ 1, and almost all the ‘capture’ events lead to fusion resulting fusion cross sections to be practically identical with the capture cross sections.
+However, for very heavy systems, only a small fraction (f < 1) of ‘capture’ events ultimately lead to fusion while for the remaining part of the events, the system re-separates prior to equilibration and clear distinction between fusion and capture cross sections then becomes necessary.
+Therefore, for very heavy systems, when overcoming the barrier does not guarantee fusion, predictions based on Eq.(3) give the capture cross section.
+IV. CALCULATION AND RESULTS
+The near-barrier (above barrier) fusion excitation functions of medium and heavy nucleus-nucleus systems have been analyzed using a simple diffused barrier formula (given by Eq.(1)) derived by folding the Gaussian barrier distribution with the classical expression for the fusion cross section for a fixed barrier.
+The same set of target-projectile combinations have been selected for which heavy ion sub-barrier fusion has been recently [11] studied.
+The values of mean barrier height B₀, width σB and the effective radius RB have been obtained using the least-square fit method.
+These values are listed in Table-I and arranged in order of the increasing value of the Coulomb parameter z = Z₁Z₂ / (A₁^(1/3) + A₂^(1/3)).
+Since the number of data points for ⁴⁸Ca+¹²⁴Sn is too low compared to other systems, the error bars for B₀ (111.93 ± 0.44), σB (1.28 ± 0.83) and RB (8.24 ± 0.09) are rather large.
+TABLE I: The values of the mean barrier height B₀, the width of the barrier height distribution σB and the effective radius RB, deduced from the analysis of the measured fusion excitation functions.
+[TABLE_START]
+Reaction, z, Refs., B₀ [MeV], σB [MeV], RB [fm]
+16O+154Sm, 62.94, [12], 58.80, 2.43, 10.04
+17O+144Sm, 63.49, [12], 60.28, 1.75, 10.46
+16O+148Sm, 63.51, [12], 59.88, 2.31, 10.61
+16O+144Sm, 63.91, [12], 60.65, 1.76, 10.46
+36S+110Pd, 90.94, [13], 85.51, 1.92, 8.20
+32S+110Pd, 92.39, [13], 86.04, 3.10, 8.45
+48Ca+96Zr, 97.41, [14], 93.76, 2.75, 10.07
+48Ca+90Zr, 98.58, [14], 94.94, 2.11, 10.01
+40Ca+96Zr, 100.01, [15], 94.30, 3.09, 9.71
+40Ca+90Zr, 101.25, [15], 96.26, 1.67, 10.07
+48Ca+124Sn, 116.00, [16], 111.93, 1.28, 8.24
+40Ca+124Sn, 118.95, [17], 113.36, 2.70, 9.57
+[TABLE_END]
+In Figs.-1 & 2, the measured fusion excitation functions represented by full circles are compared with the

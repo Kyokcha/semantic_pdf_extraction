@@ -1,0 +1,32 @@
+Figure 6: HMC vs RNS-HMC: Comparing one- and two-dimensional posterior marginals of β1, β11, β21, β31, β41 based on the logistic regression model with simulated data.  
+[TABLE_START]
+Experiment, Method, AP, ESS, s/Iter, min(ESS)/s, spdup  
+LR (Simulation), HMC, 0.76, (4351,5000,5000), 0.061, 14.17, 1  
+, RMHMC, 0.80, (1182,1496,1655), 3.794, 0.06, 0.004  
+s = 2000, RNS-HMC, 0.76, (4449,4999,5000), 0.007, 123.56, 8.72  
+, RNS-RMHMC, 0.82, (1116,1471,1662), 0.103, 2.17, 0.15  
+LR (Bank Marketing), HMC, 0.70, (2005,2454,3368), 0.061, 6.52, 1  
+, RMHMC, 0.92, (1769,2128,2428), 0.631, 0.56, 0.09  
+s = 1000, RNS-HMC, 0.70, (1761,2358,3378), 0.007, 52.22, 8.01  
+, RNS-RMHMC, 0.90, (1974,2254,2457), 0.027, 14.41, 2.21  
+LR (a9a 60 dimension), HMC, 0.72, (1996,2959,3564), 0.033, 11.96, 1  
+, RMHMC, 0.82, (5000,5000,5000), 3.492, 0.29, 0.02  
+s = 2500, RNS-HMC, 0.68, (1835,2650,3203), 0.005, 81.80, 6.84  
+, RNS-RMHMC, 0.79, (4957,5000,5000), 0.370, 2.68, 0.22  
+Elliptic PDE, HMC, 0.91, (4533,5000,5000), 0.775, 1.17, 1  
+, RMHMC, 0.80, (5000,5000,5000), 4.388, 0.23, 0.20  
+s = 1000, RNS-HMC, 0.75, (2306,3034,3516), 0.066, 7.10, 6.07  
+, RNS-RMHMC, 0.66, (2126,4052,5000), 0.097, 4.38, 3.74  
+[TABLE_END]
+Table 1: Comparing the algorithms using logistic regression models and an elliptic PDE inverse problem.  
+For each method, we provide the acceptance probability (AP), the CPU time (s) for each iteration and the time-normalized ESS.  
+Adult dataset [46] which has been used to determine whether a person makes over 50K a year.  
+We reduce the number of features to 60 by random projection (increasing the dimension to 100 results in a substantial drop in the acceptance probability).  
+We set the step size and number of leapfrog steps ε = 0.012, L = 10 for HMC and RNS-HMC; ε = 0.5, L = 4 for RMHMC and RNS-RMHMC.  
+All datasets are normalized to have zero mean and unit standard deviation.  
+The priors are the same as before.  
+The results for the two data sets are summarized in Table 1.  
+As before, both RNS-HMC and RNS-RMHMC significantly outperform their counterpart algorithms.  
+5.2 Elliptic PDE inverse problem  
+Another computationally intensive model is the elliptic PDE inverse problem discussed in [42, 43].  
+This classical inverse problem involves inference of the diffusion coefficient in an elliptic PDE which is usually

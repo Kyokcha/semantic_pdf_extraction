@@ -1,0 +1,14 @@
+∑_{i, ̃h, j} (−1)^{i+j} q_i^2 + ̃h ˇc_{i, ̃h, j} (y_{i+1} − y_{−(i+1)}) u^{−j} =
+(−i θ₁(τ, 2z) η(τ)^6) / (q^{3/8} θ₄(τ, z)^2 L_{NS}(τ, z)) × ∏_{m, `, `′} 1 / (1 − q^m y^` u^`′)^{c^{(2,2)}(m, `, `′)}. (B.31)
+Where again we have dropped the subscript of N on ˇc_{i, ̃h, j} to indicate we have taken the limit of N → ∞, and we define
+∑_{m, `, `′} c^{(2,2)}(m, `, `′) q^m y^` u^`′ = f^{(2,2)}(u^{−1}, q, y, u) − (1 − 2u^{−1} + u^{−2}) ≡ g^{(2,2)}(q, y, u). (B.32)
+Then we take the large i limit of ˇc_{i, ̃h, 3i + 5̃h − k′}.
+Redefining ̃q ≡ q y² u^{−6}, removing (1 − ̃q^{1/2})^{−1}, and using (B.2), we obtain
+lim_{i→∞} ∑_{̃h, k′} (−1)^{̃h + k′} ˇc_{i, ̃h, 3i + 5̃h − k′} y^{−2̃h} u^{̃h + k′} =
+(−i θ₁(6ν − 2z, 2z) η(6ν − 2z)^6) / (y^{1/4} u^{9/4} θ₄(6ν − 2z, z)^2 L_{NS}(6ν − 2z, z)) × ∏_{`, `′} 1 / (1 − y^` u^`′)^{̃d^{(2,2)}(`, `′)}. (B.33)
+Where we define ∑_{`, `′} ̃d^{(2,2)}(`, `′) y^` u^`′ = g^{(2,2)}(y^{−2} u^6, y, u) − 1. (B.34)
+Finally, we rewrite (B.33) by defining α ≡ u y^{−2} to get
+lim_{i→∞} ∑_{̃h, k′} (−1)^{̃h + k′} ˇc_{i, ̃h, 3i + 5̃h − k′} α^h u^{k′} =
+−(α / u) × (∏_{n=1}^{∞} (1 − α^n u^{5n})^6 (1 − α^{n−2} u^{5n−4}) (1 − α^{n+1} u^{5n−1}) / (1 + α^{n−1} u^{5n−2})^4 (1 + α^n u^{5n−3})^4) ×
+(∏_{`, `′} 1 / (1 − (−1)^{`+`′} α^` u^`′)^{d^{(2,2)}(`, `′)}). (B.35)
+Where we define ∑_{`, `′} d^{(2,2)}(`, `′) α^` u^`′ = g^{(2,2)}(α u^5, α^{−1/2} u^{1/2}, u) − 1 ≡ F^{(2,2)}(α, u). (B.36)

@@ -1,0 +1,36 @@
+Effective sparse representation of X-Ray medical images
+Laura Rebollo-Neira
+Mathematics Department
+Aston University
+B4 7ET Birmingham, UK
+Abstract—Effective sparse representation of X-Ray medical images within the context of data reduction is considered.
+The proposed framework is shown to render an enormous reduction in the cardinality of the data set required to represent this class of images at very good quality.
+The particularity of the approach is that it can be implemented at very competitive processing time and low memory requirements.
+I. INTRODUCTION
+Within the field of medical imaging for diagnosis, radiology generates huge volumes of data in the form of X-Ray images.
+Complying with archive provisions legislation, which may require to store the patient’s data for up to ten years, represents a demanding burden for hospitals and individual radiology practices.
+Additionally, the prompt distribution of remote radiology reporting is one of the challenges in teleradiology.
+These matters have led several radiological societies to recommend to use irreversible (or ‘lossy’) compression “in a manner that is visually imperceptible and/or without loss of diagnostic performance” [1].
+At least for extensive use, the state of the art for lossy image compression are the JPEG and JPEG2000 standards.
+Both techniques belong to the category of transformation coding, because are based on a compression scheme that applies an invertible transformation as the first step in the process.
+JPEG uses the Discrete Cosine Transform (DCT) for that purpose and JPEG2000 the Discrete Wavelet Transform (DWT).
+Both transformations play the role of reducing the non-negligible points in the transformed domain.
+The transformation we adopt here for the same purpose is different in essence.
+Rather than transforming the data into an array of the same dimensionality to disregard some points there, we expand the representation domain and strive to achieve a highly sparse representation in the extended domain.
+Apart from the perceived advantage of sparse representations for medical image processing and health informatics [2], the emerging theory of compressive sensing has introduced a strong reason to achieve sparsity.
+Within the compressive sensing structure the number of measurements needed for accurate representation of a signal informational content decreases if the sparsity of the representation improves [3]–[5].
+This Communication presents a framework rendering high sparsity in the representation of X-Ray medical images.
+This is achieved by:
+(a) Creating a large redundant ‘dictionary’ of suitable elements for the image decomposition.
+(b) Applying effective strategies for selecting the particular elements which enable the sparse decomposition of a given image.
+The goal is to achieve high sparsity, with high quality reconstruction, at competitive processing time.
+Comparison of the results arising from the proposed framework with those yielded by the traditional DCT or DWT approximations demonstrates a massive improvement in sparsity.
+II. SPARSE IMAGE REPRESENTATION
+Let’s start by introducing some notational convention: bold face lower and upper cases are used to represent one dimension (1D) and two dimension (2D) arrays, respectively.
+Standard mathematical fonts indicate component, e.g., c ∈ RK is an array of real components, c(k), k = 1, ..., K, and I ∈ RNx×Ny an array of real elements, I(i, j), i = 1, ..., Nx, i = 1, ..., Ny.
+Restricting considerations to l-bit gray scale images, an image is represented by an array I ∈ RNx×Ny the elements of which, called intensity pixels, are given by integer numbers from 0 to 2^l − 1.
+Within the adopted framework for representations using dictionaries an image I ∈ RNx×Ny is approximated by a linear decomposition of the form:
+IK = ∑ (k = 1 to K) c(k)D`k, (1)
+where each D`k is an element of RNx×Ny normalized to unity, called ‘atom’.
+The K-atoms in (1) are selected from a redundant set called a dictionary.
+A sparse approximation of I is an approximation of the form (1) such that the number of K-terms in the decomposition is significantly smaller than N = NxNy.

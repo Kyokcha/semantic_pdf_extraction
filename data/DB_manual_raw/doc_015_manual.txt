@@ -1,0 +1,46 @@
+Precision cosmology with baryons: non-radiative hydrodynamics of galaxy groups
+outer regions, as we observe in our non-radiative simulations and in Sembolini et al. (2016) for grid-based codes.
+We have quantified the dispersion of our profiles with respect to the average profile by measuring the variance with typical values of 10-20% of the numerical mean.
+In extreme cases, it can reach up to 35-50%.
+Individual halos profiles deviate up to 20-40% from the mean, and are mostly in the form of constant offsets in the centre, and in the form of peaks and troughs in the outer regions.
+We have also estimated how well the numerical results reproduce the analytical profiles predicted by the model introduced in Section .
+We find an overall good agreement for all quantities.
+In the case of the gas temperature, however, our numerical results significantly underestimated the analytical prediction.
+We argued that we have to include to the pressure support a significant contribution of the turbulence, especially in the outer regions.
+We have fitted the turbulent specific energy with a simple linear function of the radius, and subtracted it from the analytical temperature profile.
+After this correction, the deviations of the analytical model from the numerical mean remain smaller than 20%.
+We have confirmed the results of Ascasibar et al. (2003), namely that the analytical hydrostatic and polytropic gas profiles resulting from an NFW total mass distribution (Equations 2 and 3) are good estimates for the actual numerical profiles.
+Note that we have observed a very good agreement between the total mass profile (gas and dark matter combined) and the NFW model.
+We would like to point out, however, that Ascasibar et al. (2003) fitted the NFW model to the dark matter mass distribution, ignoring the baryons.
+This could partly explain why, in their case, they seem to find an excellent agreement between the numerical temperature profile and the uncorrected analytical model, without the need for invoking turbulence.
+We have checked this issue by extracting the NFW parameters rs and ρs from the circular velocity plot of the dark matter mass only, as in the previous work by Ascasibar et al. (2003).
+Our assumption was partly confirmed, since we found a better agreement between the uncorrected analytical and numerical curves in the intermediate range 0.5 rs < r < 5 rs.
+Above and below this interval however, the differences between the two curves became even larger.
+The other possibility is that their SPH simulations are underestimating by a factor of 2 (or more) the level of residual turbulent energy.
+Note that our mass resolution is higher by a factor of 20 than was achievable more than 10 years ago.
+The size of their sample is similar to ours, with 15 halos, but they are distributed over a wider mass range and contain also galaxy cluster sized objects.
+We also noticed that Ascasibar et al. (2003) measured a smaller variance for the profiles than we did.
+A possible underestimation of the turbulence could explain this discrepancy.
+Our results agree also very well with the Figure 1 of Nagai et al. (2007) obtained with a sample of 16 galaxy clusters simulated with the Eulerian code ART.
+For the gas density and temperature profiles, we have reproduced the behaviour at small radii reported in Sembolini et al. (2016), for grid based codes and modern SPH codes, namely a core of constant entropy in the centre, in contrast to this classical SPH codes with an entropy profile decreasing all the way to the centre.
+In the previous section, we have compared our sample of 16 halos to an hydrostatic analytical profile.
+For a given halo mass, usually defined by M200, one needs to introduce an important structural parameter, namely the concentration parameter c.
+The statistic of this parameters has been well studied using N body simulations (Bullock et al. 2001), and can be considered as an independent random variable.
+Once M200 and c have been chosen, we can deduce the corresponding values for rs and ρs, and the hydrostatic equations give us immediately T0 and ρ0 (see Section ).
+In order to improve the quality of the fit for a given halo, we now introduce 2 new structural parameters ρgas and Tgas, which denotes the central gas density and the central gas temperature.
+We have seen in Section and Section that each individual halo profile was offset with respect to the analytical prediction ρ0 and T0 by a fixed amount.
+We interpreted this constant offset in the centre as different entropy levels reached at halo formation time.
+We now consider these 2 new parameters ρgas and Tgas as two possible independent random variables, and will study now their correlation properties.
+In the previous section, we have used the turbulent energy to correct the analytical gas temperature, in order to account for non-thermal pressure support, and we have identified a correlation between the amount of turbulent energy in each halo and its formation epoch.
+The level of turbulence in the halo is therefore another new and important structural parameter.
+We define it as kBTturb/mH = 1/M(< rmax) ∫₀ʳₘₐₓ v²turb(r)ρ(r)4πr²dr (20) where rmax = 10.8 rs is used as upper bound of the integral because 10.8 is the average c value.
+For comparison, we have also calculated the integral by using the r200 = c·rs value of each individual halo as upper limit.
+This had only an insignificant influence on the result.
+We now show the correlation of the various pairs of the following 5 possibly independent random variables (ρgas,Tgas,Tturb,c,zform) in Figure 11.
+To quantify the correlations between two random variables, we calculate the Pearson correlation coefficient C and show it in the corresponding panel.
+The correlation between c and zform is very high, with a Pearson coefficient of 0.85.
+This well know properties (see for example Bullock et al. 2001) reveals that concentrated halos have formed at an earlier epoch.
+As we have already anticipated, we also have strong anti-correlations between Tturb and c with a Pearson coefficient of −0.7 and, similarly between Tturb and zform with a correlation coefficient of −0.6.
+For the particular cases of halos 2, 7, 9 and 12 (labelled with numbers in Fig. 11), one can see that they form a subset of halos that formed particularly early, with a rather high concentration and a rather low level of turbulence.
+The opposite is true for halo 8, which formed late, has a low concentration and a large amount of turbulence.
+While there is no correlation between the central gas pa-

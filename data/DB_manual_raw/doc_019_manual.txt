@@ -1,0 +1,15 @@
+v ∈ext(Lk,α) and every n, there is a word x such that |x|> |un| and xv ∈ext(Lk,α); since u contains the factor xv, there is an occurrence of v in u outside the prefix un.
+Hence v occurs in u infinitely many times.
+Thus u is recurrent and we proved this implication.
+Now turn to the backward implication.
+For arbitrary words u,v ∈ext(Lk,α) each of them occurs in u infinitely often, so we can find a factor of the form uwv.
+This factor also occurs in u infinitely often, allowing us to find arbitrarily long words x,y such that xuwvy is a factor of u.
+Then uwv ∈ext(Lk,α).
+Hence we proved the Restivo-Salemi property for Lk,α.
+Remark 39. It is worth mentioning that for small binary languages Theorem 37 works in an extremal form.
+Since 2+ ≤ α ≤ 7/3 implies ext(L2,α) = Fac(t), the language L2,α trivially has the Restivo-Salemi property; as we know from Corollary 3, all α-power-free infinite binary words contain all words of ext(L2,α) as factors.
+The following conjecture is based on extensive numerical studies.
+Conjecture 40. [30, Conjecture 1] All power-free languages satisfy the Restivo-Salemi property.
+As an approach to Conjecture 40, we suggest the following.
+Open Question 41.
+Prove the converse of Corollary 38.

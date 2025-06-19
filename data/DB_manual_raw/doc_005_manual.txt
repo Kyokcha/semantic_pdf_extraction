@@ -1,0 +1,21 @@
+this paper. 
+The literature on KAM theory is enormous and so there are many potential applications; we will only describe here some of those that may have some interest.
+First, and more importantly, the technical estimates we derive in Appendix for Gevrey functions actually hold true for a larger class of ultra-differentiable functions that includes Gevrey (and thus analytic) functions as a particular case. 
+This not only leads to a further extension of the KAM theorems we state and prove here, but also allows us to generalize other perturbative results such as the Nekhoroshev theorem (extending the result of [MS02] in the convex case and [Bou11] in the steep case). 
+To keep this paper to a reasonable length, all these results will be derived in a subsequent article [BF17].
+Then, our main result Theorem A deals with the persistence of Lagrangian tori; KAM theory also deals with lower-dimensional tori (see, for instance, [R ̈us01] for a comprehensive treatment in the analytic case), and one may expect that our result extend to such a setting.
+Finally, one may consider the problem of reducibility of quasi-periodic cocycles close to constant. 
+In the analytic case, the Bruno-R ̈ussmann condition is sufficient, as was shown in [CM12]; in the α-Gevrey case, the α-Bruno-R ̈ussmann condition is sufficient. 
+In fact, this setting is simpler from a technical point of view and our Gevrey estimates are not necessary to obtain such a result; one simply needs to go through the proof of [CM12].
+A possible explanation for this is that for quasi-periodic cocycles, composition occur in a linear Lie group, thus only estimates for linear composition (product of matrices) are necessary and so everything boils down to good estimates for the product of two functions.
+1.5 Plan of the paper
+The plan of the paper is as follows.
+In Section , we describe precisely the setting, namely we properly define the Gevrey norms we will use and the α-Bruno-R ̈ussmann condition. 
+In Section we state our main results:
+- Theorem A about the persistence of a torus in a non-degenerate Hamiltonian system under the α-Bruno-R ̈ussmann condition;
+- Theorem B, the iso-energetic version of Theorem A;
+- Theorem C, the non-autonomous time-periodic version;
+- Theorem D about the destruction of a torus in the same context not assuming a condition weaker that the α-Bruno-R ̈ussmann condition;
+- Theorem E about linearization of vector fields on the torus close to constant (we will also discuss necessary arithmetic conditions here, albeit in a restricted context);
+- Theorem F, the discrete version of Theorem A, about the persistence of a torus in a non-degenerate exact-symplectic map;
+- Theorem G, the discrete version of Theorem E, about the linearization of diffeomorphisms of the torus close to a translation.

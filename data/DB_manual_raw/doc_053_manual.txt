@@ -1,0 +1,16 @@
+30 CHEN-YUN LIN, ARIN MINASIAN, XIN JESSICA QI, AND HAU-TIENG WU
+(a) Original image 
+(b) Noisy image, PSNR = 13.55, SNR = 5.23
+(c) NLEM, PSNR = 25.68, SNR = 17.36, FSIM = 0.952
+(d) VNLEM, PSNR = 25.48, SNR = 17.16, FSIM = 0.944
+(e) VNLEM-DD, PSNR = 25.54, SNR = 17.21, FSIM = 0.943
+(f) NLEM, difference, SOB = 0.033
+(g) VNLEM, difference, SOB = 0.042
+(h) VNLEM-DD, difference, SOB = 0.044
+Figure 11. Example 4: the clock.
+Second, although the manifold model has been widely accepted in the field, and our algorithm is also based on the manifold structure, it is certainly arguable if in general a patch space could be well approximated by a manifold.
+On one hand, we need to consider a more general model than the fiber bundle.
+On the other hand, for different problems we may want to better understand its associated manifold structure, if there is any.
+In other words, we might need different models, and hence different metrics, for different kinds of images.
+For example, while the RID helps reduce the dimension of the patch space of a “structured” image, its deterministic nature might render it unsuitable for analyzing a “texture” image, since the texture features are stochastic in nature.
+In short, it might be beneficial to take the metrics designed for the texture

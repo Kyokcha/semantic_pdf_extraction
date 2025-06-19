@@ -1,0 +1,14 @@
+[2] J. Baik, P.L. Ferrari, and S. Péché, Convergence of the two-point function of the stationary TASEP, Singular Phenomena and Scaling in Mathematical Models, Springer, 2014, pp. 91–110.
+[3] J. Baik and E.M. Rains, The asymptotics of monotone subsequences of involutions, Duke Math. J. 109 (2001), 205–281.
+[4] J. Baik and E.M. Rains, Symmetrized random permutations, Random Matrix Models and Their Applications, vol. 40, Cambridge University Press, 2001, pp. 1–19.
+[5] G. Ben Arous and I. Corwin, Current fluctuations for TASEP: a proof of the Prähofer-Spohn conjecture, Ann. Probab. 39 (2011), 104–138.
+[6] A. Borodin and P.L. Ferrari, Large time asymptotics of growth models on space-like paths I: PushASEP, Electron. J. Probab. 13 (2008), 1380–1418.
+[7] A. Borodin and P.L. Ferrari, Anisotropic Growth of Random Surfaces in 2+1 Dimensions, Comm. Math. Phys. 325 (2014), 603–684.
+[8] A. Borodin, P.L. Ferrari, and M. Prähofer, Fluctuations in the discrete TASEP with periodic initial configurations and the Airy1 process, Int. Math. Res. Papers 2007 (2007), rpm002.
+[9] A. Borodin, P.L. Ferrari, M. Prähofer, and T. Sasamoto, Fluctuation properties of the TASEP with periodic initial configuration, J. Stat. Phys. 129 (2007), 1055–1080.
+[10] A. Borodin, P.L. Ferrari, and T. Sasamoto, Large time asymptotics of growth models on space-like paths II: PNG and parallel TASEP, Comm. Math. Phys. 283 (2008), 417–449.
+[11] A. Borodin, P.L. Ferrari, and T. Sasamoto, Transition between Airy1 and Airy2 processes and TASEP fluctuations, Comm. Pure Appl. Math. 61 (2008), 1603–1629.
+[12] A. Borodin, P.L. Ferrari, and T. Sasamoto, Two speed TASEP, J. Stat. Phys. 137 (2009), 936–977.
+[13] P.J. Burke, The output of a queuing system, Operations Res. 4 (1956), 699–704.
+[14] I. Corwin, P.L. Ferrari, and S. Péché, Limit processes for TASEP with shocks and rarefaction fans, J. Stat. Phys. 140 (2010), 232–267.
+[15] I. Corwin, P.L. Ferrari, and S. Péché, Universality of slow decorrelation in KPZ models, Ann. Inst. H. Poincaré Probab. Statist. 48 (2012), 134–150.

@@ -1,0 +1,24 @@
+scenarios become relevant in datasets with multiple clustering variables, so that the models may have more than two “levels” and/or (partially-)crossed random effects.  
+6 References  
+Celeux, G., Forbes, F., Robert, C. P., Titterington, D. M., et al. (2006). Deviance information criteria for missing data models. Bayesian Analysis, 1 (4), 651–673.  
+daSilva, M. A., Bazán, J. L., & Huggins-Manley, A. C. (2018). Sensitivity analysis and choosing between alternative polytomous IRT models using Bayesian model comparison criteria. Communications in Statistics - Simulation and Computation, in press.  
+De Boeck, P. (2008). Random item IRT models. Psychometrika, 73, 533–559.  
+Fox, J.-P. (2010). Bayesian item response modeling: Theory and applications. NY: Springer.  
+Furr, D. C. (2017). Bayesian and frequentist cross-validation methods for explanatory item response models (Unpublished doctoral dissertation). University of California, Berkeley, CA.  
+Gelfand, A. E., Sahu, S. K., & Carlin, B. P. (1995). Efficient parametrisations for normal linear mixed models. Biometrika, 82, 379–488.  
+Gelman, A., Hwang, J., & Vehtari, A. (2014). Understanding predictive information criteria for Bayesian models. Statistics and Computing, 24, 997–1016.  
+Gelman, A., Jakulin, A., Pittau, M. G., & Su, Y.-S. (2008). A weakly informative default prior distribution for logistic and other regression models. The Annals of Applied Statistics, 1360–1383.  
+Gelman, A., Meng, X. L., & Stern, H. (1996). Posterior predictive assessment of model fitness via realized discrepancies. Statistica Sinica, 6, 733–807.  
+Gelman, A., & Rubin, D. B. (1992). Inference from iterative simulation using multiple sequences (with discussion). Statistical Science, 7, 457–511.  
+Kang, T., Cohen, A. S., & Sung, H.-J. (2009). Model selection indices for polytomous items. Applied Psychological Medicine, 35, 499–518.  
+Kaplan, D. (2014). Bayesian statistics for the social sciences. NY: The Guildford Press.  
+Levy, R., & Mislevy, R. J. (2016). Bayesian psychometric modeling. Boca Raton, FL: Chapman & Hall.  
+Li, F., Cohen, A. S., Kim, S. H., & Cho, S. J. (2009). Model selection methods for mixture dichotomous IRT models. Applied Psychological Measurement, 33, 353–373.  
+Li, L., Qui, S., & Feng, C. X. (2016). Approximating cross-validatory predictive evaluation in Bayesian latent variable models with integrated IS and WAIC. Statistics and Computing, 26, 881–897.  
+Lu, Z.-H., Chow, S.-M., & Loken, E. (2017). A comparison of Bayesian and frequentist model selection methods for factor analysis models. Psychological Methods, 22 (2), 361–381.  
+Lunn, D., Jackson, C., Best, N., Thomas, A., & Spiegelhalter, D. (2012). The BUGS book: A practical introduction to Bayesian analysis. Chapman & Hall/CRC.  
+Lunn, D. J., Thomas, A., Best, N., & Spiegelhalter, D. (2000). WinBUGS – a Bayesian modelling framework: Concepts, structure, and extensibility. Statistics and Computing, 10, 325–337.  
+Luo, U., & Al-Harbi, K. (2017). Performances of LOO and WAIC as IRT model selection methods. Psychological Test and Assessment Modeling, 59, 183–205.  
+Marshall, E. C., & Spiegelhalter, D. J. (2007). Identifying outliers in Bayesian hierarchical models: A simulation-based approach. Bayesian Analysis, 2 (2), 409–444.  
+Merkle, E. C., & Rosseel, Y. (in press). blavaan: Bayesian structural equation models via parameter expansion. Journal of Statistical Software.  
+Millar, R. B. (2009). Comparison of hierarchical Bayesian models for overdispersed count data using DIC and Bayes’ factors. Biometrics, 65, 962–969.

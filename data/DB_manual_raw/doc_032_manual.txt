@@ -1,0 +1,37 @@
+a Yukawa-potential type expression.
+The Born-Mayer contribution is a simple exponentially-decaying function of the core-core separation, motivated by the radial decay of electron wavefunctions for the closed shells.
+The effective interatomic potential reads as V(r) = Aexp−qTF(r−2a0)/(r −2a0) + Be−C(r−σ̄) (1)
+Where A = Z²ione² cosh²(qTFRcore) (2) is the Ashcroft factor [20], with Rcore being a typical value for the atom-specific core radius and Zion the effective ionic charge number.
+Furthermore, a0 is the Bohr radius and σ̄ is the average ionic core diameter of the alloy, which corresponds to the average size of the ionized atoms constituting the alloy.
+The average ionic core diameter is obtained by averaging the respective ionic core diameter of the constituents with their contributing weights given by their volume ratios in the alloy.
+The values for the ionic core diameters of the atoms constituting the alloys are taken from Ref. [21].
+The quantities A and B set the energy scales for the repulsive interaction from the Ashcroft and Born-Mayer term, respectively.
+The parameter qTF is the inverse of the Thomas-Fermi screening length given by Thomas-Fermi theory, and its value is known for different types of alloys [22].
+We choose a representative value for qTF as 1.7 Å⁻¹ according to the values reported in Ref. [22].
+The ionic core diameter σ̄ is obtained by a weighted average of the core diameters of the atoms constituting the alloys taken from [21], where the weights correspond to the ratios of the respective atoms.
+The characteristic range 1/C of the valence-shell overlap repulsion is not known a priori.
+However, its typical values are less sensitive to the atomic composition than the parameters σ̄, A and B.
+Different atoms have very similar values typically in the range C = 1.89 − 4.72 Å⁻¹ [23].
+The latter cannot be easily estimated from first-principles or from literature.
+Similarly, the prefactor B of the Born-Mayer term, can be rigorously evaluated only from the exchange integrals of the various overlapping electrons belonging to the valence shells of the two interacting ions.
+This calculation, even in approximate form, is not feasible except for simple monoatomic crystals.
+Hence, both A and B were taken in our previous analysis as adjustable parameters in the mapping between our schematic logarithmic potential (to be introduced below in Sec.III) and the Ashcroft-Born-Mayer interatomic potential.
+We shall remark that the Born-Mayer prefactor B typically has non-trivial large variations from element to element across the periodic table, as shown in many ab initio simulation studies [23, 24].
+Consistent with this known fact, it turns out that B is the most sensitive parameter in our analysis, in the sense that small variations in B can lead to large deviations in the fitting of the experimental data.
+Conversely, the Ashcroft prefactor A is not a sensitive parameter, and its values are not crucial for the match with experiments.
+In Ref. [8], it was found that, in order to fit shear modulus and viscosity data of various alloys, values of the Born-Mayer repulsion strength B are required which are between two and three orders of magnitude smaller than the Born-Mayer parameters tabulated for pure metals.
+This important difference has at least two reasons.
+One reason is that the Born-Mayer formula used for pure substances in the literature is written ∼exp[−Cr], instead of ∼exp[−C(r − σ̄)], which we use here.
+Evidently, exp[Cσ̄] > 1 partly contributes to explain this discrepancy.
+However, the fact that B fitted for multi-component alloys is much smaller than B found for pure substances is also due to the so-called micro-alloying effect, whereby the addition of even a small amount of different elements with different ionic size and electronic structure induces a strongly nonlinear change in the inter-ionic potential.
+When there is an atomic size mismatch, this difference intuitively promotes softer repulsion due to the fact that short-ranged packing is more efficient.
+Of course there could be other important reasons related to the change in electronic structure, e.g. the change in anisotropy of closed electronic shell, which also make the effective short-range repulsion in alloys being effectively milder than in pure metals.
+Finally, the Born-Mayer parameters in Ref. [25] refer to pairs of atoms, in which the outer electronic structure is clearly much different from metals, where the atoms are significantly ionized.
+III. THE GLOBAL INTERATOMIC REPULSION PARAMETER λ
+In the analysis of Ref. [8], it was found that different disordered alloys can be described by an effective interatomic potential given by Eq.(1) with A = 0.3 − 0.5 eV, and B = 5 − 60 eV.
+The value of σ̄ is uniquely determined by the elemental composition of the alloy, whereas qTF = 1.7 Å⁻¹ can be kept constant, independent of composition.
+Furthermore, an even simpler parametrization of the interatomic potential was obtained by mapping Eq.(1) onto a logarithmic expression with a single, global parameter λ, which contains all the information about the steepness (or its inverse, the softness) of the ion-ion repulsion.
+This simpler expression reads as V(r) = −λln(r − 2a0). (3)
+The mapping between Eq.(1) and Eq.(3) is shown in Fig.1, for representative parameters of metallic glasses.
+In all instances examined thus far, Eq.(1) is very accurately represented by Eq.(3).
+The main advantage of representing the repulsive part

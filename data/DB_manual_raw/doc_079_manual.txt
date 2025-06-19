@@ -1,0 +1,22 @@
+[2] B. Bárány. Dimension of the generalized 4-corner set and its projections. Ergodic Theory Dynam. Systems, 32(4):1190–1215, 2012.  
+[3] M. Barnsley, J. E. Hutchinson, and Ö. Stenflo. V -variable fractals: dimension results. Forum Math., 24(3):445–470, 2012.  
+[4] T. Bedford. Crinkly curves, Markov partitions and box dimensions in self-similar sets. PhD thesis, University of Warwick, 1984.  
+[5] K. Falconer. Fractal geometry. John Wiley & Sons, Inc., Hoboken, NJ, second edition, 2003. Mathematical foundations and applications.  
+[6] K. Falconer and J. Miao. Exceptional sets for self-affine fractals. Math. Proc. Cambridge Philos. Soc., 145(3):669–684, 2008.  
+[7] K. J. Falconer. The Hausdorff dimension of self-affine fractals. Math. Proc. Cambridge Philos. Soc., 103(2):339–350, 1988.  
+[8] K. J. Falconer. Generalized dimensions of measures on self-affine sets. Nonlinearity, 12(4):877–891, 1999.  
+[9] D.-J. Feng and Y. Wang. A class of self-affine sets and self-affine measures. J. Fourier Anal. Appl., 11(1):107–124, 2005.  
+[10] A. Ferguson, T. Jordan, and P. Shmerkin. The Hausdorff dimension of the projections of self-affine carpets. Fund. Math., 209(3):193–213, 2010.  
+[11] J. M. Fraser. On the packing dimension of box-like self-affine sets in the plane. Nonlinearity, 25(7):2075–2092, 2012.  
+[12] J. M. Fraser. Assouad type dimensions and homogeneity of fractals. Trans. Amer. Math. Soc., 366(12):6687–6733, 2014.  
+[13] J. M. Fraser, A. M. Henderson, E. J. Olson, and J. C. Robinson. On the Assouad dimension of self-similar sets with overlaps. Preprint, 2014. Available at http://arxiv.org/abs/1404.1016v1.  
+[14] M. Hochman. On self-similar sets with overlaps and inverse theorems for entropy. Ann. of Math., 180(2):773–822, 2014.  
+[15] M. Hochman. On self-similar sets with overlaps and inverse theorems for entropy in higher dimensions. Work in progress, 2014.  
+[16] T. Jordan. Dimension of fat Sierpiński gaskets. Real Anal. Exchange, 31(1):97–110, 2005/06.  
+[17] T. Jordan and N. Jurga. Self-affine sets with non-compactly supported random perturbations. Ann. Acad. Sci. Fenn. Math., 39:771–785, 2014.  
+[18] T. Jordan and M. Pollicott. Properties of measures supported on fat Sierpinski carpets. Ergodic Theory Dynam. Systems, 26(3):739–754, 2006.  
+[19] T. Jordan, M. Pollicott, and K. Simon. Hausdorff dimension for randomly perturbed self-affine attractors. Comm. Math. Phys., 270(2):519–544, 2007.  
+[20] S. P. Lalley and D. Gatzouras. Hausdorff and box dimensions of certain self-affine fractals. Indiana Univ. Math. J., 41(2):533–568, 1992.  
+[21] D. G. Larman. A new theory of dimension, Proc. London Math. Soc. (3), 17, (1967), 178–192.  
+[22] J. M. Mackay. Assouad dimension of self-affine carpets. Conform. Geom. Dyn., 15:177–187, 2011.  
+[23] C. McMullen. The Hausdorff dimension of general Sierpiński carpets. Nagoya Math. J., 96:1–9, 1984.

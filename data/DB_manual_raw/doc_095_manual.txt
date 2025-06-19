@@ -1,0 +1,36 @@
+Planck-Star Tunnelling-Time: an Astrophysically Relevant Observable from Background-Free Quantum Gravity  
+A gravitationally collapsed object can bounce-out from its horizon via a tunnelling process that violates the classical equations in a finite region.  
+Since tunnelling is a non-perturbative phenomenon, it cannot be described in terms of quantum fluctuations around a classical solution and a background-free formulation of quantum gravity is needed to analyze it.  
+Here we use Loop Quantum Gravity to compute the amplitude for this process, in a first approximation.  
+The amplitude determines the tunnelling time as a function of the mass.  
+This is the key information to evaluate the relevance of this process for the interpretation of Fast Radio Bursts or high-energy cosmic rays.  
+The calculation offers a template and a concrete example of how a background-free quantum theory of gravity can be used to compute a realistical observable quantity.  
+I. INTRODUCTION
+A striking realization of the last decades is that our universe is teeming with gravitationally collapsed objects – or ‘black holes’ – of various sizes.  
+The recent gravitational-waves observation of the merger of two black holes of unexpected size [1] makes this conclusion even more compelling.  
+Classical general relativity (GR) predicts that gravitationally collapsed objects are stable: once a dynamical or trapping horizon forms (light surfaces shrink), it lasts forever (it is an ‘event’ horizon).  
+But this prediction disregards quantum effects.  
+Some of these are accounted for by the theory of quantum fields interacting with classical geometry, which predicts Hawking radiation.  
+However, macroscopic black holes are still effectively stable on accessible time scales — a stellar-mass black hole takes ∼10⁵⁰ Hubble times to evaporate via Hawking radiation.  
+But this theory, or any perturbative formulation of quantum gravity, are still approximations, because they disregard non-perturbative quantum-gravitational phenomena.  
+Among these is the possibility of black hole decay via gravitational quantum tunnelling.  
+The idea has a long history and has been considered by numerous authors [4–24].  
+Kieffer and Hajichek have found evidence that the quantum state of a spherically symmetric in-falling null shell tunnels into an outgoing one in the context of a minisuperspace model [25].  
+Quantum effects could indeed make collapsing objects bounce when they reach the “Planck star” stage [26], namely planckian density.  
+A key step was taken in [27], where it is shown that a violation of the Einstein equations within a finite spacetime region is sufficient to allow a black hole tunnel into a white hole (an ‘anti-trapped’ region, where all light fronts expand).  
+From the outside, the process looks like a quantum bounce of the in-falling matter, and it is akin in nature to the ‘big bounce’ of quantum cosmology [28].  
+This is a standard tunnelling phenomenon: evolution that violates the classical equations of motion in a finite spatial region and during a limited time.  
+It is therefore a very plausible phenomenon.  
+Its astrophysical relevance, on the other hand, depends on the time it takes.  
+Dimensional arguments suggest that accumulation of small quantum effects could trigger the tunnelling already after a time τ ∼ m² in Planck units, where m is the mass of the collapsed object [27].  
+This is sufficiently long to be compatible with the black holes we observe in the sky, but much shorter than the huge Hawking evaporation time τ_H ∼ m³.  
+Hawking radiation could be a sub-dominant phenomenon, with respect to the bounce.  
+Writing ℏ explicitly gives τ ∼ m² / √ℏ, which indicates that this is not a perturbative phenomenon.  
+A lifetime τ ∼ m² implies that primordial black holes of lunar-size mass could be exploding today and yield observable signals [29].  
+A component of the expected resulting signal is tantalisingly similar to the recently observed Fast Radio Bursts [30].  
+Fast Radio Bursts [31–34] could thus be the first genuinely quantum gravitational phenomenon ever observed [35, 36].  
+A second, high energy, component of the signal could be the source of some very high-energy cosmic rays.  
+In both cases the expected signal has a signature distance-frequency relation that characterises it [37, 38].  
+Maybe black holes could ‘reveal their inner secrets’ [39] after all, thanks to quantum theory.  
+The first objective of this paper is to compute the black-hole lifetime from a full quantum theory of gravity, to assess the credibility of the dimensional estimate of [27] and therefore ground the astrophysical relevance of black hole tunnelling.  
+Since the quantum bounce of a Planck star is a non-perturbative phenomenon, it is not captured by the small quantum fluctuations around a classical solution of the...

@@ -1,0 +1,19 @@
+After presenting the no-scale Higgs inflation models `a la flipped SU(5) and Pati-Salam, we investigate the reheating process in these GUT models. 
+Since reheating happens after inflation, and launches the Universe into the hot Big-Bang era, it should be treated as a part of the complete inflation theory. 
+However, unlike the inflationary epoch when the physics is almost determined by the inflationary potential alone, the reheating period is quite complicated and involves detailed dynamical properties of the model. 
+While a detailed description of the reheating process is an interesting topic in itself, our analysis here is motivated by the imprint of the post-inflationary evolution of the inflaton on primordial fluctuations through the number of e-folds, which are sensitive to the mechanism for reheating. 
+The on-going measurements of CMB observables with increasing precision are beginning to impose nontrivial constraints on the reheating scenario within a given model of inflation. 
+One special feature of the GUT models we study is that the inflaton potential changes dramatically in the post-inflationary era, due to GUT symmetry breaking. 
+As a result, the original quadratic or exponentially flat inflationary potential changes into a quartic monomial after the end of inflation, making the Universe effectively radiation-dominated. 
+The moment of this effective radiation domination can be quite well determined in our models, and is well before the onset of the reheating process. 
+In consequence, the number of e-folds and the spectral index in our models are essentially independent of the reheating temperature, and can be determined relatively precisely.
+This paper is organized as follows. 
+In Section , we construct models of Higgs inflation in no-scale SUSY GUTs with the flipped SU(5) and Pati-Salam gauge groups, respectively.
+In Section , we first analyze the predictions from our no-scale GUT Higgs inflation models for the scalar tilt ns and the tensor-to-scalar ratio r. 
+We then study the reheating process after Higgs inflation in these models, and compute their prediction for the numbers of e-folds during inflation. 
+We further discuss the issue of gravitino production after inflation in these models. 
+Finally, we draw our conclusions in Section .
+2 Higgs Inflation in No-Scale Supersymmetric GUTs
+In this Section, generalizing our previous no-scale SU(5) GUT model construction [6], we construct new models of Higgs inflation in no-scale GUTs with other GUT groups. 
+In particular, we choose as two concrete realizations the flipped SU(5) GUT [14, 15] and the Pati-Salam SU(4) ⊗SU(2)L ⊗SU(2)R GUT [16]. 
+These GUT groups are both major alternatives to the minimal SU(5) GUT, and can readily be embedded into the SO(10) GUT or

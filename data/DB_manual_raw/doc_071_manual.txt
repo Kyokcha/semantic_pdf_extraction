@@ -1,0 +1,19 @@
+from the left- and right-handed couplings extracted from forward-backward asymmetries and charge asymmetries in two-fermion processes, different high-scale models can be discriminated (cf. e.g. [25]).  
+One final remark: if something similar like the 2 TeV anomaly in WW/WZ/ZZ at the end of the 8 TeV run or the 750 GeV anomaly in diphotons will remain at the end of run II or the high-lumi run, then the ILC is the only option in the near future to confirm or refute such a signal.  
+3 Summary  
+In this talk I tried to collect the facts in favor of a future high-energy lepton collider (that is capable to reach at least 500 GeV) with the focus lying on new physics beyond the SM.  
+Both the two main SM pillars, the Higgs boson and top quark measurements serve as indirect tools for new physics searches, but there is also a plethora of direct search opportunities at such a machine.  
+Most prominent examples are dark matter searches, searches for other light weakly coupling particles, and a scan over all weakly interacting particles.  
+The interplay of the ILC with the LHC, but more importantly with future hadron machines is elucidated.  
+Conditions, or better, scenarios for possible BSM discoveries at the ILC have been given.  
+Several prime examples for the BSM potential of the ILC have been highlighted.  
+Acknowledgments  
+JRR wants to thank the organizers for a fantastic conference in the Canadian wilderness.  
+Many thanks who contributed the content of this discussion, among them are J. Bagger, M. Berggren, J. Kanlinowski, W. Kilian, J. List, J. Mnich, M. Peskin, F. Richard, G. Wilson.  
+Special thanks go to P. Zerwas for guiding all of us in the field of lepton collider physics over decades.  
+References  
+[1] K. Hagiwara and K. Hidaka, Physics at TeV Energy Scale. Proceedings, Meeting, Tsukuba, Japan, May 28-30, 1987, KEK-87-20; K. Hagiwara and S. Komamiya, Search For New Particles at e+e Colliders, Adv. Ser. Direct. High Energy Phys. 1, 785 (1988).  
+[2] N. D. Tracas and P. M. Zerwas, e+e− Colliders: The Window To Z’s Beyond The Total Energy, In *La Thuile/Geneva 1987, Proceedings, Physics at future accelerators, vol. 2* 214-219.  
+[3] M. E. Peskin, Theory of e+e− collisions at very high energy, Conf. Proc. C 8708101, 1 (1987).  
+[4] F. Richard, J. R. Schneider, D. Trines and A. Wagner, hep-ph/0106314.  
+[5] J. A. Aguilar-Saavedra et al. [ECFA/DESY LC Physics Working Group Collaboration], hep-ph/0106315.

@@ -1,0 +1,29 @@
+[TABLE_START]
+M, dim(Voff), La2(c1), Ha, La2(c2), Ha, HQ(c1, c2)
+Standard GmsFEM (un-coupled)
+6, 1452, 0.837, 1.925, 0.837, 30.542, 13.869
+8, 1936, 0.293, 0.358, 0.293, 26.427, 11.912
+12, 2904, 0.148, 0.193, 0.148, 23.165, 10.440
+16, 3872, 0.108, 0.089, 0.108, 17.945, 8.086
+Simplified basis functions (un-coupled)
+all, 536, 2.343, 3.870, 2.343, 36.649, 16.872
+Standard GmsFEM (coupled)
+6, 1452, 1.944, 2.584, 1.944, 6.942, 3.934
+8, 1936, 1.070, 1.200, 1.070, 2.197, 1.452
+12, 2904, 0.359, 0.544, 0.359, 0.788, 0.606
+16, 3872, 0.129, 0.105, 0.129, 0.375, 0.193
+Simplified basis functions (coupled)
+all, 830, 2.105, 3.399, 2.105, 4.122, 3.557
+[TABLE_END]
+Table 3: Dual-continuum background. Numerical results of relative errors (%) at the final simulation time. DOFf = 17834. Q1 = 250·κm and Q2 = 920·κm.  
+using RVE computations. This is based on a localization assumption, which we introduce next.  
+We consider Hω, which is the harmonic expansion in ω, which is defined by solving local problems in each K.  
+We can use ∫D κ∇Hωj(φωj_i,fine) · ∇Hωl(φωl_m,fine) dx to approximate the elements of the stiffness matrix.  
+Our localization assumption uses the local snapshots computed in the RVE for each ωi, which we denote by RVEi.  
+We denote these RVE snapshots by ψRVEi_j,fine.  
+Then, we propose the following localization assumption  
+∫D κ∇Hωj(φωj_i,fine) · ∇Hωl(φωl_m,fine) dx ≈ ∫D κ∇HRVEj(χωj_fine ψRVEj_i,fine) · ∇HRVEl(χωl_fine ψRVEl_m,fine) dx.  
+3.2 Numerical simulation of the shale gas transport  
+In this section, we add a case study for our method.  
+We follow the example considered in [2], where a shale gas transport with dual-continuum (organic and inorganic pores) (see also [3]) is studied.  
+In inorganic matter, we have ϕi ∂c/∂t = div((ϕiDi + cZRT κi/µ) ∇c) + Qki.

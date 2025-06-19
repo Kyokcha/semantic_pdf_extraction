@@ -1,0 +1,18 @@
+As in Ref. [6], let us consider the five-point correlation function with one degenerate field  
+〈V−1/(2b)(z)Vα1(0)Vα2(1)Vα3(∞)Vα4(x)〉.  
+Due to the presence of the degenerate field, this correlation function satisfies a partial differential equation, second order in z, first order in x.  
+For the purposes of this section it is convenient to define the function Ψ(u|q) as  
+〈V−1/(2b)(z)Vα1(0)Vα2(1)Vα3(∞)Vα4(x)〉 = z^(1/(2b²)) (z − 1)^(1/(2b²)) (z(z − 1)(z − x))^(1/4) (x(x− 1))^(2∆(α4)/3 + 1/12) (Θ1(u))^(−2/b²) / (Θ′1(0))^(−2/b² + 1/3) Ψ(u|q)  
+where the variable u is related to z and x by  
+u = (π / (4K(x))) ∫₀^{(z−x)/(x(z−1))} dt / √(t(1− t)(1− xt))  
+K(x) is the elliptic integral of the first kind:  
+K(x) = (1/2) ∫₀¹ dt / √(t(1− t)(1− xt))  
+τ = i K(1− x) / K(x) = (log q) / (iπ)  
+Θ1(u) is the Jacobi theta function (definitions in appendix).  
+The function Ψ(u|q) defined above satisfies the non-stationary Schrödinger equation with a doubly periodic potential:  
+[∂²_u − V(u) + (4i)/(πb²) ∂τ] Ψ(u|q) = 0  
+where the potential V(u) is given by  
+V(u) = ∑_{j=1}^4 sj(sj + 1) ℘(u − ωj)  
+and the parameters sj relate to αj as  
+αj = Q/2 − b/2 (sj + 1/2)  
+In the potential expression, ℘(u) is the Weierstrass elliptic function with periods π and πτ, defined by an infinite sum

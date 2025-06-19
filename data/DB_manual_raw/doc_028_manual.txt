@@ -1,0 +1,20 @@
+BOUNDARY LAYER OF TRANSPORT EQUATION
+−ε ∬Ω×S1 (w · ∇xφ)(u − ū) ≤ Cε‖u − ū‖L2(Ω×S1)‖ξ‖H2(Ω) ≤ Cε‖u − ū‖L2(Ω×S1)‖ū‖L2(Ω×S1).  
+Using the trace theorem, we have:  
+ε ∫Γ uφ dγ = ε ∫Γ+ uφ dγ + ε ∫Γ− uφ dγ ≤ Cε‖φ‖L2(Γ)(‖u‖L2(Γ+) + ‖h‖L2(Γ−))  
+≤ Cε‖φ‖H1(Ω×S1)(‖u‖L2(Γ+) + ‖h‖L2(Γ−))  
+≤ Cε‖ū‖L2(Ω×S1)(‖u‖L2(Γ+) + ‖h‖L2(Γ−)).  
+Also, we obtain ∬Ω×S1 (u − ū)φ ≤ C‖ū‖L2(Ω×S1)‖u − ū‖L2(Ω×S1).  
+∬Ω×S1 fφ ≤ C‖ū‖L2(Ω×S1)‖f‖L2(Ω×S1).  
+Collecting terms in (3.17), (3.18), (3.19), (3.20), and (3.21), we obtain  
+ε‖ū‖²L2(Ω×S1) ≤ C‖ū‖L2(Ω×S1)(‖u − ū‖L2(Ω×S1) + ε‖u‖L2(Γ+) + ‖f‖L2(Ω×S1) + ε‖h‖L2(Γ−)).  
+Then this naturally implies that  
+ε‖ū‖L2(Ω×S1) ≤ C(‖u − ū‖L2(Ω×S1) + ε‖u‖L2(Γ+) + ‖f‖L2(Ω×S1) + ε‖h‖L2(Γ−)).  
+Step 2: Energy Estimate.  
+In the weak formulation (3.11), we may take the test function φ = u to get the energy estimate:  
+½ ε ∫Γ |u|² dγ + ‖u − ū‖²L2(Ω×S1) = ∬Ω×S1 fu.  
+Then we have ½ ε‖u‖²L2(Γ+) + ‖u − ū‖²L2(Ω×S1) = ∬Ω×S1 fu + ε‖h‖²L2(Γ−).  
+On the other hand, we can square both sides of (3.36) to obtain:  
+ε²‖ū‖²L2(Ω×S1) ≤ C(‖u − ū‖²L2(Ω×S1) + ε²‖u‖²L2(Γ+) + ‖f‖²L2(Ω×S1) + ε²‖h‖²L2(Γ−)).  
+Multiplying a sufficiently small constant on both sides of (3.26) and adding it to (3.25) to absorb ‖u‖²L2(Γ+) and ‖u − ū‖²L2(Ω×S1), we deduce:  
+ε‖u‖²L2(Γ+) + ε²‖ū‖²L2(Ω×S1) + ‖u − ū‖²L2(Ω×S1) ≤ C(‖f‖²L2(Ω×S1) + ∬Ω×S1 fu + ε‖h‖²L2(Γ−)).

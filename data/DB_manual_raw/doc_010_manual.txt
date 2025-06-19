@@ -1,0 +1,17 @@
+∂C/∂T̃ = ∂²C/∂X²,      for 1 < X < ∞, T̃ > 0          (2.32)
+∂C/∂T̃ = ∂²C/∂X̃²,     for X̃ > 0, T̃ > 0             (2.33)
+Subject to:
+C → 0 as X → ∞                                      (2.34)
+C = 1,  −∂C/∂X̃ = [X]²/δ × dS̃/dT̃ × (1 − c₀/cₛ),     at X̃ = S̃(T̃)    (2.35)
+S̃ = 0,  C = Cₐ(X),                                  at T̃ = 0, X > 1 (X̃ < 0)   (2.36)
+[C]⁺₋ = 0 at X = 1 (X̃ = 0)                          (2.37)
+−δ/[X] × (∂C/∂X̃)|_{X̃=0} = (∂C/∂X)|_{X=1}           (2.38)
+Now, consider the choice [X] ~ δ or [X] ~ √δ.
+**Case: [X] ~ δ**
+From equation (2.33):
+∂²C/∂X̃² = 0                                         (2.39)
+Subject to, from (2.35):
+C = 1,  ∂C/∂X̃ = 0 at X̃ = S̃(T̃)                     (2.40)
+[C]⁺₋ = 0 at X = 1                                   (2.41)
+−(∂C/∂X̃)|_{X̃=0} = (∂C/∂X)|_{X=1}                   (2.42)
+Therefore, (2.39) and (2.40) imply C ≡ 1 for X < 1, and thus (2.41) and (2.42) become...

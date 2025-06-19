@@ -1,0 +1,45 @@
+in Fig. 10 (a). Even if the entire Fermi surface is taken into account the selection rules still work in the Fe-based materials.
+For instance, in either case full cancellation is found for B2g symmetry24.
+Explicitly written out, the fermionic loop is given by22–24,41
+θᵢ,μ(qc, Ω, ωₘ) = θ(1)ᵢ,μ(qc, Ω, ωₘ) + θ(2)ᵢ,μ(qc, Ω, ωₘ),
+θ(1)ᵢ,μ(qc, Ω, ωₘ) = T ∑ₙ ∫ₖ γμₖ GΓ(k, εₙ − Ω) GΓ(k, εₙ) × Gi(k − qc, εₙ − ωₘ),
+θ(2)ᵢ,μ(qc, Ω, ωₘ) = T ∑ₙ ∫ₖ γμₖ Gi(k, εₙ − Ω) Gi(k, εₙ) × GΓ(k − qc, εₙ − Ω + ωₘ), (D1)
+where γμₖ is the form factor (μ = B1g, A1g etc.), and Gi is the electron propagator on band i = Γ, X, Y.
+εₙ is the electronic energy and Ω is the energy difference between the incoming and scattered photons.
+Experimentally, pure symmetries can be obtained from linear combinations of the response measured at appropriate polarizations of the incoming and scattered photons êᵢ and êₛ.
+For illustration purposes the fermionic loop θ is approximated in the hot-spot approximation.
+Hot-spots are regions in momentum space where both k and k ± qc lie on the Fermi surface [Fig 10 (b)].
+Since the loop θ contains the symmetry factor γ(k) linearly inside the momentum integral the sign of γ(k) is crucial.
+If γ(k) changes sign for different hot spots connected by qc (Fig. 10 (c), (d), and (e) for A1g, B1g, B2g, respectively) there will be full or partial cancellation within θ.
+Full cancellation is observed for the first two (and also higher) orders of B2g symmetry [Fig. 10 (e)].
+In contrast, γ(k) does not change sign across different hot-spots for the B1g channel.
+Consequently, in B1g and B2g the fluctuations are Raman active and inactive, respectively.
+The A1g symmetry is more complicated in that the first order contribution, proportional to cos(kₓ) + cos(kᵧ) [upper row of Fig. 10 (c)], would be as strong as the B1g contribution [Fig. 10 (d)] whereas the second order contribution (cos(kₓ) cos(kᵧ)) [second row of Fig. 10 (c)] shows cancellation.
+For clarifying the relative magnitude of the two orders we analyze the effective mass vertices on the Fermi surfaces (second derivative or curvature of the band structure), that are the best approximations for the sensitivity away from resonances, in a way similar to what was proposed in Ref. 28.
+The last row of Fig. 10 (c) shows that the band curvatures corresponding to the A1g vertex
+γᵢ,A1g(k) = ∂²εᵢ,k/∂kₓ∂kₓ + ∂²εᵢ,k/∂kᵧ∂kᵧ        (D2)
+on the Fermi surface of the hole and the electron bands (i) are predominantly negative and positive, respectively, as expected already for simple parabolic bands with masses mₕ ≈ −mₑ although there are various near nodes on both bands.
+This result shows that cos(kₓ) cos(kᵧ) is the leading order.
+We note that cos(kₓ) cos(kᵧ) predicts a stronger mixing of the particle-hole response from the electron and hole bands than cos(kₓ) + cos(kᵧ) as already outlined by Mazin et al. Ref. 28.
+Appendix E: Subtraction of the continuum
+The fluctuation response is superposed on the particle-hole continuum that essentially reflects symmetry-resolved transport properties.
+Since the contribution of the fluctuations is relatively strong here they can be isolated with little uncertainty.
+The simplest way is to use the continuum at or slightly above the crossover temperature T_f and subtract it from all spectra measured below T_f.
+This was sufficient for ErTe₃ 42 but created negative intensities in the case of La₂₋ₓSrₓCuO₄.
+Here, we wish to compare the temperature dependence of the fluctuations to a theoretical prediction and have to improve on the subtraction of the continuum.
+To this end we make the analytical phenomenology for the B1g continuum temperature dependent in a way that yields Γ₀,B1g(T) ∝ ρ(T).
+This seems sensible since the proportionality holds for the A1g results in the entire temperature range above T_SDW and for the B1g spectra above T_f.
+Fig. 11 shows the steps and checks necessary for the procedure.
+The analytical function used reads:
+χ''_cont(Ω, T) = [α₁ + α₂·T] tanh(Ω /  ̃Γ₀(T)) + [β₁ + β₂·T](Ω /  ̃Γ₀(T))        (E1)
+which obeys χ''_cont(−Ω, T) = −χ''_cont(Ω, T) as required by causality.
+α₁, α₂, β₁ and β₂ depend only on doping x.
+For x = 0.025 we used α₁ = 0.82379, α₂ = −0.00138, β₁ = −0.00923, and β₂ = 0.00028.
+̃Γ₀(T) is a fitting parameter that is selected in a way that the inverse slope Γ_c(0, T) of χ''_cont(Ω, T) follows the resistivity (orange diamonds in Fig. 11 d).
+If a constant continuum is used the fluctuations can be isolated in a qualitatively similar fashion.
+However, the experimental data in Fig. 2 vary more slowly close to T_s.
+Below T_s the uncertainties increase since surface layers accumulate rapidly in the presence of twin boundaries where the surface assumes a more polar character.
+This can be seen directly in Fig. 6 (c).
+Appendix F: Initial slope
+For being a causal function the Raman response is antisymmetric and, as long as there is no gap, linear around the origin.
+Then Eq. (C1) can be approximated as

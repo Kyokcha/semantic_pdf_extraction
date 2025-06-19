@@ -1,0 +1,15 @@
+While α is fixed at 2 Å⁻¹, β is taken at the three different values 0.1, 0.3, and 1.02 Å corresponding to increasing couplings between the R and φ coordinates in the interaction region.  
+E is kept at 0.5 eV, j₁ at 0, µ at 2/3 amu, m at 1/2 amu and r at 1 Å.  
+R₁ and R₂ are both taken at 4 Å, beyond which V(R, φ) is negligibly small and the integrand in Eq. (11) is a constant of motion.  
+The collisional systems resulting from the previous parameters involve strong interferences, as shown by the exact quantum state distributions Pⱼ₂ⱼ₁(E) = |Sⱼ₂ⱼ₁(E)|² displayed in Fig. 1 (blue circles connected by dotted segments; see Ref. 54 for some details on their calculations).  
+Since J₁ = 0, we note from Eq. (4) that φ̃₁ = φ₁.  
+For β = 0, there is no coupling between R and φ and J keeps constantly equal to ℏⱼ₁ during the collision.  
+Calling t(R₁, R₂) the time to go from R₁ to the interaction region and back to R₂, we have φ₂ = φ₁ + ℏⱼ₁ / I t(R₁, R₂).  
+Using Eq. (4), we thus arrive at φ̃₂ = φ₁ + ℏⱼ₁ / I t(R₁, R₂) − µR² ℏⱼ₁ / P₁I  
+with P₁ given by Eq. (5).  
+From Eqs. (7) and (14), and the fact that t(R₁, R₂) does not depend on φ₁, we obtain ∂φ̃₂ / ∂φ̃₁ |ⱼ₁ = 1.  
+∂φ̃₂ / ∂φ̃₁ |ⱼ₁ is represented in Fig. 2 for β = 0 and the three values previously considered.  
+For β = 0.1, the coupling is small and ∂φ̃₂ / ∂φ̃₁ |ⱼ₁ slightly oscillates around 1.  
+For β = 0.3, the coupling is stronger, thus leading to oscillations around 1 of larger amplitude.  
+In both cases, however, ∂φ̃₂ / ∂φ̃₁ |ⱼ₁ is found to be positive.  
+Hence, the SC-I− and SC-I+ approaches lead

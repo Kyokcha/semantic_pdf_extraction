@@ -1,0 +1,20 @@
+S. Khoperskov et al.: Bar quenching in gas-rich galaxies
+Figure 13. Maps of the gas surface density (left), surface star formation rate (center) and star formation efficiency (right) for barred galaxy model at a single time, 1.2 Gyr. 
+Black circles correspond to the positions of inner Lindblad resonance (solid line) and corotation radius (dashed line) for the bar.
+Figure 14. Star-formation history in the different models. Unbarred galaxy SFR is shown by black line in all panels. 
+Left: Comparison of models with two different bar strengths, εb = 0.1 and 0.2. 
+Right: Models with three different bar formation time-scales, h = 0.2, 0.5, 1 Gyr.
+Decreases only due to the conversion of gas into stars, with a slower decay than in our basic no-bar simulation.
+In barred galaxy simulations, star formation decreases not as rapidly after the bar formation in comparison to our standard simulations. 
+The SFR decreases because the gas is driven to central regions and converted to stars. 
+In the standard model star formation is suppressed very rapidly right after the bar formation, while in a model where star formation does not depend on the gas random motions, star formation continues after the bar formation, but at lower level, decreasing only due to gas consumption and depletion. 
+Globally, in the case of no converging flow, bar formation reduces the star-formation rate by a factor of few, which is much slower than in our fiducial runs. 
+At the end of the simulation (after 2 Gyr), SFR is still high: ≈ 3 M☉ yr⁻¹ for rigid bar simulation and ≈ 7 M☉ yr⁻¹ for self-consistent run. 
+Even if a slow and weak decrease in the star formation rate is found also in the models where the converging flow criterion is not implemented, we conclude that the inclusion of random gas motions in star-formation prescriptions produces a rapid quenching phase rather than a slow star-formation rate decrease in models without such a prescription.
+3.9. Quenching parameters
+In this section we aim to quantify the star-formation quenching efficiency in our various models and to investigate how the efficiency depends on bar parameters, i.e., strength ε, timescale h. 
+We introduce simple quenching parameters. First, we estimate the quenching timescale hq as an exponential timescale for the star-formation rate decrease:
+SFR(t) ∝ exp(−t/hq)  (6)
+To make the fit, we did not use the whole time span of the simulations, but only the period when star formation is suppressed. 
+The second parameter is the quenching rate ζ which we take as the ratio between the maximum star formation rate before star formation suppression and its value after the quenching phase:
+ζ = SFR(before quenching)/SFR(after quenching)  (7)

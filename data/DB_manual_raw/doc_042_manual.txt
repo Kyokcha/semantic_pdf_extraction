@@ -1,0 +1,21 @@
+Moreover, let Gcp(Cϕ, a, ρ, Cg, cg, C) be the class of functions g such that X is a compound Poisson process, C±4 < C,
+∀u ∈ R : |ϕX1(u)| ≥ Cϕ
+and
+∀u ∈ R : |Fg(u)| ≤ Cg|u|−a exp(−cg|u|ρ).
+The following result which describes the rates of convergence with respect to the prescribed smoothness classes introduced above is a direct consequence of Theorem 3.1.
+Proposition 3.2. Let K be the sinc-kernel. This is equivalent to stating that FK(u) = 1[−1,1](u).
+(i) Let h∗ be implicitly defined, as the solution of the minimization equation
+∑ (from j = 1 to n) of ∆j * h^(2∆jβ+2) = 1.
+Then
+sup over g in Gpol(β, Cϕ, cϕ, Cg, C) of
+Eg[‖g − ĝh∗‖²L²(R)] = O(h∗).
+(ii) Let h∗ be the solution of
+∑ (from j = 1 to n) of ∆j * exp(−2∆jcϕ(1/h)^α * h²(α−1)) = 1.
+Then
+sup over g in Gexp(α, Cϕ, Cg, C) of
+Eg[‖g − ĝh∗‖²L²(R)] = O((h∗)^(1−2α)).
+(iii) Let h∗ be the solution of
+exp(2cg(1/h)^ρ * h^(−2a)) = ∑ (from j = 1 to n) of ∆j * C / ∆jϕ.
+a) Assume that ρ > 0 holds and a = (1 − ρ)/2. Then
+sup over g in Gcp(Cϕ, a, ρ, Cg, cg, C) of
+Eg[‖g − ĝh∗‖²L²(R)] = O(exp(−2cg(1/h∗)^ρ)).

@@ -1,0 +1,14 @@
+A remark on the Gaussian lower bound for the Neumann heat kernel of the Laplace-Beltrami operator  
+Mourad Choulli and Laurent Kayser  
+Abstract. We adapt in the present note the perturbation method introduced in [3] to get a lower Gaussian bound for the Neumann heat kernel of the Laplace-Beltrami operator on an open subset of a compact Riemannian manifold.  
+Keywords. Neumann heat kernel, Laplace-Beltrami operator, Riemannian manifold.  
+Mathematics Subject Classification. 35K08  
+1. Introduction  
+The study of heat kernels is an important problem in the theory of parabolic PDE’s.  
+The properties of heat kernels give an efficient tool to answer to some central questions both in analysis and probability theory.  
+One of the main questions is to know whether a heat kernel admits Gaussian bounds.  
+An upper Gaussian bound is for instance a useful tool for getting Lp-Lq estimates, the analyticity of the corresponding semigroups in Lp for any finite p ≥ 1 or bounded functional calculus, whereas one can get a strong maximum principle or a Harnack inequality from a lower Gaussian bound.  
+We refer to the textbooks [5], [11] and [12] and references therein for more details on the subject.  
+In the preceding work [3], starting from the classical parametrix method, we constructed the Neumann heat kernel of a general parabolic operator as a perturbation of the fundamental solution of the same operator by a single-layer potential.  
+From this construction, the two-sided Gaussian bounds for the fundamental solution and taking into account the smoothing effect in time of the single-layer potential, we succeeded in proving a lower Gaussian bound for the Neumann Green function.  
+We adapt in the present note this

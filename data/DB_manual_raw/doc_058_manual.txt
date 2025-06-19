@@ -1,0 +1,13 @@
+u(x−) = u(x+). (2.9)
+kw ∂u/∂ν (x−) = kD(ω) ∂u/∂ν (x−). (2.10)
+The notation x± means the inner/outer limit at the boundary of ∂D.
+More precisely, for a function w defined on ℝᵈ, one has
+w(x±) = lim (h→0) w(x ± hν), x ∈ ∂D, (2.11)
+where ν is the outward normal unit vector of ∂D.
+The boundary conditions over the skin are a bit more complicated.
+This is due to the fact that, compared to the water which has a conductivity of the order of 0.01 S·m⁻¹ [35], the skin is very resistive (10⁻⁴ S·m⁻¹ [20]) and the body is very conductive (1 S·m⁻¹) [42].
+In other words, one has ks ≪ kw ≪ kb. (2.12)
+Furthermore, the skin is very thin: if we denote its thickness by δ, we have [49] δ ≈ 100 µm ≪ L,
+where L was defined as the body length in Section .
+In [1] we have shown in the case d = 2 that, when δ/L ≪ 1 and ks/kw ≪ 1, but δkw/(Lks) is of order one (or smaller), we have the following effective relation for x ∈ ∂Ω:
+u(x+) − u(x−) = ξ ∂u/∂ν (x+). (2.13)

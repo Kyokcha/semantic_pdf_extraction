@@ -1,0 +1,17 @@
+The tensor components of Φ(x) are finally the numeric quantities which are measured in an experiment.
+The frame f chosen by an observer to make measurements is usually not completely arbitrary.
+Since the basis vectors fi are elements of the tangent space, they are characterized as being timelike, lightlike or spacelike and possess units of time or length.
+We can thus use the notions of time, length and angles defined by the spacetime metric to choose an orthonormal frame satisfying the condition  
+gab fai fbj = ηij (1.7)  
+with one unit timelike vector f0 and three unit spacelike vectors fα.
+The clock postulate that proper time is measured by the arc length along the observer world line γ further implies a canonical choice of the timelike vector f0 as the tangent vector γ̇(τ) to the observer world line.
+This observer adapted orthonormal frame is a convenient choice for most measurements.
+It follows immediately from this model of observables and observations how the measurements of the same observable made by two coincident observers, whose world lines γ and γ′ meet at a common spacetime point x = γ(τ) = γ′(τ′), must be translated between their frames of reference.
+If both observer frames f and f′ are orthonormalized, the condition (1.7) implies that they are related by a Lorentz transform Λ.
+The same Lorentz transform must then be applied to the tensor components measured by one observer in order to obtain the tensor components measured by the other observer, using the standard formula  
+Φ′a1...ar b1...bs = Λa1c1...Λarcr Λd1b1...Λdsbs Φc1...cr d1...ds (1.8)  
+This close connection between observations made using different observer frames constitutes the principle of local Lorentz invariance.
+It is a consequence of the fact that we model the geometry of spacetime, which in turn defines the notion of orthonormal frames, by a Lorentzian metric.
+Even deeper implications arise from the fact that we model both observables and geometry by tensor fields on the spacetime manifold M, and observations by measurements of tensor components.
+If we introduce coordinates on M and use their coordinate base in order to express the components of tensor fields, it immediately follows how these components translate under a change of coordinates.
+Moreover, since we model the dynamics of physical quantities by tensor equations, they are independent of any choice of

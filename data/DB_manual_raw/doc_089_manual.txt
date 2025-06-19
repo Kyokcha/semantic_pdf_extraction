@@ -1,0 +1,19 @@
+seen in our largest lateral systems, as illustrated in Fig. 3.  
+(In Fig. 1d the transverse (horizontal) size was fixed so that meandering did not play an increased role as system size was varied.)  
+As described above, our second simulation system (from which the data in Fig. 3 is obtained) is based on adding cross-braces to a square lattice.  
+Thus varying ∆z controls not only the intrinsic width of a crack by modifying its rigidity, but also changes the amount of disorder.  
+Upon increasing ∆z even more, the cross braces are more uniformly distributed throughout the material and the disorder again decreases.  
+Thus, meandering becomes less important at asymptotically high ∆z.  
+We have found that similar diffuse failure at low rigidity also occurs in simulations performed under shear as well as under tension.  
+Due to the small system sizes available in experiments, we are unable to distinguish between meandering and crack-width broadening during material failure.  
+However, our metric for w (standard deviation in broken bonds) allows us to compare simulations and experiment and show the similar behavior in all the systems we have studied.  
+Sufficiently close to the rigidity transition, failure naturally occurs in a diffuse manner and will encompass the entire system.  
+The crossover between diffuse failure due to rigidity loss and the meandering due to effects of disorder will be explored further in a separate study.  
+III. A FAILURE PHASE DIAGRAM  
+Shekhawat et al. [7] have previously considered the transition from crack nucleation to damage percolation in a random fuse network with a distribution of burning thresholds x extracted from a probability distribution F(x) = x^β with β > 0.  
+In the strong disorder limit, β → 0, damage percolation (e.g., diffusive failure) takes place, while in the weak disorder limit, β → ∞, crack formation occurs.  
+In the phase diagram of Fig. 4, we extend that work to include the effects of material rigidity.  
+In addition to β (inversely proportional to disorder), and L (the system size), we include an axis, r, to represent the material rigidity.  
+As a system becomes less and less rigid, the manner in which it fails changes smoothly from a narrow straight crack, to broad and diffuse failure.  
+The smooth crossover between regimes is represented schematically where the vertical axis of rigidity is parameterized by r and the horizontal axis of sample length by L.  
+In the limit L → ∞, cracking always wins over diffuse failure except right at the point

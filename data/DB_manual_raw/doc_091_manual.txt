@@ -1,0 +1,17 @@
+D′′′uu = Duu − FuFv⁻¹Dvu + DuvG − FuFv⁻¹DvvG.  
+Quu = (FuFv⁻¹Dvv − Duv)Fv⁻¹(Dvu + DvvG).  
+The second-order approximation (6) contains a biharmonic operator.  
+We can approximately replace it with a reaction-diffusion system for solutions which are approximately oscillatory in space with one dominant wavenumber k, so that ∇⁴u ≈ −k²∇²u.  
+Then we have ∂tu = f′u(u) + Divuu∇²u where Divuu ≈ D′′′uu − k²Quu.  
+If the solutions of interest, or their Laplacians, are not approximate solutions of the Helmholtz equation, this second-order approximation is clearly only a heuristic.  
+The direct transformation from system (1,2) to system (5) or (9), and its inverse, can be used for searching for nontrivial regimes in the full system, based on the existing experience of nontrivial regimes in the analogues of the reduced systems:  
+Do parametric search in the reduced system, which has fewer parameters and often is easier to compute, as it is less stiff.  
+Once an interesting regime is found, estimate the dominant wavenumber k for it, say as the maximum of the power spectrum of the spatial profile.  
+Use the inverse transformation to obtain parameters for the full system corresponding to the found parameters of the reduced system.  
+See what solutions the full system with these parameters will produce.  
+3 Results  
+3.1 Direct transform (reduction)  
+As a simple example, we now consider a three-component extension of a two-component system with nonlinear kinetics, where a third component is added, which has fast linear kinetics and is linked to the other components in a linear way:  
+∂u/∂t = f(u, v) + αw + Du∇²u,  
+∂v/∂t = g(u, v) + βw + Dv∇²v,  
+ε ∂w/∂t = γu + δv − w + Dw∇²w.

@@ -1,0 +1,25 @@
+Finally, the model requires some form of initialization to produce a viable order book before actual trading can begin.
+This is done in a series of 10 initial Monte Carlo steps, in which liquidity providers place limit orders around an initial price, pa = pb = p₀, with no liquidity taker activity present.
+This corresponds to the placement of approximately b10αNAc limit orders.
+C. Liquidity Taker Agent Specification
+Each simulation contains NA liquidity takers, who submit market orders to the LOB at a given frequency, µ.
+This means that for any given Monte Carlo step, approximately bµNAc market orders are placed by liquidity takers.
+Each of the aforementioned orders is of size 1 and is a buy order with probability qtaker(t), with qtaker(0) = ½.
+A sell market order simply executes and results in the removal of the best bid from the LOB and a buy market order simply executes and results in the removal of the best ask from the LOB, since all orders are of size 1.
+Unlike qprovider, qtaker(t) is not fixed, but rather evolves over time.
+It is implemented as a mean-reverting random walk, with mean qtaker(0), increment ∆S, and a mean reversion probability of ½ + |qtaker(t) − ½|.
+3. Calibration Experiment Design
+A. Data
+The dataset used in all calibration experiments is acquired in the TRTH (Thomson Reuters 2016) format, presenting a tick-by-tick series of trades, quotes and auction quotes.
+We convert the dataset to a series of one-minute price bars, with each price corresponding to the final quote mid price for each minute, where the mid price of a quote is given as the average of the level 1 bid price and level 1 ask price associated with that quote, as was previously done in Platt and Gebbie (2016).
+From this series of prices, we may obtain a series of log prices, which is the series we attempt to calibrate the model to.
+The transaction dataset often presents events occurring outside of standard trading hours, 9:00 to 17:00, but we consider only quotes with a timestamp occurring in the period from 9:10 to 16:50 on any particular trading day.
+This is a result of the fact that the opening auction occurring from 8:30 to 9:00 tends to produce erroneous data during the first 10 minutes of continuous trading and the fact that the period from 16:50 to 17:00 represents a closing auction.
+In all calibration experiments, we investigate a one-week period, corresponding to a total of 2300 one-minute price bars, representing 460 minutes of trading each day from Monday to Friday.
+Finally, we consider a single, liquid stock listed on the Johannesburg Stock Exchange, Anglo American PLC, over the period beginning at 9:10 on 1 November 2013 and ending at 16:50 on 5 November 2013.
+This dataset was also considered in Platt and Gebbie (2016).
+B. Calibration Framework
+As previously discussed, we apply the calibration framework described by Fabretti (2013) to an intraday ABM approximating a continuous double auction market through the use of realistic order matching procedures, as opposed to a model operating at a daily time scale and using closed-form approximations to market prices.
+We make use of the method of simulated moments (Winker et al. 2007) to construct an objective function that measures errors relating to the mean, standard deviation, kurtosis, Kolmogorov-Smirnov (KS) test and generalized Hurst exponent when comparing a log price time series measured from the data and a log price time series simulated using the Preis et al. (2006) model.
+We aim to minimize this objective function by employing the Nelder-Mead simplex algorithm combined with the threshold accepting heuristic (Gilli and Winker 2003).
+We reproduce the implementation we pre-

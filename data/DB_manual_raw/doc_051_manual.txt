@@ -1,0 +1,19 @@
+TABLE I: Percent ratio of total quasielastic (p,n) cross section from measurements of Doehring et al. [37], to estimated nuclear geometric cross section, σ(p,n)/σg, where σg = π R² [1 − VC(R)/E].
+[TABLE_START]
+Target Nucleus, Ep (MeV), 48Ca (R = 4.33 fm), 90Zr (R = 5.44 fm), 120Sn (R = 6.03 fm), 208Pb (R = 7.32 fm)
+, 25, 2.47, 1.26, 1.44, 1.62
+, 35, 2.14, 0.74, 0.75, 0.75
+, 45, 1.68, 0.62, 0.69, 0.50
+[TABLE_END]
+and u are radial wavefunctions for the initial and final channels.
+The question whether a coupled-channel approach, combining the initial and final channels for a QE (p,n) reaction, within a Schrödinger equation set [17, 19, 50], could bring in some tangible benefits over DWBA, may be addressed by examining data.
+In Table I, we show the ratios of total QE (p,n) cross sections from the measurements of Doehring et al. [37], to estimated geometric nuclear geometric cross sections, σg = π R² [1 − VC(R)/E].
+The errors of the measured cross sections are about 10%, but the primary uncertainty in the ratios, that may be interpreted as probabilities for p-n conversion, are tied to the ambiguity in the choice of R for the geometric cross section.
+Here, we use the radii of the volume potential in KD parametrization, that tends to put the ratios on the high side.
+As alternative to total cross section ratio, one can examine normalized differential cross sections.
+For the elastic or inelastic scattering of charged projectiles, it is common to normalize the differential cross sections with the Rutherford cross sections.
+This brings in different benefits.
+First, the magnitude range needed for presenting the cross section values shrinks.
+Second, when diffraction effects are moderate, one can visually identify the range of angles where Coulomb scattering dominates.
+Finally, when both the diffraction and refraction effects are moderate, one can interpret the ratio in terms of a transmission probability along a classical trajectory for staying within the entrance channel or for moving to another.
+Normalizing the charge-exchange cross sections with the Rutherford cross-section, to reap any benefits, is pointless, though, as charges in the final state are different than in the entrance state and only half of the Coulomb deflection, behind a differential Coulomb cross section, is accumulated when the particles approach each other and the other half when they move

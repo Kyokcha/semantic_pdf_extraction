@@ -1,0 +1,50 @@
+Reid and Kontar: Beam-induced Electric Field Distributions
+The density model is very similar to other solar wind density models like the Sittler-Guhathakurta model (Sittler & Guhathakurta 1999) and the Leblanc model (Leblanc et al. 1998) except that the density is higher close to the Sun, below 10 R☉.
+The density model reaches 5×10⁹ cm⁻³ at the low corona and is more indicative to the flaring Sun, compared to 10⁹ cm⁻³ in the Newkirk model (Newkirk 1961) or 10⁸ cm⁻³ in the Leblanc model.
+For modelling the density fluctuations we first note that the power spectrum of density fluctuations near the Earth has been observed in-situ to obey a Kolmogorov-type power law with a spectral index of −5/3 (e.g. Celnikier et al. 1983, 1987; Chen et al. 2013).
+Following the same approach of Reid & Kontar (2010), we model the spectrum of density fluctuations with a spectral index −5/3 between the wavelengths of 10⁸ cm and 10¹⁰ cm, so that the perturbed density profile is given by
+ne(r) = n₀(r)[1 + C(r)∑ (n=1 to N) λn^(µ/2) sin(2πr/λn + φn)], (8)
+where N = 1000 is the number of perturbations, n₀(r) is the initial unperturbed density as defined above, λn is the wavelength of the n-th fluctuation, µ = 5/3 is the power-law spectral index in the power spectrum, and φn is the random phase of the individual fluctuations.
+C(r) is the normalisation constant that defines the r.m.s. deviation of the density √⟨∆n(r)²⟩ such that
+C(r) = √(2⟨∆n(r)²⟩ / ⟨n(r)⟩² ∑ (n=1 to N) λn^µ). (9)
+Our one-dimensional approach means that we are only modelling fluctuations parallel to the magnetic field and not perpendicular.
+Langmuir waves are treated in the WKB approximation such that wavelength is smaller than the characteristic size of the density fluctuations.
+We ensure that the level of density inhomogeneity (Coste et al. 1975; Kontar 2001b) satisfies
+∆n / n < 3k²vth² / ωpe². (10)
+The background fluctuations are static in time because the propagating electron beam is travelling much faster than any change in the background density.
+To capture the statistics of what a spacecraft would observe over the course of an entire electron beam transit we look at the Langmuir wave energy distribution as a function of distance at one point in time.
+4. Electron beams near the Earth
+We explore the evolution of the electric field from the Langmuir waves induced by a propagating electron beam.
+The beam is injected into plasma with a constant mean background electron density of n₀ = 5 cm⁻³ (plasma frequency of 20 kHz), similar to plasma parameters around 1 AU, near the Earth.
+To explore how the intensity of density fluctuations influences the distribution of the induced electric field we add density fluctuations to the background plasma with varying levels of intensity.
+The constant mean background electron density means that we know any changes on the distribution of the electric fields are caused by modifying the intensity of the density turbulence.
+The background plasma temperature was set to 10⁵ K, indicative of the solar wind core temperature at 1 AU (e.g. Maksimovic et al. 2005), giving a thermal velocity of √(kbTe/me) = 1.2 × 10⁸ cm/s.
+The electron beam is injected into a simulation box that is just over 8 solar radii in length, representing a finite region in space around 1 AU.
+To fully resolve the density fluctuations we used a spatial resolution of 200 km.
+The beam parameters are given in Table 1.
+The energy limits are typical of electrons that arrive at 1 AU co-temporally with the detection of Langmuir waves (e.g. Lin et al. 1981).
+The spectral index is obtained from the typical observed in-situ electron spectra below 10 keV near the Earth (Krucker et al. 2009).
+We note that this spectral index is lower than what is measured in-situ at energies above 50 keV, and inferred from X-ray observations (Krucker et al. 2007).
+The high characteristic time broadens the electron beam, a process that would have happened to a greater extent if our electron beam had travelled to 1 AU from the Sun.
+The high density ratio is to ensure a high energy density of Langmuir waves is induced.
+4.1. Beam-induced electric field
+The fluctuating component of the background plasma, described by Equation 8, is varied through the intensity of the density turbulence ∆n/n.
+Nine simulations were ran with ∆n/n from 10⁻¹.⁵, 10⁻², 10⁻².⁵, 10⁻³, 10⁻³.⁵, 10⁻⁴, 10⁻⁴.⁵, 10⁻⁵ and no fluctuations.
+Propagation of the beam causes Langmuir waves to be induced after 80 seconds, relating to our choice of τ = 20 s.
+Langmuir wave production increases as a function of time till around 200 seconds after which it remains roughly constant.
+Figure 2a shows a snapshot of the electric field from the Langmuir wave energy density after 277 seconds.
+When ∆n/n = 0 (no fluctuations), the electric field has a smooth profile.
+The wave energy density is dependent upon the electron beam density (Mel’nik et al. 2000) and so is concentrated in the same region of space as the bulk of the electron beam.
+This region increases as a function of time as the range of velocities within the electron beam causes it to spread in space.
+The electric field is smaller at the front of the electron beam where the number density of electrons is smaller.
+When ∆n/n is increased the electric field shows the clumpy behaviour seen from in-situ observations.
+At ∆n/n = 10⁻².⁵ and higher, the electric field is above the thermal level behind the electron beam.
+The density fluctuations have refracted the Langmuir waves out of phase speed range where they can interact with the electron beam.
+Consequently these Langmuir waves cannot be re-absorbed as the back of the electron beam cloud passes them in space (Kontar 2001a).
+They are left behind, causing an energy loss to the propagating electron beam (see Reid & Kontar 2013, for analysis on beam energy loss).
+4.2. Electric field distribution over the entire beam
+To analyse the distribution of the electric field over the entire beam we have plotted P(log E), the probability distribution function (PDF) of the base 10 logarithm of the electric field in Figure 2b at t = 277 seconds.
+We have only considered areas of space where Langmuir waves were half an order of magnitude above the background level, or log[Uw/Uw(t = 0)] > 0.5, to neglect the background from the PDF, corresponding to E > 1.78Eth.
+The PDF thus obeys the condition ∫ (from 1.78Eth to Emax) P(log E) d log E = 1.
+The top panel in Figure 2b shows P(log E) when ∆n/n = 0.
+We have over-plotted the analytical PDF of a Gaussian

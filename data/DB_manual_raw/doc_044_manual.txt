@@ -1,0 +1,26 @@
+Where Â is the median of the available images.
+The subtraction of the main dazzling object to observe the faint companion was already improved by the LOCI algorithm dividing images in subsections and obtaining, for each subsection, a linear combination of the reference images whose subtraction from the target image will minimize the noise. 
+The subtraction was further improved by the Karhunen-Loève (KL) image projection (KLIP) algorithm. 
+Both algorithms implement forms of Principal Component Analysis (PCA) to obtain the matrix of the residuals. 
+We may factorize the matrix A ∈ Rm×n, being m the number of useful pixels on each image and n the number of images, by using a general singular-value decomposition (SVD):
+A = ∑ (i = 1 to n) σi * ui * vi = UΣVT  (2)
+and considering just the first k singular value we write the A approximation using the principal components Vk ∈ Rm×n:
+Ak = Uk * Σk * VTk  (3)
+This factorization writes the matrix A into a matrix Ak with lower rank (k), projecting A on the new base V. 
+The base V is optimal, in the sense that the SVD is the factorization minimizing the residual ||R||:
+Rk = A − Ak  (4)
+for every possible rank k < n. 
+The residual || · || here is the Euclidean Norm, corresponding to the rms. 
+Higher the rank used larger is the effective self-subtraction of planet companion around the parent star, see Figure 4.
+In the following we take as data example the ADI sequences collected at LBT during the Science Demonstration Time in October 2011 using the PISCES camera fed by the First Light Adaptive Optics (FLAO) classical AO module. 
+The data set used is composed by n = 1396, 5 sec, H band frames of HR8799 taken at LBT using PISCES+FLAO in pupil tracking mode.
+3. NONNEGATIVE MATRIX FACTORIZATION: IMPROVING PHOTOMETRY AND DETECTION
+To detect a faint planet around a star we need to remove the main component image. 
+A stable and known Point Spread Function (PSF) is mandatory to disentangle what is noise with respect to the true signals. 
+Actually ground-based adaptive optics assisted telescopes or space telescopes produce pretty stable PSF. 
+The Angular Differential Imaging (ADI) aims improving contrast in SCAO imaging from Space Telescopes. 
+In particular, its better achievements have been pursued on the imaging of exoplanet on NIR camera feed by an Extreme AO module.
+However, in both cases long lasting and slow evolving speckles due to the system optical path distortion decreases the Signal to Noise Ratio (SNR) and generates false positives much more than the pure Poisson photon noise.
+Take for example the case of KLIP, the method foresees to build a KL-base for the data projection starting from a data set different than the images to be reduced: in this way aiming to reduce the effect of the self-subtraction. 
+However, the faint speckles bed below the PSF is different since gravity and thermoelastic flexure are different. 
+The use of the same science data set to generate the projecting space greatly improves speckles subtraction, however may fail in the detection (take the case of LOCI where the position of the companion should be known in advance) since it is still dubious if low SNR objects in the reconstructed are real objects or true detections.

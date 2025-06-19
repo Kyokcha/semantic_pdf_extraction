@@ -1,0 +1,43 @@
+NLDSA model for GRB afterglows
+
+4. EXAMPLE AFTERGLOWS
+
+Having explained the Monte Carlo code (Section ) and the manner in which it is coupled to a hydrodynamical simulation to create an evolving afterglow model (Section ), we will now present the results from three test cases.
+The first two models assume that acceleration takes place in the test-particle limit, with few enough particles accelerated that the structure of the shock is not significantly modified. 
+The particular values of Pinj are listed in Table 1. In one model, thermal (uninjected) particles are explicitly excluded from the radiating population, though they contribute to the pressure and energy density downstream.
+We refer to this as the “CR-only" test case. 
+In the second model, the “TP" model, all particles are included in the photon production calculations. In the third model, “NL," injection is efficient enough that the nonlinear backreaction of accelerated CRs on the shock structure cannot be ignored.
+We must comment here on the physical reasonableness of all three models. 
+The CR-only case is not intended to be physically plausible. 
+There is no way to conserve number, momentum, and energy fluxes in a shock interacting with the ISM unless a thermal population is present. 
+The CR-only case is included only because it mimics the standard synchrotron model for afterglow emission, which ignores the thermal population. 
+It serves as a control against which our other two models may be compared; we are not presenting it as a valid alternative to either the TP or the NL model. 
+Both the TP and NL models are physically possible, and operate at different ends of the injection efficiency spectrum.
+All three model afterglows use an upstream ambient magnetic field B0 = 3 mG. 
+This is orders of magnitude higher than the typical value of 3  G assumed for the Milky Way. 
+There are locations where such high fields may exist in the circumburst environment, but this value was chosen for a different reason: once it is compressed according to Equation 3, the downstream field approaches an energy fraction of  B   10􀀀3, when both rest mass energy and pressure are considered. 
+This is lower than the traditional value,  B   10􀀀2, but in line with current expectations (it is potentially even on the high side; see Santana et al. 2014; Beniamini et al. 2015, and see also the discussion of  B􀀀 in (Lemoine et al. 2013)). 
+Because we assume only magnetic field compression and no additional amplification, the value of  B just downstream of the shock (that is, prior to the expansion described previously) decays with time as the shock decelerates - see Equation 3 - rather than maintaining a constant value at all times. 
+This temporal decay at the shock front occurs in addition to the expected dilution of magnetic energy density as the plasma expands downstream from the shock.
+
+4.1. Particle spectra and energy densities
+
+In Figure 2 we show the spectra of cosmic rays for all three models, in the local plasma frame. For the sake of
+clarity, the cooled populations that have been swept further downstream (the interior shells of Figure 1) are not given. 
+These spectra were taken just downstream from the subshock at x = 0, to most closely match the spectral indices predicted by analytical work. 
+Though we assume an isotropic distribution of particles for all photon production processes, this is obviously not the case at the subshock. 
+All particles require several diffusion lengths of transport downstream before their angular distribution relaxes into isotropy. 
+Since the diffusion length is an increasing function of momentum (Equation 1) higher-energy particles remain anisotropic for longer distances downstream. 
+The effects of anisotropic particle distributions will be addressed in future work; for now we merely note the assumption being made.
+The spectra presented in Figure 2 do not use arbitrary units. 
+Since upstream escape is negligible (no particles escaped during the first six time steps, and even in the last two steps the escaping flux was less than 10􀀀6 of the incoming energy ux), and since the difficulty of scattering upstream against a relativistic shock means most particles are downstream, the total number of particles in each spectrum is the number of particles swept up at a given time step. 
+As such, the spectra are not only absolutely normalized within each model: they are normalized between models as well.
+Both the CR-only case and TP model result in very simple spectra. 
+This is unsurprising, as they were designed to reproduce the simple power laws used in the standard synchrotron model for afterglows. 
+In the TP model's spectra, there is a thermal peak of particles that crossed the shock once (but did not enter the acceleration process), and a high energy tail of shock-accelerated particles out to a maximum energy. 
+The thermal peak has been excised from the CR-only case, while keeping the normalization of accelerated particles the same. 
+In all cases the spectral index of the proton distributions decreases with time, as the shock Lorentz factor drops (see Keshet & Waxman 2005; Ellison 2005).
+Since protons experience no losses while they interact with the shock, the high-energy turnover of the CR tail is due to the limit on acceleration time. 
+The electrons, by contrast, experience significant synchrotron losses in the intense magnetic fields downstream of the shock. 
+The slow increase in the maximum energy of the electron spectrum is due to decreased compression also lowering the magnetic field and cooling rate.
+Our Monte Carlo model predicts that protons are easily accelerated beyond the knee in the cosmic ray spectrum; the high magnetic fields, combined with pitch-angle scattering, confine the protons to a small volume around the shock, and allow for many shock crossing cycles in the time-limited scenario presented here.

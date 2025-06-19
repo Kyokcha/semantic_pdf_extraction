@@ -1,0 +1,34 @@
+R = P(M1|D) / P(M0|D) = Z1 / Z0 * P(M1) / P(M0) = Z1 / Z0. (5)
+Here, P(M1)/P(M0) is the probability ratio for the two models a priori, which is conventionally set to unity.
+The evidence Z of a model M is the marginalized likelihood of the data, i.e. the probability of having obtained the data D integrated over all possible values of the model parameters θ:
+Z = ∫ L(D|M(θ)) π(θ) dDθ, (6)
+where L(D|M(θ)), π(θ) and D are, respectively, the likelihood of the data, the prior of the parameters in the model and the dimensionality of the parameter space.
+In this work, we will use M1 and M0 to denote the feature and featureless ΛCDM models; the cosmological parameter ranges we studied are listed in Tab.I.
+And the multidimensional integration in Eq. (6) was sampled via the multi-modal implementation of the nested sampling algorithm MultiNest [59–61].
+[TABLE_START]
+Parameter, Range (min, max)
+Ωbh2, (0.005,0.100)
+Ωch2, (0.01,0.99)
+100θ∗, (0.5,10.0)
+τreio, (0.01,0.80)
+ns, (0.9,1.1)
+ln(1010A2s), (2.7,4.0)
+B, (−0.2,0)
+ln, β (0,7.5)
+ln(−τ0), (4.3,6.0)
+[TABLE_END]
+TABLE I. List of the parameters used in the multimodal nested sampling. 
+Besides these parameters, we also sample and marginalise over the fourteen nuisance parameters of the Planck likelihood and one bias parameter of the WiggleZ likelihood.
+We have sampled B up to −0.5, but nothing interesting was found beyond the upper value cited in this table.
+The Bayesian evidence, Eq. (6), measures the predictivity of a model.
+The integral is bigger the more amount of likelihood mass falls inside regions with substantial prior probability.
+The evidence is penalised by the volume V of the parameter space allowed by the theory, since the prior density goes roughly like π ∼ V−1.
+In turn, the Bayesian ratio quantifies the relative predictivity of two models given a data set: if its value is much smaller than one, the model M0 is a more likely explanation of the data than the model M1, and vice versa.
+In the frequentist approach, this is comparable to the increase of p-values due to the look-elsewhere effect.
+For example, in particle physics, if one allows the predicted mass of a particle to vary within a broad range, the p-value of an apparent peak in particle production with a corresponding mass within this range will increase, just because a wider range of energies makes a random, non-physical peak-like feature more likely.
+Correspondingly, this indicates that the evidence of this model with a new parameter, like the new particle’s mass, gets reduced.
+In the particular case of localized primordial features in the CMB and LSS spectra, the Bayesian approach is motivated by the similarity that said features share with shot noise in the corresponding bands.
+This similarity, when the features are small, will result in the multi-modality of the likelihood of the corresponding parameters, and likelihood enhancements similar to those obtained by fitting the model to feature-less, noisy data.
+For example, for a specific linear oscillation template, using 5000 Planck-like, signal-less simulated CMB maps, the authors of [53] found that the noise could account for up to ∆χ² ≡ 2∆ ln L ∼ 30 at 3σ confidence level, with a typical enhancement of ∆χ² ∼ 10 for the best fit of this kind of model.
+Considering this, it is not easy to assess whether we are fitting noise based on the likelihood enhancement only.
+Therefore, we focus on the predictivity of the models, given by their Bayesian evidence, rather than solely on improvements in likelihood.

@@ -1,0 +1,31 @@
+Bipartite fluctuations can provide interesting information about entanglement properties and correlations in many-body quantum systems.
+We address such fluctuations in relation with the topology of Dirac and Weyl quantum systems, in situations where the relevant particle number is not conserved, leading to additional volume laws scaling with the Quantum Fisher information.
+Through the example of the p+ip superconductor, we build a relation between charge fluctuations and the associated winding numbers of Dirac cones in the low-energy sector.
+Topological aspects of the Hamiltonian in the vicinity of these points induce long-range entanglement in real space.
+We provide a detailed analysis of such fluctuation properties, including the role of gap anisotropy, and discuss higher-dimensional Weyl analogues.
+Topological phases and topological quantum phase transitions have become ubiquitous in condensed matter physics.
+They are characterized by significant changes in the structure of the ground state, and therefore in its entanglement, while the response of local symmetry-preserving local observables are left invariant.
+A parallel subject of study are the different gapless systems related to the gapped topological systems, whether they describe typical critical points separating between these phases, or because they are themselves topological.
+Two-dimensional Dirac materials (graphene, p+ip superconductor...) and three-dimensional Weyl semi-metals are good examples of the latter.
+In both cases, the Hamiltonian in momentum space has a non-trivial structure close to a point-like Fermi surface (winding of the Dirac cone, or chiral charge of the Weyl node).
+The von Neumann entanglement entropy (vNEE) (and the entanglement spectrum) are useful tools in the study of such systems.
+They can detect phase transitions, but also measure directly specific topological properties.
+Experimental measurements of such quantities remain nonetheless challenging, in particular in solid-state settings.
+Several observables have been proposed as approximate entanglement measurements circumventing this limitation.
+In this paper, we study generalized bipartite charge fluctuations.
+These fluctuations can be used to detect and characterize quantum phase transitions and gapless phases in one and two-dimensions.
+In charge conserving systems, they present strong similarities with the von Neumann entanglement entropy, such as an area law for gapped ordered phases and a logarithmic growth for gapless (quasi-)ordered phases in one dimension.
+They can be directly measured in cold atoms experiment and in mesoscopic systems, but also through partial susceptibility measurements in actual materials.
+Recently, we generalized this approach to a family of one-dimensional topological models including the celebrated Kitaev superconducting chain, and showed that the presence of a superconducting gap results in a volume type behavior of fluctuations, related to the quantum Fisher information.
+In addition, sub-dominant logarithmic contributions identify critical points and topological phase transitions.
+The aim of this work is to further generalize the study of bipartite charge fluctuations to non-interacting gapless semi-metals in arbitrary dimensions, with a focus on the relation between topological properties of the Hamiltonian close to the gap-closing point and universal coefficient of fluctuations.
+As in one dimension, these conformal models can be characterized by the coefficients of subleading logarithmic terms in their vNEE.
+Instead of being simply quantified by one number such as the central charge, the coefficients will generically be non-trivial functions of the geometric shape of the entangling surfaces.
+We show that the bipartite fluctuations also present similar logarithmic terms.
+Although no simple relations can be extracted between coefficients appearing in vNEE and bipartite charge fluctuations, the latter can be used to characterize the topology and the nature of the Fermi surface (FS) in gapless models.
+Indeed, the scaling laws will be affected by the non-analyticities of the Hamiltonian at the FS, which in turns strongly depends on the topological properties of the model when the FS is zero-dimensional, i.e. restricted to a few isolated points.
+Additionally, these topological markers dominate the long-range behaviour of certain well-chosen correlators.
+Depending on the choice of observables, standard partial susceptibilities measurements can be used to detect this behaviour.
+This paper is organized as follows.
+We first introduce the general motivation of our work: bipartite fluctuations are an interesting, experimentally measurable quantity, that bring information on the entanglement structure and properties of a studied state.
+We then introduce the Bogoliubov formalism used to describe the generic non-interacting model we consider, and briefly introduce three models we use for illustration: the p + ip superconductor, graphene and Weyl semi-metal.

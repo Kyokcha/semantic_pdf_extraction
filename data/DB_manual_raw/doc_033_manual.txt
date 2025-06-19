@@ -1,0 +1,13 @@
+excitations in correlated fermionic systems,” Annals of Physics 327, 1320 (2012).
+[46] E. G. C. P. van Loon, H. Hafermann, A. I. Lichtenstein, A. N. Rubtsov, and M. I. Katsnelson, “Plasmons in strongly correlated systems: Spectral weight transfer and renormalized dispersion,” Phys. Rev. Lett. 113, 246407 (2014).
+[47] Hartmut Hafermann, Erik G. C. P. van Loon, Mikhail I. Katsnelson, Alexander I. Lichtenstein, and Olivier Parcollet, “Collective charge excitations of strongly correlated electrons, vertex corrections, and gauge invariance,” Phys. Rev. B 90, 235105 (2014).
+[48] E. Berger, P. Valasek, and W. von der Linden, “Two-dimensional Hubbard-Holstein model,” Phys. Rev. B 52, 4806–4814 (1995).
+[49] G. Sangiovanni, M. Capone, C. Castellani, and M. Grilli, “Electron-phonon interaction close to a Mott transition,” Phys. Rev. Lett. 94, 026401 (2005).
+[50] Philipp Werner and Andrew J. Millis, “Efficient dynamical mean field simulation of the Holstein-Hubbard model,” Phys. Rev. Lett. 99, 146404 (2007).
+[51] F. Aryasetiawan, M. Imada, A. Georges, G. Kotliar, S. Biermann, and A. I. Lichtenstein, “Frequency-dependent local interactions and low-energy effective models from electronic structure calculations,” Phys. Rev. B 70, 195104 (2004).
+[52] M. Schü̈ler, M. Rösner, T. O. Wehling, A. I. Lichtenstein, and M. I. Katsnelson, “Optimal Hubbard models for materials with nonlocal Coulomb interactions: Graphene, silicene, and benzene,” Phys. Rev. Lett. 111, 036601 (2013).
+[53] Charlotte E. Sanders, Maciej Dendzik, Arlette S. Ngankeu, Andreas Eich, Albert Bruix, Marco Bianchi, Jill A. Miwa, Bjørk Hammer, Alexander A. Khajetoorians, and Philip Hofmann, “Crystalline and electronic structure of single-layer TaS2,” Phys. Rev. B 94, 081404 (2016).
+[54] Gun Sang Jeon, Tae-Ho Park, Jung Hoon Han, Hyun C. Lee, and Han-Yong Choi, “Dynamical mean-field theory of the Hubbard-Holstein model at half filling: Zero temperature metal-insulator and insulator-insulator transitions,” Phys. Rev. B 70, 125114 (2004).
+[55] Takuya Yoshioka, Akihisa Koga, and Norio Kawakami, “Mott transition in the Hubbard model on the triangular lattice,” Physica Status Solidi (b) 247, 635–637 (2010).
+[56] Tranquada J. M., Sternlieb B. J., Axe J. D., Nakamura Y., and Uchida S., “Evidence for stripe correlations of spins and holes in copper oxide superconductors,” Nature 375, 561–563 (1995), 10.1038/375561a0.
+[57] P. Hansmann, T. Ayral, L. Vaugier, P. Werner, and S. Biermann, “Long-range coulomb

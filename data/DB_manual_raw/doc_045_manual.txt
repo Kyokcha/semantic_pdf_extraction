@@ -1,0 +1,25 @@
+Variety of idempotents in nonassociative algebras Ver.: Sun 31st May, 2020, 00:175
+which is naturally identified with a corresponding element ψA ∈ V∗ ⊗ V∗ ⊗ V. 
+If e = {e1, ..., en} is an arbitrary basis in A, where n = dimK A, then ψA induces a K-quadratic polynomial map ΨA : Kn → Kn defined by
+ψA ◦ ε = ε ◦ ΨA,  (1)
+where ε is the coordinatization map
+ε(x) := ∑ (i = 1 to n) xi * ei : Kn → A, x = (x1, ..., xn) ∈ Kn.
+In this setting, ΨA is a bilinear map on Kn. 
+Then an element c = ε(x) ∈ A is idempotent if and only if the corresponding x ∈ Kn is a fixed point of ΨA(x, x), i.e.
+ΨA(x, x) − x = 0.  (2)
+It is convenient to consider the projectivization of the latter system. Namely, let
+ΨP_A(X) = ΨA(x, x) − x0 * x,
+where X = (x0, x1, ..., xn) ∈ Kn+1. 
+The modified equation
+ΨP_A(X) = 0  (3)
+is homogeneous of degree 2. 
+By the made assumption on K, we can consider both (2) and (3) as equations over the complex numbers. 
+Furthermore, (3) defines a variety in CP^n. 
+Clearly, if x solves (2) then X = (1, x) is a solution of (3), and, conversely, if X = (x0, x) solves (3) with x0 ≠ 0 then (1/x0) * x is a solution of (2). 
+In the exceptional case x0 = 0, one has Φ(x) = 0, i.e., ε(x) is a 2-nilpotent in A.
+In summary, there exists a natural bijection (depending on a choice of a basis in A) between the set P(AC) and all solutions of (3) in CP^n. 
+In this picture, 2-nilpotents correspond to the ‘infinite’ part of solutions of (2) (i.e., solutions of (3) with x0 = 0).
+Then the classical Bézout’s theorem implies the following dichotomy: either there are infinitely many solutions of (3) or the number of distinct solutions is less or equal to 2n, where n = dimK A. 
+Therefore if the set P(AC) is finite then necessarily:
+card P(AC) ≤ 2n  (4)
+We point out that one should interpret a solution to (3) in the projective sense.

@@ -1,0 +1,26 @@
+(1 − δ̂′) φ(t+1) ≥ φ(t) − µ √((φ(t))² + (θ(t))²)  
+(1 − δ̂′) θ(t+1) ≤ θ(t) + µ √((φ(t))² + (θ(t))²)  
+where µ is the upper bound of term η(1.5‖∆̃′(t)l‖ + ‖∆̃′(t)u‖)‖T′⁻¹‖ and can be obtained by  
+µ = ηρSP(4 + 62ĉ).  
+Quantifying the Norm of v(t) Projected at Different Subspaces:  
+Then, we will use mathematical induction to prove  
+θ(t) ≤ 4µt φ(t).  
+It is true when t = 0 since ‖θ(0)‖ = 0.  
+Assuming that equation above is true at the tth iteration, we need to prove  
+θ(t+1) ≤ 4µ(t+1) φ(t+1).  
+Applying the earlier inequality into the right-hand side of this, we have  
+4µ(t+1) φ(t+1) ≥ 4µ(t+1)/(1 − δ̂′) · (φ(t) − µ √((φ(t))² + (θ(t))²))  
+and substituting the inequality for θ(t+1) into the left-hand side, we have  
+θ(t+1) ≤ (4µt φ(t)) + µ √((φ(t))² + (θ(t))²)/(1 − δ̂′)  
+Then, our goal is to prove the right-hand side of the first inequality is greater than that of the second.  
+After some manipulations, it is sufficient to show  
+(1 + 4µ(t+1)) √((φ(t))² + (θ(t))²) ≤ 4 φ(t)  
+In the following, we will show that the above relation is true.  
+First step: We know that  
+4µ(t+1) ≤ 4µT ≤ 4ηρSP(4 + 62ĉ)ĉT ≤ 4ĉη²L²max(4 + 62ĉ)/(κ log(dκδ)) ≤ 1  
+This last step holds because we choose c′max = 1/(2ĉ(4 + 62ĉ)) and η ≤ c′max/Lmax.  
+Second step: Also, we know that  
+4 φ(t) ≥ 2 √2(φ(t))² ≥ (1 + 4µ(t+1)) √((φ(t))² + (θ(t))²)  
+With the above two steps, we conclude that  
+θ(t+1) ≤ 4µ(t+1) φ(t+1)  
+which completes the induction.

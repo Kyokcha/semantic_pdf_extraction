@@ -1,0 +1,35 @@
+Crystal without time-reversal symmetry.  
+Once again, we emphasize that this effect would be absent in the linear approximation of the energy spectrum around the Weyl nodes.  
+E. Reversal of the direction of light propagation  
+Thus far, we have assumed that the direction of light propagation is along the positive z direction.  
+If the direction of propagation is reversed, the roles of LCP and RCP are exchanged and consequently the valley polarization is reversed.  
+In other words, LCP and RCP are exchanged in Figs. 7 and 9, while the small and large black circles are exchanged in Figs. 10 and 11.  
+IV. Analytical Results  
+The objective of this section is to support and supplement the numerical results of the preceding section with a simplified analytical solution of Eq. (40).  
+Our approach is partly related to that of Ref. [33], which studied two-electron bound states.  
+The main simplification consists of replacing the screened Coulomb potential in real space by a delta function potential.  
+This approximation is valid at length scales that far exceed the screening length, i.e., for momenta that are small compared to the Thomas-Fermi screening wave vector ks.  
+If ks is large compared to the momentum cutoff of the model (which is mathematically possible in the large g limit, or in the high-doping limit, or else in the neighborhood of a van-Hove singularity for the density of states), but still small compared to the separation between the Weyl nodes, then we can approximate Eq. (35) as  
+Vmτ(k‖, kz; k′‖, k′z) ≈ gv / (2ks²) ∫₀^{2π} (dφ / 2π) e^(−imφ) [sin θτ sin θ′τ + (1 + cos θτ cos θ′τ) cos φ + i(cos θτ + cos θ′τ) sin φ] = gv / (2ks²) [sin θτ sin θ′τ δm,0 + ½(1 − cos θτ)(1 − cos θ′τ) δm,−1 + ½(1 + cos θτ)(1 + cos θ′τ) δm,1].  
+In this approximation, only m = 0, ±1 channels contribute to the effective electron-hole attraction.  
+Out of these, only the m = ±1 are active under irradiation by LCP and RCP lights.  
+In addition, Eq. (46) becomes independent of the interaction strength because g / ks² is independent of g in the Thomas-Fermi approximation.  
+Finally, the interaction kernel is separable into “primed” and “non-primed” variables, which will enable an analytical solution of the corresponding Wannier equation.  
+In fact, the problem at hand becomes a variation of the Cooper problem in the BCS theory of superconductivity.  
+Let us consider the m = 0 channel first.  
+Dividing both parts of Eq. (40) by (2|Bτ(k‖, kz)| − εn,m=0,τ) (which we assume to be nonzero), multiplying by sin θτ and integrating over k, we arrive at the condition  
+gv / (2ks²) ∫′_{k‖, kz} sin² θτ Θ(|Bτ(k‖, kz)| − |εF|) / (2|Bτ(k‖, kz)| − εn,m=0,τ) = 1.  
+We have taken the zero temperature limit, and εF < 0 (hole-doped WSM).  
+For simplicity, we have neglected the self-energy correction to the energy bands, so that |B̃τ(k‖, kz)| → |Bτ(k‖, kz)|.  
+We remind the reader that the integrals over momenta are constrained by the condition |Bτ(k‖, kz)| < Λ.  
+Equation (47) gives the electron-hole excitation energies corresponding to m = 0 at the valley τ.  
+Proceeding in the same way, we find that the excitation energies for the m = ±1 channels must obey  
+gv / (2ks²) ∫′_{k‖, kz} (1 ± cos θτ)² / 2 Θ(|Bτ(k‖, kz)| − |εF|) / (2|Bτ(k‖, kz)| − εn,m=±1,τ) = 1.  
+In order to obtain approximate analytical solutions of Eqs. (47) and (48), we begin by recognizing that  
+∫′_{k‖, kz} F(k‖, kz) = ∫_Λ dE ∫′_k F(k) δ(E − |Bτ(k)|),  
+where ∫′_k ≡ ∫ d³k / (2π)³ Θ(Λ − |Bτ(k)|).  
+Applying Eq. (49) to Eqs. (47) and (48), the latter become  
+gv / (2ks²) ∫_{|εF|}^Λ dE ρτ(E) / (2E − εn,m=0,τ) ⟨sin² θτ⟩_E = 1,  
+gv / (2ks²) ∫_{|εF|}^Λ dE ρτ(E) / (2E − εn,m=±1,τ) ⟨(1 ± cos θτ)² / 2⟩_E = 1,  
+where ρτ(E) = ∫′_k δ(E − |Bτ(k)|) is the valley-resolved density of states at energy E and  
+⟨fτ(k)⟩_E ≡ ∫′_k f(k) δ(E − |Bτ(k‖, kz)|) / ρτ(E).

@@ -1,0 +1,33 @@
+FIG. 3. (a)-(d) Temperature dependence of γ versus EF plot at ∆I = 0 meV and four different β.
+(e)-(h) Temperature dependence of γ versus EF plot at ∆I = 15 meV and four different β.
+v0 = 0.1 eV in all the eight plots.
+Other parameters are the same as in Fig. 2 and Fig. 1.
+The C6v symmetry is broken by the adatom arrangement within the clusters.
+Close to β = π/4 the deviation from Rashba and the perfect C6v symmetric situation is small.
+On the other hand, having −π/4 < β < 0 requires a strong breaking of the C6v symmetry.
+In Fig. 1, we show the dependence of the spin Hall angle γ and the transport cross section Σ∗tr at zero temperature on the carrier energy E for different values of strength of the scalar potential v0 = λ0/R² (cf. Eq. 11) for a rather anisotropic Rashba-like SOC corresponding to β = −π/8.
+It can be seen that the enhancement of the spin Hall angle still takes place around the values of E for which Σ∗tr(E) exhibits a peak, that is, a scattering resonance.
+This is in agreement with what was already pointed out in Ref. 10 for the isotropic Rashba SOC.
+Physically, this is also expected, because at resonance the scattering electron or hole spends most time near the scatterer and therefore it can also experience the effect of the locally induced SOC.
+The enhancement of γ is suppressed at large values of v0.
+To understand this effect qualitatively, let us recall that γ and Σ∗tr are both determined by the T-matrix, which obeys the LS equation: T(E) = V + V GR(E)T(E), (35)
+where GR(E) is the retarded Green’s function and V = V0 + VSOC, V0 ∝ v0 being the scalar potential and VSOC = VI + VR the SOC part of the potential.
+In the limit where V0 ≫ VSOC, the solution to Eq. (35) can be (loosely) written as: T(E) = V0 + VSOC / (1 − (V0 + VSOC)GR(E)) ≈ −1/GR(E)[1 + VSOC/V0], (36)
+where the last expression applies to the large V0 limit.
+Thus, to leading order, the cross section Σ∗tr is determined by the first term of the right-hand side, whereas γ is determined by the second term.
+Hence, γ is expected to decrease at large V0 ∝ v0, as shown in Fig. 1.
+For a given set of v0, ∆I, and ∆SR, Fig. 2 shows the behaviour of γ and Σ∗tr as a function of the incident electron energy E at different values of anisotropy parameter β.
+For the values of β close to those corresponding to the non-standard Rashba SOC (i.e., for β ≈ −π/4), the energy dependence is strongly modified.
+On the other hand, for the case of a delta function potential, the anisotropy has a less pronounced effect on the cross section Σ∗tr.
+The observations made above remain largely unchanged when the effect of finite temperature is taken into account, see Fig. 3.
+As shown there, thermal fluctuations and the associated smearing of the Fermi distribution smooth out the sharper features of the (Fermi) energy dependence EF of γ found at T = 0 and suppress the magnitude of γ.
+This can be seen in the left panel in Fig. 3 for case of a pure (i.e., ∆I = 0) anisotropic Rashba SOC and on the right for ∆I ≠ 0.
+The plots on the left panel also illustrate that, at β = 0 (i.e., ∆2 = 0), the spin current as well as the spin Hall angle vanish (cf. second plot from the bottom on the left).
+This is because the quantization axis for the spin current is aligned along the z axis, whereas for β = 0, sy commutes with the Hamiltonian.
+As pointed out above for T = 0, the energy dependence (relative to the isotropic case) is most strongly affected as β approaches −π/4 (see plot for β = −π/8).
+However, the effect of the anisotropy is less pronounced for β > 0.
+This conclusion still holds true when the scatterer also induces intrinsic SOC on the graphene layer (i.e., for ∆I ≠ 0), as it is shown in the right panel of Fig. 3.
+Finally, it is also worth mentioning that the observation of a very different energy dependence as β → −π/4 is independent of the assumption of a Dirac delta potential.
+This is investigated in detail in Appendix, where circular (i.e., ‘pill-box’ shaped) scatterer is assumed and the scattering properties in the case of standard and non-standard Rashba are obtained.
+The results for the energy dependence of γ and Σ∗tr are displayed in Fig. 4.
+The more complicated internal structure of the finite-radius circular scatter, whose wave functions are distorted in different ways by the standard and non-standard Rashba SOC, shows up in a very different resonant peak structure exhibited by the transport cross section Σ∗tr and the...

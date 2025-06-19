@@ -1,0 +1,11 @@
+Proof The identity (2.15), for d = r = k + 1, is by definition true in the initial seed.
+Moreover, the exchange polynomials θ₀₁,...,θ₀ₙ₋₁ are exactly the ones that appear in a standard cluster algebra of type C, and they are unaffected by mutation: indeed, only the monomials u±ₖ change, in accordance with the mutations of the exchange matrix.
+Therefore, cluster variables that do not correspond to diameters behave the same way as in a standard cluster algebra of type C, as described in [13].
+The proof for the first case is thus similar to those found in [3] and [13].
+The second equation (2.16), for k = n − 1, is also by definition true in the initial seed.
+Since every cluster contains exactly one variable of the form xₐ,ₐ, and any mutation of a variable xₐ,ₐ yields a variable corresponding to another diameter, we can deduce from the initial cluster that all variables xₐ,ₐ are linked by a mutation in direction n.
+In the initial cluster (x₂ₙ,₂ₖ, k ∈ J₁,ₙK), we have x₂ₙ,₂ₙ x₂ₙ₋₂,₂ₙ₋₂ = x₂₂ₙ,₂ₙ₋₂ + λx₂ₙ,₂ₙ₋₂ + 1.
+The general relation (2.16) can be obtained directly in the following cluster (see Figure 6): μₙ₋₁μₙ₋₂ ...μₖ₊₁(x₂ₙ,₂ₖ, k ∈ J₁,ₙK) = (x₂ₙ,₂, x₂ₙ,₄, ..., x₂ₙ,₂ₖ, x₂ₖ,₂ₖ₊₄, x₂ₖ,₂ₖ₊₆, ..., x₂ₖ,₂ₙ, x₂ₙ,₂ₙ).
+Where performing the mutation μₙ maps x₂ₙ,₂ₙ to x₂ₖ,₂ₖ, and θ₀ₙ gives (2.16).
+Indeed, recall that θ₀ₙ is unaffected by mutation, so that in order to understand μₙ, it is enough to know how the matrix B mutates, namely in the standard way (Definition 2).
+This determines the variables xₐb appearing in the monomials u⁺ₙ and u⁻ₙ in the mutated cluster above, thus yielding (2.16).

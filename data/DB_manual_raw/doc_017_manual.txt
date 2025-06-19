@@ -1,0 +1,13 @@
+Figure 2. Evolution of the pressure along (half of) the loop for the pulse duration tH = 60 s (a) and tH = 120 s (b).
+To emphasize the presence of moving fronts, the pressure is normalized to the mean coronal value at each time, and the grey scale is between 80% and 120% of the mean value.
+The reasons for this different evolution can be understood from Fig. 3.
+In both cases we see the initial steep evaporation front coming up (rightwards in the figure) from the chromosphere.
+After this, for tH = 60 s (Fig. 3a), the pressure continues to increase at the loop apex (right side), because plasma accumulates there.
+However, the pressure does not increase as well low in the loop (left side) and as soon as the heat pulse stops, it even suddenly drops.
+This depression makes the upper steep pressure front travel backwards (downwards) along the loop (from right to left in the figure).
+The pressure drops as the temperature drops, because of conduction cooling.
+From Fig. 1, the temperature decreases by more than 30% in less than a minute, much less than τs necessary to equalize the pressure.
+For tH = 120 s (Fig. 3b), the heat pulse lasts long enough to sustain the plasma and to equalize the pressure along the whole loop.
+Therefore, the critical process is whether the pressure equilibrium is reached or not along the loop, which explains why the sound crossing time is the key parameter.
+We checked that we find very similar results, i.e., significant plasma sloshing when the heat pulse duration is shorter than τs, for the longer loop, for the denser initial atmosphere, for heat pulses deposited at the loop footpoints, for the weaker heat pulse.
+For the triangular pulse, we find that

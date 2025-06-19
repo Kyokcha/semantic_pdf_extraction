@@ -1,0 +1,12 @@
+Sherlock et al. (2015b) (in a non-subsampling context) study the statistical efficiency for delayed acceptance random walk Metropolis and, moreover, an efficiency that also takes into account the computational efficiency for the case where the target is estimated (DA-PMMH in Section 4).
+Christen and Fox (2005) note that, because the transition kernels of both the MH and delayed acceptance MH are derived from the same proposal q₁, and in addition α₂ ≤ 1, the delayed acceptance MH will be less statistically efficient than MH.
+The intuition is that under these conditions the chain clearly exhibits a more “sticky” behavior and an estimate based on these samples will have a larger asymptotic variance under DA-MH than MH.
+Notice that the closer α₂ is to 1, the more statistically efficient the delayed acceptance algorithm is, and when α₂ = 1 it is equivalent to the standard MH which gives the upper bound of the possible statistical efficiency achieved by a DA-MH.
+Result 1 in Payne and Mallick (2015) gives the alternative formulation (for state-independent approximations):
+α₂(θ_c → θ_p) = min {1, [𝑝̂ₘ(y|θ_c, u) / p(y|θ_c)] / [𝑝̂ₘ(y|θ_p, u) / p(y|θ_p)]} (3.3)
+Let l_k(θ_c, θ_p) = l_k(θ_c) − l_k(θ_p) and denote by 𝑙̂ₘ(θ_c, θ_p) the estimate of l(θ_c, θ_p) = ∑ₙₖ₌₁ l_k(θ_c, θ_p).
+Similarly to (2.3):
+𝑙̂ₘ(θ_c, θ_p) = q(θ_c, θ_p) + (1/m) ∑ᵢ₌₁ᵐ ζᵢ, with q(θ_c, θ_p) = ∑ₙₖ₌₁ q_k(θ_c, θ_p) (3.4)
+where q_k(θ_c, θ_p) = q_k(θ_c) − q_k(θ_p), and the ζᵢ’s are i.i.d. with
+Pr(ζᵢ = n·D_k(θ_c, θ_p)) = 1/n, with D_k = l_k(θ_c, θ_p) − q_k(θ_c, θ_p), for i = 1,...,m.
+We can also show that

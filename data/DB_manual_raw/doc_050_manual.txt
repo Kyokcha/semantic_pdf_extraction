@@ -1,0 +1,27 @@
+APPROXIMATING THE AFFINITY DIMENSION 67
+[32] Jenkinson, O., and Pollicott, M. Computing the dimension of dynamically defined sets: E2 and bounded continued fractions. Ergodic Theory Dynam. Systems 21, 5 (2001), 1429–1445.
+[33] Jenkinson, O., and Pollicott, M. Calculating Hausdorff dimensions of Julia sets and Kleinian limit sets. Amer. J. Math. 124, 3 (2002), 495–545.
+[34] Jenkinson, O., and Pollicott, M. Orthonormal expansions of invariant densities for expanding maps. Adv. Math. 192, 1 (2005), 1–34.
+[35] Jenkinson, O., and Pollicott, M. A dynamical approach to accelerating numerical integration with equidistributed points. Tr. Mat. Inst. Steklova 256, Din. Sist. i Optim. (2007), 290–304.
+[36] Jenkinson, O., and Pollicott, M. Rigorous effective bounds on the Hausdorff dimension of continued fraction Cantor sets: a hundred decimal digits for the dimension of E2. Adv. Math. 325 (2018), 87–115.
+[37] Jenkinson, O., Pollicott, M., and Vytnova, P. Rigorous computation of diffusion coefficients for expanding maps. J. Stat. Phys. 170, 2 (2018), 221–253.
+[38] Käenmäki, A., and Morris, I. D. Structure of equilibrium states on self-affine sets and strict monotonicity of affinity dimension. Proc. Lond. Math. Soc. (3) 116, 4 (2018), 926–956.
+[39] Käenmäki, A., and Shmerkin, P. Overlapping self-affine sets of Kakeya type. Ergodic Theory Dynam. Systems 29, 3 (2009), 941–965.
+[40] Kagiso, D., and Pollicott, M. Computing multifractal spectra. Dyn. Syst. 30, 4 (2015), 404–425.
+[41] Mayer, D. H. On composition operators on Banach spaces of holomorphic functions. J. Funct. Anal. 35, 2 (1980), 191–206.
+[42] Mayer, D. H. Continued fractions and related transformations. In Ergodic theory, symbolic dynamics, and hyperbolic spaces (Trieste, 1989), Oxford Sci. Publ. Oxford Univ. Press, New York, 1991, pp. 175–222.
+[43] McMullen, C. The Hausdorff dimension of general Sierpiński carpets. Nagoya Math. J. 96 (1984), 1–9.
+[44] Morris, I. D. An inequality for the matrix pressure function and applications. Adv. Math. 302 (2016), 280–308.
+[45] Morris, I. D. An explicit formula for the pressure of box-like affine iterated function systems. J. Fractal Geom. (2018). To appear.
+[46] Morris, I. D., and Shmerkin, P. On equality of Hausdorff and affinity dimensions, via self-affine measures on positive subsystems. Trans. Amer. Math. Soc.. To appear.
+[47] Pollicott, M. Maximal Lyapunov exponents for random matrix products. Invent. Math. 181, 1 (2010), 209–226.
+[48] Pollicott, M. Computing entropy rates for hidden Markov processes. In Entropy of hidden Markov processes and connections to dynamical systems, vol. 385 of London Math. Soc. Lecture Note Ser. Cambridge Univ. Press, Cambridge, 2011, pp. 223–245.
+[49] Pollicott, M., and Felton, P. Estimating Mahler measures using periodic points for the doubling map. Indag. Math. (N.S.) 25, 4 (2014), 619–631.
+[50] Pollicott, M., and Jenkinson, O. Computing invariant densities and metric entropy. Comm. Math. Phys. 211, 3 (2000), 687–703.
+[51] Pollicott, M., and Vytnova, P. Estimating singularity dimension. Math. Proc. Cambridge Philos. Soc. 158, 2 (2015), 223–238.
+[52] Pollicott, M., and Vytnova, P. Linear response and periodic points. Nonlinearity 29, 10 (2016), 3047–3066.
+[53] Pollicott, M., and Weiss, H. How smooth is your wavelet? Wavelet regularity via thermodynamic formalism. Comm. Math. Phys. 281, 1 (2008), 1–21.
+[54] Protasov, V. Y. When do several linear operators share an invariant cone? Linear Algebra Appl. 433, 4 (2010), 781–789.
+[55] Ruelle, D. Zeta-functions for expanding maps and Anosov flows. Invent. Math. 34, 3 (1976), 231–242.
+[56] Rugh, H. H. Cones and gauges in complex spaces: spectral gaps and complex Perron-Frobenius theory. Ann. of Math. (2) 171, 3 (2010), 1707–1752.
+[57] Schaefer, H. H., and Wolff, M. P. Topological vector spaces, second ed., vol. 3 of Graduate Texts in Mathematics. Springer-Verlag, New York, 1999.
