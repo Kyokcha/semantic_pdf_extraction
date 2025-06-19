@@ -30,17 +30,16 @@ extraction:
     plumber: true
 
 pipeline:
-  setup_docbank: false
-  parse_to_json: false
-  run_extractors: false
-  generate_gt_sentences: false
-  generate_extracted_sentences: false
-  extract_features: false
-  embed_gt: false
-  embed_extracted: false
-  match_sentences: false
-  merged_data: false
-  final_training_dataset: false
+  parse_to_json: true
+  run_extractors: true
+  generate_gt_sentences: true
+  generate_extracted_sentences: true
+  extract_features: true
+  embed_gt: true
+  embed_extracted: true
+  match_sentences: true
+  merged_data: true
+  final_training_dataset: true
   run_model: true
   evaluate: true
 
@@ -79,9 +78,8 @@ training_config:
 model_config:
   model_selection:
     random_forest: true
-    logistic_regression: false
-    xgboost: false
-    lightgbm: false
+    xgboost: true
+    lightgbm: true
   data_selection:
     default: true
   data_paths:

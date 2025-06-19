@@ -8,7 +8,6 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 SCRIPT_SEQUENCE = [
-    ("setup_docbank", "scripts/rename_and_organise_docbank.py"),
     ("parse_to_json", "scripts/DB_parse_txt_to_json.py"),
     ("run_extractors", "scripts/run_extractors_batch.py"),
     ("generate_gt_sentences", "scripts/generate_gt_sentences.py"),

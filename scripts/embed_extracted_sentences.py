@@ -2,7 +2,8 @@
 
 import logging
 from pathlib import Path
-from multiprocessing import Pool, cpu_count
+import multiprocessing as mp
+from multiprocessing import cpu_count
 from utils.config import load_config
 from utils.embedding import embed_sentences_from_csv
 from utils.file_operations import clear_directory
@@ -58,9 +59,11 @@ def main() -> None:
     usable_cores = min(cpu_count() - 1, 8)
     logger.info(f"Using {usable_cores} CPU cores.")
 
-    with Pool(usable_cores) as pool:
+    ctx = mp.get_context("spawn")
+    with ctx.Pool(usable_cores) as pool:
         pool.map(embed_csv_file, args)
 
 
 if __name__ == "__main__":
+    mp.set_start_method("spawn", force=True)
     main()
