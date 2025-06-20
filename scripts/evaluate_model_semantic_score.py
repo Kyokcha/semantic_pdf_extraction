@@ -133,6 +133,32 @@ def main() -> None:
     for extractor, count in win_counts.items():
         print(f"{extractor} was best on {count} sentences.")
 
+    # Comparative stats for each extractor
+    print("\n=== Detailed Performance by Extractor (Based on Highest Similarity per Sentence) ===")
+
+    # Function to compute margin stats per sentence
+    def compute_margin(row):
+        scores = {
+            'pypdf2': row['similarity_score_pypdf2'],
+            'ocr': row['similarity_score_ocr'],
+            'plumber': row['similarity_score_plumber']
+        }
+        sorted_scores = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+        top, second = sorted_scores[0], sorted_scores[1]
+        return pd.Series({
+            'winning_extractor': top[0],
+            'winning_score': top[1],
+            'second_best_score': second[1],
+            'margin': top[1] - second[1]
+        })
+
+    win_details = data.apply(compute_margin, axis=1)
+
+    # Group and describe
+    summary_stats = win_details.groupby('winning_extractor')['margin'].agg(['count', 'mean', 'median', 'max']).rename_axis("Extractor").reset_index()
+    summary_stats.columns = ['Extractor', 'Win Count', 'Avg. Margin', 'Median Margin', 'Max Margin']
+    print(summary_stats.to_string(index=False))
+
 
     # Per-document t-tests
     results = []
